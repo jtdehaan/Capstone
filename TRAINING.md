@@ -40,6 +40,7 @@ Explain your main role on the project here.
 	
   - Where the training resource is.
   
+	Udacity
   
 - Training Item 4
   - What I will be doing and how long it will take.
