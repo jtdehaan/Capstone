@@ -1,6 +1,7 @@
 # Team Training Plan
 Below you will find each of our training plans.
 
+<<<<<<< HEAD
 ## {Alex Toradze}
 Explain your main role on the project here.
 
@@ -52,3 +53,24 @@ Explain your main role on the project here.
   - Where the training resource is.
   
 	Udacity
+=======
+## {Jacob De Haan}
+Lead in connecting app to database. Jacob will complete the following pluralsight tutorials,
+ pass the assesments and demonstrate code examples.
+
+- Start Developing for Android(Pluralsight).
+  - Jacob will take the training, pass the assesments and working on examples. Estimated time 1 hours.
+  - The training will take place on Pluralsight.
+
+- Android Fundamentals: Activities(PluralSight).
+  - Jacob will take the training, pass the assesments and working on examples. Estimated time 3 hours.
+  - The training will take place on Pluralsight.
+
+- Java Web Fundamentals(PluralSight).
+  - Jacob will take the training, pass the assesments and working on examples. Estimated time 3 hours.
+  - The training will take place on Pluralsight.
+
+- Java Platform: Working with databases using JDBC(PluralSight).
+  - Jacob will take the training, pass the assesments and working on examples. Estimated time 2.5 hours.
+  - The training will take place on Pluralsight.
+>>>>>>> d815b5a992b3616275720d75885496227386650a
