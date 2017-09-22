@@ -69,8 +69,36 @@ Lead in connecting app to database. Jacob will complete the following pluralsigh
 
 - Java Web Fundamentals(PluralSight).
   - Jacob will take the training, pass the assesments and working on examples. Estimated time 3 hours.
-  - The training will take place on Pluralsight.
+- The training will take place on Pluralsight.
 
 - Java Platform: Working with databases using JDBC(PluralSight).
   - Jacob will take the training, pass the assesments and working on examples. Estimated time 2.5 hours.
   - The training will take place on Pluralsight.
+
+## {Sam Rueben}
+Sam will help to create the database for the Application/Website and design the interface of the App/Website, as well as assisting other teammembers with their roles if they need it. Sam will complete the following PluralSight tutorials, pass the assessments, and demonstrate the code examples:
+
+-Design a Database Stucture with SQL Server 2014 (70-465)
+
+	-Sam will take the training and pass the assessments and working expamples. Estimated time is 2h 36 minutes.
+
+	-The training will take place on PluralSight.
+
+-Android Layout Fundamentals
+
+	-Sam will take the Android Layout training, pass the assessments, and have working code examples. This should take about 1h 39m.
+
+	-The training will take place on PluralSight.
+
+-Start Developing for Android
+
+	-Sam will take the Developing for Android training, pass the assessments, and have working code examples. This should take about 1 hour.
+
+	-The training will take place on PluralSight.
+
+-Creating a Responsive Web Design
+
+	-Sam will complete the Responsive Web Design training, pass the assessments, and create working examples. This should take about 3h 48m.
+
+	-The training will take place on PluralSight.
+
