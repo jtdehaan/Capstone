@@ -76,6 +76,37 @@ Lead in connecting app to database. Jacob will complete the following pluralsigh
   - The training will take place on Pluralsight.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # {Max Tigges}
 - Start Devloping for Android (Pluralsight)
 	-I will take the training and pass the assesments in an estimated time of an hour and 3 minutes.
