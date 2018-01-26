@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class LoginDoctorRequest extends StringRequest {
 
-    private static final String LOGIN_REQUEST_URL = "http://cgi.soic.indiana.edu/~toradze/Login3.php";
+    private static final String LOGIN_REQUEST_URL = "http://cgi.soic.indiana.edu/~team37/Login_Doctor.php";
     private Map<String, String> params;
 
     public LoginDoctorRequest(String username, String password, Response.Listener<String> listener){

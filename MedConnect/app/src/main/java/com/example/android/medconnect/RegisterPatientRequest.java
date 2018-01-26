@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class RegisterPatientRequest extends StringRequest {
 
-    private static final String REGISTER_PATIENT_REQUEST_URL = "http://cgi.soic.indiana.edu/~toradze/Register3.php";
+    private static final String REGISTER_PATIENT_REQUEST_URL = "http://cgi.soic.indiana.edu/~team37/Register_Patient.php";
     private Map<String, String> params;
 
     public RegisterPatientRequest(String username, String password, String name, String email, Response.Listener<String> listener){

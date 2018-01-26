@@ -34,8 +34,8 @@ public class RegisterDoctorActivity extends AppCompatActivity {
         cancelLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerPatientIntent = new Intent(RegisterDoctorActivity.this, LoginDoctorActivity.class);
-                RegisterDoctorActivity.this.startActivity(registerPatientIntent);
+                Intent registerDoctorIntent = new Intent(RegisterDoctorActivity.this, LoginDoctorActivity.class);
+                RegisterDoctorActivity.this.startActivity(registerDoctorIntent);
             }
         });
 
@@ -86,9 +86,9 @@ public class RegisterDoctorActivity extends AppCompatActivity {
                     }
                 };
 
-                RegisterPatientRequest registerPatientRequest = new RegisterPatientRequest(username, password, name, email, responseListener);
+                RegisterDoctorRequest registerDoctorRequest = new RegisterDoctorRequest(username, password, name, email, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterDoctorActivity.this);
-                queue.add(registerPatientRequest);
+                queue.add(registerDoctorRequest);
             }
         });
     }

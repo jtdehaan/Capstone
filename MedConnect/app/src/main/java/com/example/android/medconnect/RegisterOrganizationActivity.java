@@ -86,9 +86,9 @@ public class RegisterOrganizationActivity extends AppCompatActivity {
                     }
                 };
 
-                RegisterPatientRequest registerPatientRequest = new RegisterPatientRequest(username, password, name, email, responseListener);
+                RegisterOrganizationRequest registerOrganizationRequest = new RegisterOrganizationRequest(username, password, name, email, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterOrganizationActivity.this);
-                queue.add(registerPatientRequest);
+                queue.add(registerOrganizationRequest);
             }
         });
     }
