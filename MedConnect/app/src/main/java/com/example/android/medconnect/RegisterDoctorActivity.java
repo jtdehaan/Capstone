@@ -21,7 +21,7 @@ public class RegisterDoctorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_patient);
+        setContentView(R.layout.activity_register_doctor);
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
@@ -34,7 +34,7 @@ public class RegisterDoctorActivity extends AppCompatActivity {
         cancelLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerPatientIntent = new Intent(RegisterDoctorActivity.this, LoginActivity.class);
+                Intent registerPatientIntent = new Intent(RegisterDoctorActivity.this, LoginDoctorActivity.class);
                 RegisterDoctorActivity.this.startActivity(registerPatientIntent);
             }
         });
@@ -70,8 +70,8 @@ public class RegisterDoctorActivity extends AppCompatActivity {
 
 
                                 if (success) {
-                                    Intent registerIntent = new Intent(RegisterDoctorActivity.this, LoginActivity.class);
-                                    RegisterDoctorActivity.this.startActivity(registerIntent);
+                                    Intent registerDoctorIntent = new Intent(RegisterDoctorActivity.this, LoginDoctorActivity.class);
+                                    RegisterDoctorActivity.this.startActivity(registerDoctorIntent);
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterDoctorActivity.this);
                                     builder.setMessage("Registration Failed")

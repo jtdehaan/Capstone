@@ -34,7 +34,7 @@ public class RegisterPatientActivity extends AppCompatActivity {
         cancelLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerPatientIntent = new Intent(RegisterPatientActivity.this, LoginActivity.class);
+                Intent registerPatientIntent = new Intent(RegisterPatientActivity.this, LoginPatientActivity.class);
                 RegisterPatientActivity.this.startActivity(registerPatientIntent);
             }
         });
@@ -70,8 +70,8 @@ public class RegisterPatientActivity extends AppCompatActivity {
 
 
                                 if (success) {
-                                    Intent registerIntent = new Intent(RegisterPatientActivity.this, LoginActivity.class);
-                                    RegisterPatientActivity.this.startActivity(registerIntent);
+                                    Intent registerPatientIntent = new Intent(RegisterPatientActivity.this, LoginPatientActivity.class);
+                                    RegisterPatientActivity.this.startActivity(registerPatientIntent);
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterPatientActivity.this);
                                     builder.setMessage("Registration Failed")

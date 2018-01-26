@@ -8,11 +8,11 @@ import java.util.Map;
 
 public class RegisterOrganizationRequest extends StringRequest {
 
-    private static final String REGISTER_REQUEST_URL = "http://cgi.soic.indiana.edu/~toradze/Register3.php";
+    private static final String REGISTER_ORGANIZATION_REQUEST_URL = "http://cgi.soic.indiana.edu/~toradze/Register3.php";
     private Map<String, String> params;
 
     public RegisterOrganizationRequest(String username, String password, String name, String email, Response.Listener<String> listener){
-        super(Method.POST, REGISTER_REQUEST_URL, listener, null);
+        super(Method.POST, REGISTER_ORGANIZATION_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("name", name);
         params.put("username", username);

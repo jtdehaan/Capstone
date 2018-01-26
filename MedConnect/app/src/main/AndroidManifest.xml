@@ -11,21 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SelectionActivity" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginRequestActivity" />
-        <activity android:name=".RegisterSelectActivity" />
         <activity android:name=".PatientActivity" />
         <activity android:name=".DoctorActivity" />
-        <activity android:name=".OrganizationActivity" />
+        <activity android:name=".RegisterOrganizationActivity" />
         <activity android:name=".RegisterPatientActivity" />
         <activity android:name=".RegisterDoctorActivity" />
-        <activity android:name=".RegisterOrganizationActivity"></activity>
+        <activity android:name=".OrganizationActivity" />
+        <activity android:name=".LoginDoctorActivity" />
+        <activity android:name=".LoginPatientActivity"/>
+        <activity android:name=".LoginOrganizationActivity"></activity>
     </application>
 
 </manifest>

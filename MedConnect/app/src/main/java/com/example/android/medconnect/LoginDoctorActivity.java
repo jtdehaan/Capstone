@@ -16,12 +16,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginDoctorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_doctor);
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
@@ -31,8 +31,8 @@ public class LoginActivity extends AppCompatActivity {
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterSelectActivity.class);
-                LoginActivity.this.startActivity(registerIntent);
+                Intent registerDoctorIntent = new Intent(LoginDoctorActivity.this, RegisterDoctorActivity.class);
+                LoginDoctorActivity.this.startActivity(registerDoctorIntent);
             }
         });
 
@@ -61,32 +61,15 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-                            boolean success1 = jsonResponse.getBoolean("success1");
-                            boolean success2 = jsonResponse.getBoolean("success2");
 
                             if (success) {
                                 String name = jsonResponse.getString("name");
 
-                                Intent patientIntent = new Intent(LoginActivity.this, PatientActivity.class);
-                                patientIntent.putExtra("name", name);
-                                LoginActivity.this.startActivity(patientIntent);
-
-                            } if (success1) {
-                                String name = jsonResponse.getString("name");
-
-                                Intent patientIntent = new Intent(LoginActivity.this, DoctorActivity.class);
-                                patientIntent.putExtra("name", name);
-                                LoginActivity.this.startActivity(patientIntent);
-
-                            } if (success2) {
-                                String name = jsonResponse.getString("name");
-
-                                Intent patientIntent = new Intent(LoginActivity.this, OrganizationActivity.class);
-                                patientIntent.putExtra("name", name);
-                                LoginActivity.this.startActivity(patientIntent);
-
+                                Intent doctorIntent = new Intent(LoginDoctorActivity.this, DoctorActivity.class);
+                                doctorIntent.putExtra("name", name);
+                                LoginDoctorActivity.this.startActivity(doctorIntent);
                             } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginDoctorActivity.this);
                                 builder.setMessage("Login Failed")
                                         .setNegativeButton("Retry", null)
                                         .create()
@@ -98,9 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 };
 
-                LoginRequest loginRequest = new LoginRequest(username, password, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(loginRequest);
+                LoginDoctorRequest loginDoctorRequest = new LoginDoctorRequest(username, password, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(LoginDoctorActivity.this);
+                queue.add(loginDoctorRequest);
 
             }
         });

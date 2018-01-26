@@ -8,12 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class RegisterSelectActivity extends AppCompatActivity {
+public class SelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_select);
+        setContentView(R.layout.activity_selection);
 
         final Button bPatient = (Button) findViewById(R.id.bPatient);
         final Button bDoctor = (Button) findViewById(R.id.bDoctor);
@@ -22,24 +22,24 @@ public class RegisterSelectActivity extends AppCompatActivity {
         bPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerPatientIntent = new Intent(RegisterSelectActivity.this, RegisterPatientActivity.class);
-                RegisterSelectActivity.this.startActivity(registerPatientIntent);
+                Intent loginPatientIntent = new Intent(SelectionActivity.this, LoginPatientActivity.class);
+                SelectionActivity.this.startActivity(loginPatientIntent);
             }
         });
 
         bDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerDoctorIntent = new Intent(RegisterSelectActivity.this, RegisterDoctorActivity.class);
-                RegisterSelectActivity.this.startActivity(registerDoctorIntent);
+                Intent loginDoctorIntent = new Intent(SelectionActivity.this, LoginDoctorActivity.class);
+                SelectionActivity.this.startActivity(loginDoctorIntent);
             }
         });
 
         bOrganization.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerOrganizationIntent = new Intent(RegisterSelectActivity.this, RegisterOrganizationActivity.class);
-                RegisterSelectActivity.this.startActivity(registerOrganizationIntent);
+                Intent loginOrganizationIntent = new Intent(SelectionActivity.this, LoginOrganizationActivity.class);
+                SelectionActivity.this.startActivity(loginOrganizationIntent);
             }
         });
     }

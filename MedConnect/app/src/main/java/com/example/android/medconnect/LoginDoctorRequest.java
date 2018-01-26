@@ -6,12 +6,12 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginRequest extends StringRequest {
+public class LoginDoctorRequest extends StringRequest {
 
     private static final String LOGIN_REQUEST_URL = "http://cgi.soic.indiana.edu/~toradze/Login3.php";
     private Map<String, String> params;
 
-    public LoginRequest(String username, String password, Response.Listener<String> listener){
+    public LoginDoctorRequest(String username, String password, Response.Listener<String> listener){
         super(Method.POST, LOGIN_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("username", username);

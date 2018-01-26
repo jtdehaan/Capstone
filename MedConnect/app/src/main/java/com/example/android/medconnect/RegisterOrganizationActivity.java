@@ -21,7 +21,7 @@ public class RegisterOrganizationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_patient);
+        setContentView(R.layout.activity_register_organization);
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
@@ -34,7 +34,7 @@ public class RegisterOrganizationActivity extends AppCompatActivity {
         cancelLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerPatientIntent = new Intent(RegisterOrganizationActivity.this, LoginActivity.class);
+                Intent registerPatientIntent = new Intent(RegisterOrganizationActivity.this, LoginOrganizationActivity.class);
                 RegisterOrganizationActivity.this.startActivity(registerPatientIntent);
             }
         });
@@ -70,8 +70,8 @@ public class RegisterOrganizationActivity extends AppCompatActivity {
 
 
                                 if (success) {
-                                    Intent registerIntent = new Intent(RegisterOrganizationActivity.this, LoginActivity.class);
-                                    RegisterOrganizationActivity.this.startActivity(registerIntent);
+                                    Intent registerOrganizationIntent = new Intent(RegisterOrganizationActivity.this, LoginOrganizationActivity.class);
+                                    RegisterOrganizationActivity.this.startActivity(registerOrganizationIntent);
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterOrganizationActivity.this);
                                     builder.setMessage("Registration Failed")
