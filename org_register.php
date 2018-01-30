@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
     } else{
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT user_id FROM LoginOrganization WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
     } else{
-        $sql = "SELECT id FROM users WHERE email = ?";
+        $sql = "SELECT user_id FROM LoginOrganization WHERE email = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_email);
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = trim($_POST['name']);
     }
 //hash
-	$hash = md5( rand(0,1000) );
+	$email_code = md5( rand(0,1000) );
 //password
     if(empty(trim($_POST['password']))){
         $password_err = "Please enter a password.";     
@@ -83,18 +83,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  //exicute   
     if(empty($username_err) &&  empty($email_err) && empty($name_err) && empty($password_err) && empty($confirm_password_err)){
         
-        $sql = "INSERT INTO users (username, password, email, name, hash) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO LoginOrganization (name, username, email, password, email_code) VALUES (?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_email, $param_name, $hash);
+            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_email, $param_name, $email_code);
             
             $param_username = $username;
 			$param_email = $email;
 			$param_name = $name;
+			$param_email_code;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
             if(mysqli_stmt_execute($stmt)){
-                header("location: login.php");
+                header("location: med_connect_login.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -113,7 +114,7 @@ $headers = 'From:noreply@calculator.php' . "\r\n";
 $message = "
 Your account has been created.
 Please click this link to activate your account:
-http://http://cgi.soic.indiana.edu/~jmodugno/verify.php?email=$to&hash=$hash.'
+http://http://cgi.soic.indiana.edu/~jmodugno/email_confirm.php?email=$to&email_code=$email_code.'
 ";
 mail($to, $subject, $message, $headers);
 ?>
@@ -125,7 +126,7 @@ mail($to, $subject, $message, $headers);
     <title>Register</title>
 </head>
 <body>
-        <h1>Register for calculator login</h1>
+        <h1>Register for MedConnect</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>

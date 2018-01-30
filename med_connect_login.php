@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT username, password FROM users WHERE username = ?";
+        $sql = "SELECT username, password FROM LoginPatient WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             $_SESSION['username'] = $username;      
-                            header("location: http://cgi.soic.indiana.edu/~jmodugno/individual2.php?");
+                            header("location: https://www.google.com/");
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -67,7 +67,7 @@ $_SESSION['username'] = $_POST['username']
 </head>
 <body>
     
-    <h1>Calculator Login</h1>
+    <h1>Med Connect Login</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
             <label>User Name:</label><br>
