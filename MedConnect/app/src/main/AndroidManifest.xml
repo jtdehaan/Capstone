@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectionActivity" >
-
+        <activity android:name=".SelectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +25,11 @@
         <activity android:name=".RegisterDoctorActivity" />
         <activity android:name=".OrganizationActivity" />
         <activity android:name=".LoginDoctorActivity" />
-        <activity android:name=".LoginPatientActivity"/>
-        <activity android:name=".LoginOrganizationActivity"></activity>
+        <activity android:name=".LoginPatientActivity" />
+        <activity android:name=".LoginOrganizationActivity" />
+        <activity android:name=".PatientProfileActivity" />
+        <activity android:name=".DoctorProfileActivity" />
+        <activity android:name=".OrganizationProfileActivity"></activity>
     </application>
 
 </manifest>
