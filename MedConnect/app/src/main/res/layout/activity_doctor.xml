@@ -55,19 +55,19 @@
         android:id="@+id/tvProfile"
         android:clickable="true"
         style="@style/CategoryStyle"
-        android:background="@color/category_family"
+        android:background="@color/category_1"
         android:text="My Profile" />
     <TextView
         android:id="@+id/tvPatients"
         android:clickable="true"
         style="@style/CategoryStyle"
-        android:background="@color/category_numbers"
+        android:background="@color/category_2"
         android:text="Patients" />
     <TextView
         android:id="@+id/tvEvents"
         android:clickable="true"
         style="@style/CategoryStyle"
-        android:background="@color/category_phrases"
+        android:background="@color/category_3"
         android:text="Events" />
 
 </LinearLayout>

@@ -23,7 +23,7 @@ public class OrganizationProfileActivity extends AppCompatActivity {
         String username = sharedPref.getString("username", "");
 
         tvName.setText(name);
-        tvEmail.setText(email);
-        tvUsername.setText(username);
+        tvEmail.setText("Email: " + email);
+        tvUsername.setText("Username: " + username);
     }
 }

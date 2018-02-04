@@ -54,19 +54,19 @@
         android:id="@+id/tvProfile"
         android:clickable="true"
         style="@style/CategoryStyle"
-        android:background="@color/category_family"
+        android:background="@color/category_1"
         android:text="My Profile" />
     <TextView
         android:id="@+id/tvMyEvents"
         android:clickable="true"
         style="@style/CategoryStyle"
-        android:background="@color/category_numbers"
+        android:background="@color/category_2"
         android:text="My Events" />
 
     <TextView
         android:id="@+id/tvAllEvents"
         style="@style/CategoryStyle"
-        android:background="@color/category_phrases"
+        android:background="@color/category_3"
         android:clickable="true"
         android:text="All Events" />
 
