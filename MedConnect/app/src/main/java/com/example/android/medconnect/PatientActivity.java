@@ -23,7 +23,7 @@ public class PatientActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
 
-        tvName.setText("Hello " + name);
+        tvName.setText(name);
 
         tvProfile.setOnClickListener(new View.OnClickListener() {
             @Override

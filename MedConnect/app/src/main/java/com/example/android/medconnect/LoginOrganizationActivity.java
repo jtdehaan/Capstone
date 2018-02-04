@@ -1,7 +1,9 @@
 package com.example.android.medconnect;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -64,6 +66,15 @@ public class LoginOrganizationActivity extends AppCompatActivity {
 
                             if (success) {
                                 String name = jsonResponse.getString("name");
+                                String email = jsonResponse.getString("email");
+                                String username = jsonResponse.getString("username");
+
+                                SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("name", name);
+                                editor.putString("email", email);
+                                editor.putString("username", username);
+                                editor.apply();
 
                                 Intent organizationIntent = new Intent(LoginOrganizationActivity.this, OrganizationActivity.class);
                                 organizationIntent.putExtra("name", name);
