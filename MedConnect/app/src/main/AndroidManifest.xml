@@ -29,7 +29,8 @@
         <activity android:name=".LoginOrganizationActivity" />
         <activity android:name=".PatientProfileActivity" />
         <activity android:name=".DoctorProfileActivity" />
-        <activity android:name=".OrganizationProfileActivity"></activity>
+        <activity android:name=".OrganizationProfileActivity" />
+        <activity android:name=".PatientProfileEditActivity"></activity>
     </application>
 
 </manifest>

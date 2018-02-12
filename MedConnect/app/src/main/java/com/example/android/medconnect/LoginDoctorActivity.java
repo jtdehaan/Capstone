@@ -79,6 +79,9 @@ public class LoginDoctorActivity extends AppCompatActivity {
                                 Intent doctorIntent = new Intent(LoginDoctorActivity.this, DoctorActivity.class);
                                 doctorIntent.putExtra("name", name);
                                 LoginDoctorActivity.this.startActivity(doctorIntent);
+
+                                etUsername.setText("");
+                                etPassword.setText("");
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginDoctorActivity.this);
                                 builder.setMessage("Login Failed")

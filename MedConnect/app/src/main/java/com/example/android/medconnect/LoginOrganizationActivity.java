@@ -79,6 +79,9 @@ public class LoginOrganizationActivity extends AppCompatActivity {
                                 Intent organizationIntent = new Intent(LoginOrganizationActivity.this, OrganizationActivity.class);
                                 organizationIntent.putExtra("name", name);
                                 LoginOrganizationActivity.this.startActivity(organizationIntent);
+
+                                etUsername.setText("");
+                                etPassword.setText("");
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginOrganizationActivity.this);
                                 builder.setMessage("Login Failed")

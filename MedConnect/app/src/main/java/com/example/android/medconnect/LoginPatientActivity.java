@@ -87,6 +87,9 @@ public class LoginPatientActivity extends AppCompatActivity {
 
                                 LoginPatientActivity.this.startActivity(patientHomeIntent);
                                // LoginPatientActivity.this.startActivity(patientProfileIntent);
+
+                                etUsername.setText("");
+                                etPassword.setText("");
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginPatientActivity.this);
                                 builder.setMessage("Login Failed")
