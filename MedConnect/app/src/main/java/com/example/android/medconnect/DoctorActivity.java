@@ -1,5 +1,6 @@
 package com.example.android.medconnect;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -61,8 +62,8 @@ public class DoctorActivity extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
 
-                Intent registerIntent = new Intent(DoctorActivity.this, LoginDoctorActivity.class);
-                DoctorActivity.this.startActivity(registerIntent);
+                Intent logoutIntent = new Intent(DoctorActivity.this, SelectionActivity.class);
+                DoctorActivity.this.startActivity(logoutIntent);
             }});
 
         /*

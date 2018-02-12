@@ -1,10 +1,14 @@
 package com.example.android.medconnect;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class OrganizationActivity extends AppCompatActivity {
@@ -19,6 +23,7 @@ public class OrganizationActivity extends AppCompatActivity {
         final TextView tvProfile = (TextView) findViewById(R.id.tvProfile);
         final TextView tvMyEvents = (TextView) findViewById(R.id.tvMyEvents);
         final TextView tvAllEvents = (TextView) findViewById(R.id.tvAllEvents);
+        final Button bLogout = (Button) findViewById(R.id.bLogout);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -42,5 +47,18 @@ public class OrganizationActivity extends AppCompatActivity {
                 OrganizationActivity.this.startActivity(registerIntent);
             }
         },900000L);
+
+        //logout button
+        bLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent logoutIntent = new Intent(OrganizationActivity.this, SelectionActivity.class);
+                OrganizationActivity.this.startActivity(logoutIntent);
+            }});
     }
 }
