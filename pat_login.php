@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     mysqli_close($link);
 }
-//Used so that username can be displayed on the calculator page
+//Stores username in the session
 session_start();
 $_SESSION['username'] = $_POST['username']
 ?>
@@ -63,14 +63,14 @@ $_SESSION['username'] = $_POST['username']
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient Login</title>
+    <title>PatientLogin</title>
 </head>
 <body>
 
     <h1>Med Connect Patient Login</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Usename:</label><br>
+            <label>User Name:</label><br>
             <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
             <span class="help-block"><?php echo $username_err; ?></span>
         </div>
