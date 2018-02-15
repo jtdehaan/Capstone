@@ -2,6 +2,9 @@
 
 require_once 'config.php';
 
+//Starts the session
+session_start();
+$_SESSION['username'] = $_POST['username']
 
 $username = $password = "";
 $username_err = $password_err = "";
@@ -55,9 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     mysqli_close($link);
 }
-//Used so that username can be displayed on the calculator page
-session_start();
-$_SESSION['username'] = $_POST['username']
+
 ?>
 
 <!DOCTYPE html>
