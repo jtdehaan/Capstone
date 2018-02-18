@@ -25,8 +25,8 @@ public class DoctorActivity extends AppCompatActivity {
         final TextView tvEvents = (TextView) findViewById(R.id.tvEvents);
         final Button bLogout = (Button) findViewById(R.id.bLogout);
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
+        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String name = sharedPref.getString("name", "");
 
         tvName.setText("Hello " + name);
 

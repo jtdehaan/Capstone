@@ -40,77 +40,81 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="342dp"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="342dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="17dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="17dp"
-            android:paddingLeft="20dp"
-            android:text="Patient Profile"
-            android:textSize="23sp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="17dp"
+                android:paddingLeft="20dp"
+                android:text="Patient Profile"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingBottom="17dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="17dp"
-            android:text="Username: "
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="17dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="17dp"
+                android:text="Username: "
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingBottom="17dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="17dp"
-            android:text="Email: "
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="17dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="17dp"
+                android:text="Email: "
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="17dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="17dp"
+                android:text="Phone #: "
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingBottom="17dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="17dp"
-            android:text="Phone #: "
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="17dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="17dp"
+                android:text="Address: "
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingBottom="17dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="17dp"
-            android:text="Address: "
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/bEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonstyle"
+                android:text="Edit Profile"
+                android:textColor="#fff"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/bEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/buttonstyle"
-            android:text="Edit Profile"
-            android:textColor="#fff"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
