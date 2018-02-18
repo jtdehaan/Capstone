@@ -19,6 +19,7 @@ public class OrganizationActivity extends AppCompatActivity {
         final TextView tvProfile = (TextView) findViewById(R.id.tvProfile);
         final TextView tvMyEvents = (TextView) findViewById(R.id.tvMyEvents);
         final TextView tvAllEvents = (TextView) findViewById(R.id.tvAllEvents);
+        final TextView tvAddEvent = (TextView) findViewById(R.id.tvAddEvent);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -30,6 +31,13 @@ public class OrganizationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent organizationProfileIntent = new Intent(OrganizationActivity.this, OrganizationProfileActivity.class);
                 OrganizationActivity.this.startActivity(organizationProfileIntent);
+            }
+        });
+        tvAddEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent organizationAddEventIntent = new Intent(OrganizationActivity.this,Add_Event_Activity.class);
+                OrganizationActivity.this.startActivity(organizationAddEventIntent);
             }
         });
 
