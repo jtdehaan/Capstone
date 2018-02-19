@@ -1,7 +1,9 @@
 package com.example.android.medconnect;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,6 +49,9 @@ public class PatientProfileEditActivity extends AppCompatActivity {
                 final String email = etEmail.getText().toString();
                 //final String confirmPassword = etConfirmPassword.getText().toString();
 
+                SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                String user_id = sharedPref.getString("user_id", "");
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -72,6 +77,20 @@ public class PatientProfileEditActivity extends AppCompatActivity {
                                 if (success) {
                                     Intent confirmEditIntent = new Intent(PatientProfileEditActivity.this, PatientProfileActivity.class);
                                     PatientProfileEditActivity.this.startActivity(confirmEditIntent);
+
+                                    //String user_id = jsonResponse.getString("user_id");
+
+                                    SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                                    //String user_id = preferences.getString("user_id", "");
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putString("name", name);
+                                    editor.putString("email", email);
+                                    editor.putString("username", username);
+                                    //editor.putString("user_id", user_id);
+                                    editor.apply();
+
+
+
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(PatientProfileEditActivity.this);
                                     builder.setMessage("Update Failed")
@@ -86,7 +105,7 @@ public class PatientProfileEditActivity extends AppCompatActivity {
                     }
                 };
 
-                EditPatientProfileRequest editPatientProfileRequest = new EditPatientProfileRequest(username, name, email, responseListener);
+                EditPatientProfileRequest editPatientProfileRequest = new EditPatientProfileRequest(username, name, email, user_id, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(PatientProfileEditActivity.this);
                 queue.add(editPatientProfileRequest);
             }
