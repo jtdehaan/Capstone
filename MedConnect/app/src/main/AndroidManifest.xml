@@ -18,97 +18,99 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PatientActivity"
-            android:parentActivityName=".SelectionActivity"
-            >
+        <activity
+            android:name=".PatientActivity"
+            android:parentActivityName=".SelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectionActivity" />
         </activity>
-        <activity android:name=".DoctorActivity"
-            android:parentActivityName=".SelectionActivity"
-            >
+        <activity
+            android:name=".DoctorActivity"
+            android:parentActivityName=".SelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectionActivity" />
         </activity>
-        <activity android:name=".RegisterOrganizationActivity"
-            android:parentActivityName=".LoginOrganizationActivity"
-            >
+        <activity
+            android:name=".RegisterOrganizationActivity"
+            android:parentActivityName=".LoginOrganizationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginOrganizationActivity" />
         </activity>
-        <activity android:name=".RegisterPatientActivity"
-            android:parentActivityName=".LoginPatientActivity"
-            >
+        <activity
+            android:name=".RegisterPatientActivity"
+            android:parentActivityName=".LoginPatientActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginPatientActivity" />
         </activity>
-        <activity android:name=".RegisterDoctorActivity"
-            android:parentActivityName=".LoginDoctorActivity"
-            >
+        <activity
+            android:name=".RegisterDoctorActivity"
+            android:parentActivityName=".LoginDoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginDoctorActivity" />
         </activity>
-        <activity android:name=".OrganizationActivity"
-            android:parentActivityName=".SelectionActivity"
-            >
+        <activity
+            android:name=".OrganizationActivity"
+            android:parentActivityName=".SelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectionActivity" />
         </activity>
-        <activity android:name=".LoginDoctorActivity"
-            android:parentActivityName=".SelectionActivity"
-            >
+        <activity
+            android:name=".LoginDoctorActivity"
+            android:parentActivityName=".SelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectionActivity" />
         </activity>
-        <activity android:name=".LoginPatientActivity"
-            android:parentActivityName=".SelectionActivity"
-            >
+        <activity
+            android:name=".LoginPatientActivity"
+            android:parentActivityName=".SelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectionActivity" />
         </activity>
-        <activity android:name=".LoginOrganizationActivity"
-            android:parentActivityName=".SelectionActivity"
-            >
+        <activity
+            android:name=".LoginOrganizationActivity"
+            android:parentActivityName=".SelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectionActivity" />
         </activity>
-        <activity android:name=".PatientProfileActivity"
-            android:parentActivityName=".PatientActivity"
-            >
+        <activity
+            android:name=".PatientProfileActivity"
+            android:parentActivityName=".PatientActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientActivity" />
         </activity>
-        <activity android:name=".DoctorProfileActivity"
-            android:parentActivityName=".DoctorActivity"
-            >
+        <activity
+            android:name=".DoctorProfileActivity"
+            android:parentActivityName=".DoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DoctorActivity" />
         </activity>
-        <activity android:name=".OrganizationProfileActivity"
-            android:parentActivityName=".OrganizationActivity"
-            >
+        <activity
+            android:name=".OrganizationProfileActivity"
+            android:parentActivityName=".OrganizationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".OrganizationActivity" />
         </activity>
-        <activity android:name=".PatientProfileEditActivity"
-            android:parentActivityName=".PatientProfileActivity"
-            >
+        <activity
+            android:name=".PatientProfileEditActivity"
+            android:parentActivityName=".PatientProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientProfileActivity" />
         </activity>
+        <activity android:name=".DoctorProfileEditActivity" />
+        <activity android:name=".OrganizationProfileEditActivity"></activity>
     </application>
 
 </manifest>

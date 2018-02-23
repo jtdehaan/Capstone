@@ -68,12 +68,14 @@ public class LoginOrganizationActivity extends AppCompatActivity {
                                 String name = jsonResponse.getString("name");
                                 String email = jsonResponse.getString("email");
                                 String username = jsonResponse.getString("username");
+                                String user_id = jsonResponse.getString("user_id");
 
                                 SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = preferences.edit();
                                 editor.putString("name", name);
                                 editor.putString("email", email);
                                 editor.putString("username", username);
+                                editor.putString("user_id", user_id);
                                 editor.apply();
 
                                 Intent organizationIntent = new Intent(LoginOrganizationActivity.this, OrganizationActivity.class);
