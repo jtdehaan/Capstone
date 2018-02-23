@@ -24,6 +24,7 @@ public class OrganizationActivity extends AppCompatActivity {
         final TextView tvMyEvents = (TextView) findViewById(R.id.tvMyEvents);
         final TextView tvAllEvents = (TextView) findViewById(R.id.tvAllEvents);
         final Button bLogout = (Button) findViewById(R.id.bLogout);
+        final TextView tvAddEvent = (TextView) findViewById(R.id.tvAddEvent);
 
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String name = sharedPref.getString("name", "");
@@ -35,6 +36,13 @@ public class OrganizationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent organizationProfileIntent = new Intent(OrganizationActivity.this, OrganizationProfileActivity.class);
                 OrganizationActivity.this.startActivity(organizationProfileIntent);
+            }
+        });
+        tvAddEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent organizationAddEventIntent = new Intent(OrganizationActivity.this,Add_Event_Activity.class);
+                OrganizationActivity.this.startActivity(organizationAddEventIntent);
             }
         });
 
