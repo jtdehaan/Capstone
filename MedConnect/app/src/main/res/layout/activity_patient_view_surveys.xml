@@ -1,103 +1,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:background="@color/tan_background"
-android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/tan_background"
+    android:orientation="vertical">
 
-<RelativeLayout
-    android:layout_width="399dp"
-    android:layout_height="59dp">
+    <RelativeLayout
+        android:layout_width="399dp"
+        android:layout_height="59dp">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradientbackground"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imgProfile"
-            android:layout_width="57dp"
-            android:layout_height="52dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/photocat" />
-
-        <TextView
-            android:id="@+id/etName"
-            android:layout_width="220dp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:text="App Cat"
-            android:textColor="#fff"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+            android:background="@drawable/gradientbackground"
+            android:orientation="horizontal">
 
+
+
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/bLogout"
-            android:layout_width="96dp"
-            android:layout_height="54dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/buttonstyle"
-            android:text="Logout"
-            android:textColor="#fff"
-            android:textStyle="bold" />
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/medlogo" />
 
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/teSurveys"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:text="Here is a list of surveys."
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
 
-</RelativeLayout>
-
-<LinearLayout
-    android:layout_width="126dp"
-    android:layout_height="510dp"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tvHome"
-        style="@style/CategoryStyle"
-        android:background="@color/category_4"
-        android:clickable="true"
-        android:text="Home" />
-
-    <TextView
-        android:id="@+id/tvProfile"
-        style="@style/CategoryStyle"
-        android:background="@color/category_1"
-        android:clickable="true"
-        android:text="My Profile" />
-
-    <TextView
-        android:id="@+id/tvMyDoctor"
-        style="@style/CategoryStyle"
-        android:background="@color/category_3"
-        android:clickable="true"
-        android:text="My Doctor" />
-
-
-    <TextView
-        android:id="@+id/tvMyEvents"
-        style="@style/CategoryStyle"
-        android:background="@color/category_2"
-        android:clickable="true"
-        android:text="My Events" />
-
-    <TextView
-        android:id="@+id/tvAllEvents"
-        style="@style/CategoryStyle"
-        android:layout_width="179dp"
-        android:layout_height="156dp"
-        android:background="@color/category_4"
-        android:clickable="true"
-        android:text="All Events" />
-
 </LinearLayout>
 
-
-</LinearLayout>
