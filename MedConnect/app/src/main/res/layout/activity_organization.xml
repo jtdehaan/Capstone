@@ -52,22 +52,34 @@
 
     <TextView
         android:id="@+id/tvProfile"
-        android:clickable="true"
         style="@style/CategoryStyle"
+        android:layout_height="wrap_content"
         android:background="@color/category_1"
-        android:text="My Profile" />
-    <TextView
-        android:id="@+id/tvMyEvents"
         android:clickable="true"
-        style="@style/CategoryStyle"
-        android:background="@color/category_2"
-        android:text="My Events" />
+        android:text="My Profile" />
 
     <TextView
         android:id="@+id/tvAllEvents"
         style="@style/CategoryStyle"
+        android:layout_height="wrap_content"
         android:background="@color/category_3"
         android:clickable="true"
         android:text="All Events" />
+
+    <TextView
+        android:id="@+id/tvMyEvents"
+        style="@style/CategoryStyle"
+        android:layout_height="54dp"
+        android:background="@color/category_2"
+        android:clickable="true"
+        android:text="My Events" />
+
+    <TextView
+        android:id="@+id/tvAddEvent"
+        style="@style/CategoryStyle"
+        android:layout_height="wrap_content"
+        android:background="@color/category_4"
+        android:clickable="true"
+        android:text="Create Events" />
 
 </LinearLayout>

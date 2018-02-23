@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:ems="10"
         android:hint="Event Name"
-         />
+        />
 
     <EditText
         android:id="@+id/etLocation"
