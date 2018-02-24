@@ -15,9 +15,6 @@
             android:background="@drawable/gradientbackground"
             android:orientation="horizontal">
 
-
-
-
         </LinearLayout>
 
         <Button
@@ -27,8 +24,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/medlogo" />
+            android:layout_alignParentTop="true"/>
+            //android:background="@drawable/medlogo" />
 
 
     </RelativeLayout>

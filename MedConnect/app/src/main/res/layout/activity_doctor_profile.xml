@@ -120,5 +120,5 @@
                 android:textColor="#fff"
                 android:textStyle="bold" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 </LinearLayout>
