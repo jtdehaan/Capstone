@@ -68,7 +68,6 @@ public class RegisterOrganizationActivity extends AppCompatActivity {
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
 
-
                                 if (success) {
                                     Intent registerOrganizationIntent = new Intent(RegisterOrganizationActivity.this, LoginOrganizationActivity.class);
                                     RegisterOrganizationActivity.this.startActivity(registerOrganizationIntent);

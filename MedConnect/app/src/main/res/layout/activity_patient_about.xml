@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/tan_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="399dp"
+        android:layout_height="59dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradientbackground"
+            android:orientation="horizontal">
+
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/medlogo" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/teSupport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About our organization"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/teDescription"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:text="Through MedConnect we hope to simplify the relationship between doctors, patients, and organizations  on order to make peoples lives a little easier. Whether its for physical thearapy purposes, physical health classes, or various testing our goal at MedConnect is to bring our community a little closer together  so that you can recieve the treatement and help you deserve." />
+
+        <TextView
+            android:id="@+id/teContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_bright"
+            android:text="Contact Us: 1-800-123-4567"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
