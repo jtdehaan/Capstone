@@ -40,6 +40,13 @@
                 android:value=".LoginOrganizationActivity" />
         </activity>
         <activity
+            android:name=".Add_Event_Activity"
+            android:parentActivityName=".OrganizationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrganizationActivity" />
+        </activity>
+        <activity
             android:name=".RegisterPatientActivity"
             android:parentActivityName=".LoginPatientActivity">
             <meta-data
@@ -109,8 +116,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientProfileActivity" />
         </activity>
-        <activity android:name=".DoctorProfileEditActivity" />
-        <activity android:name=".OrganizationProfileEditActivity"></activity>
+
+        <activity android:name=".orginization_my_events"></activity>
     </application>
 
 </manifest>

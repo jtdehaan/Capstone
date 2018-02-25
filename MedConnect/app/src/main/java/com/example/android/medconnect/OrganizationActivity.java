@@ -38,6 +38,13 @@ public class OrganizationActivity extends AppCompatActivity {
                 OrganizationActivity.this.startActivity(organizationProfileIntent);
             }
         });
+        tvMyEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent organizationMyEventsIntent = new Intent(OrganizationActivity.this, orginization_my_events.class);
+                OrganizationActivity.this.startActivity(organizationMyEventsIntent);
+            }
+        });
         tvAddEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
