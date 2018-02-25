@@ -109,18 +109,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientProfileActivity" />
         </activity>
-        <activity android:name=".DoctorProfileEditActivity"
+        <activity
+            android:name=".DoctorProfileEditActivity"
             android:parentActivityName=".DoctorProfileActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".DoctorProfileActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DoctorProfileActivity" />
         </activity>
         <activity android:name=".OrganizationProfileEditActivity">
             android:parentActivityName=".OrganizationProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".OrganizationProfileActivity"/>
+                android:value=".OrganizationProfileActivity" />
         </activity>
-
+        <activity android:name=".DoctorPatientListActivity"></activity>
     </application>
+
 </manifest>
