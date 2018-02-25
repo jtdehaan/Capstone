@@ -118,6 +118,20 @@
         </activity>
 
         <activity android:name=".orginization_my_events"></activity>
-    </application>
+        <activity android:name=".DoctorProfileEditActivity"
+            android:parentActivityName=".DoctorProfileActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".DoctorProfileActivity"/>
+        </activity>
 
+        <activity android:name=".OrganizationProfileEditActivity">
+            android:parentActivityName=".OrganizationProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrganizationProfileActivity"/>
+        </activity>
+
+
+    </application>
 </manifest>
