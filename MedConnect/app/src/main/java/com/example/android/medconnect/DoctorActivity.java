@@ -38,6 +38,15 @@ public class DoctorActivity extends AppCompatActivity {
             }
         });
 
+        tvPatients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent doctorPatientIntent = new Intent(DoctorActivity.this, DoctorPatientListActivity.class);
+                DoctorActivity.this.startActivity(doctorPatientIntent);
+            }
+        });
+
+        /*
         //Set timer for 15 minutes
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
@@ -52,6 +61,8 @@ public class DoctorActivity extends AppCompatActivity {
                 DoctorActivity.this.startActivity(registerIntent);
             }
         },900000L);
+        */
+
 
         //logout button
         bLogout.setOnClickListener(new View.OnClickListener() {
