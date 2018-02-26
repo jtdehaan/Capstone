@@ -118,6 +118,7 @@
         </activity>
 
         <activity android:name=".orginization_my_events"></activity>
+
         <activity android:name=".DoctorProfileEditActivity"
             android:parentActivityName=".DoctorProfileActivity">
         <meta-data
