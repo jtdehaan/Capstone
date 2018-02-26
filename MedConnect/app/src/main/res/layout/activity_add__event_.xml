@@ -28,7 +28,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/etSurveyName"
+        android:layout_below="@+id/etEventName"
         android:ems="10"
         android:hint="Address"
         android:inputType="textPostalAddress" />
@@ -65,7 +65,6 @@
         android:text="Cancel"
         android:textSize="15dp"
         android:visibility="visible" />
-
 
     <EditText
         android:id="@+id/etEmail"

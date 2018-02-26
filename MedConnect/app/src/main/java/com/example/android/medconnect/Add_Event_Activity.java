@@ -1,7 +1,9 @@
 package com.example.android.medconnect;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,7 +31,7 @@ public class Add_Event_Activity extends AppCompatActivity {
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etTimes = (EditText) findViewById(R.id.etTimes);
         final EditText etPrice = (EditText) findViewById(R.id.etPrice);
-        final Button bRegister = (Button) findViewById(R.id.bRegister);
+        final Button bRegister = (Button) findViewById(R.id.bCreateSurvey);
         final TextView cancelLink = (TextView) findViewById(R.id.tvCancel);
 
         cancelLink.setOnClickListener(new View.OnClickListener() {
@@ -50,14 +52,15 @@ public class Add_Event_Activity extends AppCompatActivity {
                 final String Times = etTimes.getText().toString();
                 final String Price = etPrice.getText().toString();
 
+                SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                final String ID = preferences.getString("user_id","1");
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
-
                                 if (success) {
                                     Intent addEventIntent = new Intent(Add_Event_Activity.this, OrganizationActivity.class);
                                     Add_Event_Activity.this.startActivity(addEventIntent);
@@ -74,7 +77,7 @@ public class Add_Event_Activity extends AppCompatActivity {
                     }
                 };
 
-                AddEventRequest addEventRequest = new AddEventRequest(EventName, Location, Phone, Email, Times, Price, responseListener);
+                AddEventRequest addEventRequest = new AddEventRequest(EventName, Location, Phone, Email, Times, Price,ID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Add_Event_Activity.this);
                 queue.add(addEventRequest);
 
