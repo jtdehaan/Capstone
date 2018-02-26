@@ -7,7 +7,12 @@
     tools:context="com.example.android.medconnect.DoctorPatientListActivity">
 
     <ListView
-        android:id="@+id/patientList"
+        android:id="@+id/lvpatientList"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+
+    </ListView>
 
 </LinearLayout>
