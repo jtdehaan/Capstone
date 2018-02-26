@@ -30,11 +30,11 @@ public class DoctorProfileActivity extends AppCompatActivity {
         tvEmail.setText("Email: " + email);
         tvUsername.setText("Username: " + username);
 
-        /*bEdit.setOnClickListener(new View.OnClickListener() {
+        bEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent editProfileIntent = new Intent(DoctorProfileActivity.this, DoctorProfileEditActivity.class);
                 DoctorProfileActivity.this.startActivity(editProfileIntent);
-            }});*/
+            }});
     }
 }
