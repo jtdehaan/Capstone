@@ -27,7 +27,7 @@
                 android:src="@drawable/photocat" />
 
             <TextView
-                android:id="@+id/etName"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -40,12 +40,10 @@
         </LinearLayout>
 
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="377dp"
-        android:layout_height="342dp"
-        android:layout_gravity="center"
-        android:gravity="right"
-        android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,5 +119,5 @@
                 android:textColor="#fff"
                 android:textStyle="bold" />
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
