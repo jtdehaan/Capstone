@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: https://www.google.com/");
+                            header("location: admin_homepage.php");
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -55,60 +55,58 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     mysqli_close($link);
 }
-//Used so that username can be displayed on the calculator page
+
+//Starts the session
 session_start();
 $_SESSION['username'] = $_POST['username']
 ?>
 
 <!doctype html>
 <html>
+
 <head>
-    <title>Med Connect Doctor Patient List Page</title>
-    <link rel="stylesheet" type="text/css" href="homepage.css" >
+    <title>Med Connect Administrator Login</title>
+    <link rel="stylesheet" type="text/css" href="registerpage.css" >
 </head>
 <body>
 
 <div id="container">
     <div id="header">
         <h1>Med Connect</h1>
+        <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="logout.php">Logout</a>
-    </div>
-	
-    <div id="content">
-		<div id="navigation">
-			<h2> Navigation:</h2>
-			<br>
-			<ul>
-				<li><a href="doctor_homepage.php">User Profile</a></li>
-				<br>
-				<li><a href="doctor_edit_profile.php">Edit Profile</a></li>
-				<br>
-				<li><a class="selected" href="patient_my_doctors.php">My Patients</a></li>
-				<br>
-				<br>
-				<li>Surveys:</li>
-				<br>
-				<li><a href="doctor_current_surveys.php">View Current Surveys</a></li>
-				<br>
-				<li><a href="create_survey.php">Add a Survey</a></li>
-		</div>
+		<a class = "right-align" href="login_page.html">Login</a>
 		
-		<div id="main">
-			<h2>Your Current Patients:</h2>
-			<p> THIS IS WHERE THE PATIENTS THE DOCTOR HAS AT THAT TIME WILL BE DISPLAYED 
-			<br>
-			<br>
-			(unordered list, as many paragraphs as there are patients)
-			<br>
-			<br>
-			
-			<button type="submit">Add Patient</button>
-			
-			</p>
-		</div>
-       
+    </div>
+
+    <div id="content">
+        <h2>Administrator Login</h2>
+		
+       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <br>
+                <label>Username:</label>
+                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div> 
+          
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <br>
+                <label>Password:</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            
+            <div class="form-group">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Submit">
+				<br>
+				<br>
+				<br>
+
+            </div>
+        </form>
     </div>
 </div>
 

@@ -9,7 +9,7 @@ $username_err = $current_password_err = $password_err = $email_err = $name_err =
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 //name
     if(empty(trim($_POST['name']))){
-        $sql = "SELECT name FROM LoginDoctor WHERE username = '$session_user'";
+        $sql = "SELECT name FROM LoginAdministrator WHERE username = '$session_user'";
         if($result = mysqli_query($link, $sql)){
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 //email
     if(empty(trim($_POST['email']))){
-        $sql = "SELECT email FROM LoginDoctor WHERE username = '$session_user'";
+        $sql = "SELECT email FROM LoginAdministrator WHERE username = '$session_user'";
         if($result = mysqli_query($link, $sql)){
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $current_password = "";
     } else{
         $current_password = $_POST['current_password'];
-        $sql = "SELECT username, password FROM LoginDoctor WHERE username = ?";
+        $sql = "SELECT username, password FROM LoginAdministrator WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  //exicute
     if(empty($username_err) &&  empty($email_err) && empty($name_err) && empty($password_err) && empty($confirm_password_err)){
 
-        $sql = "UPDATE LoginDoctor SET name = ?, username = ?, email = ?, password = ? WHERE username = '$session_user'";
+        $sql = "UPDATE LoginAdministrator SET name = ?, username = ?, email = ?, password = ? WHERE username = '$session_user'";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_username, $param_email, $param_password);
@@ -133,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!doctype html>
 <html>
 <head>
-    <title>Med Connect Doctor Edit Profile Page</title>
+    <title>Med Connect Administrator Edit Profile Page</title>
     <link rel="stylesheet" type="text/css" href="homepage.css" >
 </head>
 <body>
@@ -151,18 +151,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<h2> Navigation:</h2>
 			<br>
 			<ul>
-				<li><a href="doctor_homepage.php">User Profile</a></li>
+				<li><a href="admin_homepage.php">Admin Profile</a></li>
 				<br>
-				<li><a class="selected" href="doctor_edit_profile.php">Edit Profile</a></li>
+				<li><a class="selected" href="admin_edit_profile.php">Edit Profile</a></li>
 				<br>
-				<li><a href="my_patients.php">My Patients</a></li>
+				<li><a href="admin_all_users.php">View Users</a></li>
 				<br>
+				<li><a href="admin_all_events.php">View Events</a></li>
 				<br>
-				<li>Surveys:</li>
+				<li><a href="admin_all_surveys.php">View Surveys</a></li>
 				<br>
-				<li><a href="doctor_current_surveys.php">View Current Surveys</a></li>
-				<br>
-				<li><a href="create_survey.php">Add a Survey</a></li>
 		</div>
 		
 		<div id="main">

@@ -11,7 +11,7 @@
         <h1>Med Connect</h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.html">Login</a>
+		<a class = "right-align" href="logout.php">Logout</a>
     </div>
 	
     <div id="content">

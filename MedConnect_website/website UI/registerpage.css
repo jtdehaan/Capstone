@@ -1,0 +1,58 @@
+html {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #757c87;
+	
+}
+
+label {
+font-weight: bold;
+}
+
+.left-align { 
+text-align: left;
+float: left;
+padding-left: 25px;
+}
+
+.right-align {
+	text-align: right;
+	float: right;
+	padding-right: 25px;
+}
+
+.selected{
+	font-weight: bold;
+}
+
+a{
+text-decoration: underline;
+	color: black;
+}
+
+#container {
+	
+}
+
+#header {
+	background-color: #33A1FF;
+	text-align: center;
+	padding-bottom: 30px;
+	
+	
+}
+
+#content {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	border: 2px solid black;
+	background-color: #33A1FF;
+	text-align: center;
+}
+
+
+

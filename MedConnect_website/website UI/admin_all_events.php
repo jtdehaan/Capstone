@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Med Connect Patient My Events List Page</title>
+    <title>Med Connect Administrator View All Events Page</title>
     <link rel="stylesheet" type="text/css" href="homepage.css" >
 </head>
 <body>
@@ -19,23 +19,23 @@
 			<h2> Navigation:</h2>
 			<br>
 			<ul>
-				<li><a href="patient_homepage.php">User Profile</a></li>
+				<li><a href="admin_homepage.php">Admin Profile</a></li>
 				<br>
-				<li><a href="patient_edit_profile.php">Edit Profile</a></li>
+				<li><a href="admin_edit_profile.php">Edit Profile</a></li>
 				<br>
-				<li><a href="patient_my_doctors.php">My Doctors</a></li>
+				<li><a href="admin_all_users.php">View Users</a></li>
 				<br>
+				<li><a class="selected" href="admin_all_events.php">View Events</a></li>
 				<br>
-				<li>Events:</li>
+				<li><a href="admin_all_surveys.php">View Surveys</a></li>
 				<br>
-				<li><a class="selected" href="patient_view_my_events.php">View Current Events</a></li>
-				<br>
-				<li><a href="patient_event_register.php">Register For Events</a></li>
 		</div>
 		
 		<div id="main" style="overflow-y: scroll; height:400px;">
-			<h2>Your Current Events:</h2>
-			<p> <?php
+			<h2>Welcome Administrator!</h2>
+			<br>
+			<h3>All Events:</h3>
+			<p>  <?php
 				require_once 'config.php';
 
 				$sql = "SELECT name, location, date, time, price, description, attendance, payinapp
@@ -55,12 +55,6 @@
 					echo "ERROR";
 				}
 				?>
-			<br>
-			<br>
-			
-		<form method="get" action="patient_event_register.php">
-			<button type="submit">Add Event</button>
-		</form>
 			</p>
 		</div>
        

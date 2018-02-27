@@ -11,7 +11,7 @@
         <h1>Med Connect</h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.html">Login</a>
+		<a class = "right-align" href="logout.php">Logout</a>
     </div>
 	
     <div id="content">
@@ -31,13 +31,31 @@
 				<li><a href="org_add_event.php">Add an Event</a></li>
 		</div>
 		
-		<div id="main">
+		<div id="main" style="overflow-y: scroll; height:400px;">
 			<h2>Your Current Events:</h2>
 			<br>
-			<p> THIS IS WHERE ALL OF THE ORGANIZATION'S CURRENT EVENTS ARE LISTED, ALONG WITH INFO ON HOW MANY PEOPLE ARE ATTENDING 
+			<p>  <?php
+				require_once 'config.php';
+
+				$sql = "SELECT name, location, date, time, price, description, attendance, payinapp
+				FROM Events";
+				if($result = mysqli_query($link, $sql)){
+					if(mysqli_num_rows($result) > 0){
+						echo "<table><tr><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>";
+						while($row = mysqli_fetch_array($result)){
+							echo "<tr><td>".$row['name'] ."</td><td>". $row['location']."</td><td>". $row['date']."</td><td>". $row['time']."</td><td>". $row['price']."</td><td>". $row['description']."</td><td>". $row['attendance']."</td><td>". $row['payinapp']."</td></tr>"; }
+						echo"</table>";
+					}
+					else{
+						echo "no result";
+					}
+				}
+				else{
+					echo "ERROR";
+				}
+				?>
 			<br>
 			<br>
-			(unordered list)
 			</p>
 		</div>
        

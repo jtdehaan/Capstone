@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
     } else{
-        $sql = "SELECT user_id FROM LoginDoctor WHERE username = ?";
+        $sql = "SELECT user_id FROM LoginOrganization WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
     } else{
-        $sql = "SELECT user_id FROM LoginDoctor WHERE email = ?";
+        $sql = "SELECT user_id FROM LoginOrganization WHERE email = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_email);
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 //name
     if(empty(trim($_POST['name']))){
-        $name_err = "Please enter a name.";
+        $name_err = "Please enter an organization name.";
     } else{
         $name = trim($_POST['name']);
     }
@@ -83,10 +83,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  //exicute
     if(empty($username_err) &&  empty($email_err) && empty($name_err) && empty($password_err) && empty($confirm_password_err)){
 
-        $sql = "INSERT INTO LoginDoctor (name, username, email, password, email_code) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO LoginOrganization (name, username, email, password, email_code) VALUES (?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_email, $param_name, $email_code);
+            mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_username, $param_email, $param_password, $email_code);
 
             $param_username = $username;
             $param_email = $email;
@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
             if(mysqli_stmt_execute($stmt)){
-                header("location: med_connect_login.php");
+                header("location: org_login.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -110,11 +110,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $msg = 'Your account has been made <br> please click the link to verify your account';
 $to = $_POST["email"];
 $subject = 'Signup | Verification';
-$headers = 'From:noreply@calculator.php' . "\r\n";
+$headers = 'From:noreply@Med_Connect_Account_Activation.php' . "\r\n";
 $message = "
 Your account has been created.
 Please click this link to activate your account:
-http://http://cgi.soic.indiana.edu/~jmodugno/email_confirm.php?email=$to&email_code=$email_code.'
+http://http://cgi.soic.indiana.edu/~team37/org_email_confirm.php?email=$to&email_code=$email_code.'
 ";
 mail($to, $subject, $message, $headers);
 ?>
@@ -132,9 +132,9 @@ mail($to, $subject, $message, $headers);
     <div id="header">
         <h1>Med Connect</h1>
         <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
-		<a class="left-align" href="about_page.php">About</a>
+		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.php">Login</a>
+		<a class = "right-align" href="login_page.html">Login</a>
 		
     </div>
     <div id="content">
@@ -149,16 +149,10 @@ mail($to, $subject, $message, $headers);
             </div> 
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
-                <label>Name:</label>
+                <label>Organization Name:</label>
                 <input type="text" name="name"class="form-control" value="<?php echo $name; ?>">
                 <span class="help-block"><?php echo $name_err; ?></span>
             </div>
-				<br>			
-			<div>
-			<label>Organization:</label>
-                <input type="text" name="organization"class="form-control" value="<?php echo $organization; ?>">
-                <span class="help-block"><?php echo $organization_err; ?></span>
-            </div> 
 			
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <br>
@@ -175,7 +169,7 @@ mail($to, $subject, $message, $headers);
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
                 <label>Email:</label>
-                <input type="text" name="email"class="form-control" value="<?php echo $email; ?>">
+                <input type="email" name="email"class="form-control" value="<?php echo $email; ?>">
                 <span class="help-block"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">

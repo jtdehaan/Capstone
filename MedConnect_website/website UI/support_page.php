@@ -18,6 +18,13 @@
     </div>
     <div id="content">
         <h2>Med Connect Support</h2>
+		<p>Please select an account type:</p>
+		
+		<form action="">
+		  <input type="radio" name="account_type" value="patient"> Patient
+		  <input type="radio" name="account_type" value="doctor"> Doctor
+		  <input type="radio" name="account_type" value="organization"> Organization
+		</form>
 		
        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -25,7 +32,7 @@
                 <label>Inquiry:</label>
 				<br>
 			<div id="inquiry">
-                <input type="text" style="height:200px;width:600px;" name="inquiry"class="form-control" value="<?php echo $inquiry; ?>">
+                <input type="text" style="height:175px;width:600px;" name="inquiry"class="form-control" value="<?php echo $inquiry; ?>">
 				
                 <span class="help-block"><?php echo $username_err; ?></span>
 			</div>
@@ -33,7 +40,6 @@
 				<input type="submit" class="btn btn-primary" value="Submit">
             </div> 
             
-				<br>
 				<br>
 
             </div>

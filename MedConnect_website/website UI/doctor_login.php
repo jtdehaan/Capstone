@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: https://www.google.com/");
+                            header("location: doctor_homepage.php");
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -55,7 +55,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     mysqli_close($link);
 }
-//Used so that username can be displayed on the calculator page
+
+//Starts the session
 session_start();
 $_SESSION['username'] = $_POST['username']
 ?>
@@ -96,12 +97,6 @@ $_SESSION['username'] = $_POST['username']
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <br>
-                <label>Confirm Password:</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div> 
             
             <div class="form-group">
                 <br>

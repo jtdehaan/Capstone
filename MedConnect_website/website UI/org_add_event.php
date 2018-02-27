@@ -1,13 +1,11 @@
+
 <?php
 require_once 'config.php';
-
 $location = $date = $time = $price = $description = $payinapp = "";
 $location_err = $date_err = $time_err = $price_err = $description_err = $payinapp_err = "";
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 //payinapp
     if(empty(trim($_POST["payinapp"]))){
-
     } else{
         $payinapp = trim($_POST['payinapp']);
     }
@@ -17,7 +15,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $name = trim($_POST['name']);
         }
-
 //location
     if(empty(trim($_POST["location"]))){
         $location_err = "Please enter a location.";
@@ -42,52 +39,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $price = trim($_POST['price']);
     }
-
 //description
     if(empty(trim($_POST["description"]))){
-        $description_err = 'Please add a description for your event.';
+		$description_err = 'Please add a description for your event.';
     } else{
             $description = trim($_POST['description']);
         }
 }
  //exicute
     if(empty($location_err) &&  empty($date_err) && empty($time_err) && empty($price_err) && empty($description_err)){
-
         $sql = "INSERT INTO Events (location, time, name, price, payinapp, description, date) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "sssssss", $param_location,  $param_time, $param_name, $param_price, $param_payinapp, $param_description, $param_date);
-
             $param_location = $location;
-            $param_date = $date;
-            $param_time = $time;
+			$param_date = $date;
+			$param_time = $time;
             $param_name = $name;
             $param_price = $price;
             $param_payinapp = $payinapp;
-            $param_description = $description;
-
+			$param_description = $description;
             if(mysqli_stmt_execute($stmt)){
-                //header("location: yahoo.com");
-                
+                //header("location: org_current_events.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
         }
-
         mysqli_stmt_close($stmt);
     }
-
     mysqli_close($link);
-
 /* ADD THIS IF WE ARE SENDING THE USER CONFORMATION. NEED TO HAVE DB COMPLETELY SET UP BEFORE
 $msg = 'Your event has been made! <br> please click the link to verify your account';
 $to = $_POST["price"];
 $subject = 'Signup | Verification';
-$headers = 'From:noreply@calculator.php' . "\r\n";
+$headers = 'From:noreply@Med_Connect_Event_Add.php' . "\r\n";
 $message = "
 Your account has been created.
 Please click this link to activate your account:
-http://http://cgi.soic.indiana.edu/~jmodugno/price_confirm.php?price=$to&price_code=$price_code.'
+http://http://cgi.soic.indiana.edu/~team37/price_confirm.php?price=$to&price_code=$price_code.'
 ";
 mail($to, $subject, $message, $headers);
 */
@@ -106,7 +94,7 @@ mail($to, $subject, $message, $headers);
         <h1>Med Connect</h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.html">Login</a>
+		<a class = "right-align" href="logout.php">Logout</a>
     </div>
 	
     <div id="content">

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Med Connect Organization Homepage</title>
+    <title>Med Connect Administrator View All Surveys Page</title>
     <link rel="stylesheet" type="text/css" href="homepage.css" >
 </head>
 <body>
@@ -19,20 +19,20 @@
 			<h2> Navigation:</h2>
 			<br>
 			<ul>
-				<li><a class="selected" href="org_homepage.php">Organization Profile</a></li>
+				<li><a href="admin_homepage.php">Admin Profile</a></li>
 				<br>
-				<li><a href="org_edit_profile.php">Edit Profile</a></li>
+				<li><a href="admin_edit_profile.php">Edit Profile</a></li>
 				<br>
+				<li><a href="admin_all_users.php">View Users</a></li>
 				<br>
-				<li>Events:</li>
+				<li><a href="admin_all_events.php">View Events</a></li>
 				<br>
-				<li><a href="org_current_events.php">My Current Events</a></li>
+				<li><a class="selected" href="admin_all_surveys.php">View Surveys</a></li>
 				<br>
-				<li><a href="org_add_event.php">Add an Event</a></li>
 		</div>
 		
 		<div id="main">
-			<h2>Welcome Organization!</h2>
+			<h2>Welcome Administrator!</h2>
 			<p> THIS IS ALL THE INFO BEING DISPLAYED AND WHATNOT!
 			</p>
 		</div>

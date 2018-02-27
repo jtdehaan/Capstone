@@ -36,6 +36,13 @@
                      mysqli_stmt_bind_result($stmt, $username, $hashed_password);
                      if(mysqli_stmt_fetch($stmt)){
                          if(password_verify($password, $hashed_password)){
+							 $sql = "DELETE FROM LoginPatient WHERE username = '$username' AND password = '$hashed_password'";
+							if ($link->query($sql) === TRUE) {
+								header("location: login_page.html");
+								session_destroy();
+							} else {
+								echo "Error deleting record: " . $link->error;
+							}
                          } else{
                              $password_err = 'The password you entered was not valid.';
                          }
@@ -55,12 +62,7 @@
 
  }
 
-$sql = "DELETE FROM LoginPatient WHERE username = '$username' AND password = '$hashed_password'";
-    if ($link->query($sql) === TRUE) {
-        echo "Your account has been deleted";
-    } else {
-        echo "Error deleting record: " . $link->error;
-    }
+
     mysqli_close($link);
  ?>
 
@@ -78,7 +80,7 @@ $sql = "DELETE FROM LoginPatient WHERE username = '$username' AND password = '$h
 		<h1>Med Connect</h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.html">Login</a>
+		<a class = "right-align" href="logout.php">Logout</a>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 		</div>
 		

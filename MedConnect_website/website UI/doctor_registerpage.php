@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $sql = "INSERT INTO LoginDoctor (name, username, email, password, email_code) VALUES (?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_email, $param_name, $email_code);
+            mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_username, $param_email, $param_password,  $email_code);
 
             $param_username = $username;
             $param_email = $email;
@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
             if(mysqli_stmt_execute($stmt)){
-                header("location: doctor_homepage.php");
+                header("location: doctor_login.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -110,11 +110,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $msg = 'Your account has been made <br> please click the link to verify your account';
 $to = $_POST["email"];
 $subject = 'Signup | Verification';
-$headers = 'From:noreply@calculator.php' . "\r\n";
+$headers = 'From:noreply@Med_Connect_Account_Activation.php' . "\r\n";
 $message = "
 Your account has been created.
 Please click this link to activate your account:
-http://http://cgi.soic.indiana.edu/~jmodugno/email_confirm.php?email=$to&email_code=$email_code.'
+http://http://cgi.soic.indiana.edu/~team37/doc_email_confirm.php?email=$to&email_code=$email_code.'
 ";
 mail($to, $subject, $message, $headers);
 ?>
@@ -168,7 +168,7 @@ mail($to, $subject, $message, $headers);
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
                 <label>Email:</label>
-                <input type="text" name="email"class="form-control" value="<?php echo $email; ?>">
+                <input type="email" name="email"class="form-control" value="<?php echo $email; ?>">
                 <span class="help-block"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
