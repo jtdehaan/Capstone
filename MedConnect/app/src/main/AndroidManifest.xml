@@ -116,7 +116,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientProfileActivity" />
         </activity>
-        <activity android:name=".orginization_my_events"></activity>
+        <activity android:name=".orginization_my_events" />
         <activity
             android:name=".DoctorProfileEditActivity"
             android:parentActivityName=".DoctorProfileActivity">
@@ -124,20 +124,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DoctorProfileActivity" />
         </activity>
-        <activity
-			android:name=".OrganizationProfileEditActivity">
+        <activity android:name=".OrganizationProfileEditActivity">
             android:parentActivityName=".OrganizationProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".OrganizationProfileActivity" />
         </activity>
-        <activity android:name=".DoctorPatientListActivity"
+        <activity
+            android:name=".DoctorPatientListActivity"
             android:parentActivityName=".DoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DoctorActivity" />
         </activity>
-
+        <activity android:name=".add_survey"></activity>
     </application>
 
 </manifest>

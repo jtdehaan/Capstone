@@ -17,8 +17,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:ems="10"
-        android:hint="Event Name"
-        android:text="Survey name" />
+        android:hint="Survey Name"
+        />
 
     <EditText
         android:id="@+id/etQuestion1"
@@ -30,17 +30,16 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/etSurveyName"
         android:ems="10"
-        android:hint="Address"
-        android:inputType="textPostalAddress"
-        android:text="Question 1" />
+        android:hint="Question1"
+        />
+
 
     <Button
         android:id="@+id/bCreateSurvey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etQuestion3"
+        android:layout_below="@+id/etQuestion5"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
         android:text="Create Survey" />
 
     <TextView
@@ -69,9 +68,9 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/etQuestion1"
         android:ems="10"
-        android:hint="Price"
-        android:inputType="textPassword|number"
-        android:text="Question 2" />
+        android:hint="Question2"
+        />
+
 
     <EditText
         android:id="@+id/etQuestion3"
@@ -83,9 +82,36 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/etQuestion2"
         android:ems="10"
-        android:hint="Price"
-        android:inputType="textPassword|number"
-        android:text="Question 3" />
+        android:hint="Question3"
+        />
+
+    <EditText
+        android:id="@+id/etQuestion4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etQuestion3"
+        android:ems="10"
+        android:hint="Question4"
+        />
+
+
+    <EditText
+        android:id="@+id/etQuestion5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etQuestion4"
+        android:ems="10"
+        android:hint="Question5"
+        />
+
 
 
 
