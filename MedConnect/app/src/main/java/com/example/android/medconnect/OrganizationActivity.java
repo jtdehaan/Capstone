@@ -38,6 +38,13 @@ public class OrganizationActivity extends AppCompatActivity {
                 OrganizationActivity.this.startActivity(organizationProfileIntent);
             }
         });
+        tvAllEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent eventsListIntent = new Intent(OrganizationActivity.this, EventsListActivity.class);
+                OrganizationActivity.this.startActivity(eventsListIntent);
+            }
+        });
         tvMyEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +60,7 @@ public class OrganizationActivity extends AppCompatActivity {
             }
         });
 
+        /*
         //Set timer for 15 minutes
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
@@ -62,6 +70,7 @@ public class OrganizationActivity extends AppCompatActivity {
                 OrganizationActivity.this.startActivity(registerIntent);
             }
         },900000L);
+        */
 
         //logout button
         bLogout.setOnClickListener(new View.OnClickListener() {

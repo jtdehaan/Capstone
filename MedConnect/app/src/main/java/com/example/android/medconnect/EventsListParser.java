@@ -74,14 +74,24 @@ public class EventsListParser extends AsyncTask<Void, Void, Integer> {
             for (int i = 0; i < ja.length(); i++) {
                 jo = ja.getJSONObject(i);
 
-                int id = jo.getInt("user_id");
+                int id = jo.getInt("EventID");
                 String name = jo.getString("name");
-                String user_id = jo.getString("user_id");
+                String location = jo.getString("location");
+                String date = jo.getString("date");
+                String time = jo.getString("time");
+                String price = jo.getString("price");
+                String description = jo.getString("description");
+                String attendance = jo.getString("attendance");
 
                 s = new EventsList();
                 s.setId(id);
                 s.setName(name);
-                s.setUser_id(user_id);
+                s.setLocation(location);
+                s.setDate(date);
+                s.setTime(time);
+                s.setPrice(price);
+                s.setDescription(description);
+                s.setAttendance(attendance);
 
                 eventsLists.add(s);
             }

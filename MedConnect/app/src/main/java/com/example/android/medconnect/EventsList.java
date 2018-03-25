@@ -7,7 +7,8 @@ package com.example.android.medconnect;
 public class EventsList {
 
     int id;
-    String name, user_id;
+    String name, location, date, time, price, description, attendance;
+
 
     public int getId() {
         return id;
@@ -25,12 +26,51 @@ public class EventsList {
         this.name = name;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getLocation() {
+        return location;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(String attendance) {
+        this.attendance = attendance;
+    }
 }
