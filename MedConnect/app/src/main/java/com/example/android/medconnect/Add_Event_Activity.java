@@ -31,6 +31,7 @@ public class Add_Event_Activity extends AppCompatActivity {
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etTimes = (EditText) findViewById(R.id.etTimes);
         final EditText etPrice = (EditText) findViewById(R.id.etPrice);
+        final EditText etDate = (EditText) findViewById(R.id.etDate);
         final Button bRegister = (Button) findViewById(R.id.bCreateSurvey);
         final TextView cancelLink = (TextView) findViewById(R.id.tvCancel);
 
@@ -51,6 +52,7 @@ public class Add_Event_Activity extends AppCompatActivity {
                 final String Email = etEmail.getText().toString();
                 final String Times = etTimes.getText().toString();
                 final String Price = etPrice.getText().toString();
+                final String Date = etDate.getText().toString();
 
                 SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                 final String ID = preferences.getString("user_id","1");
@@ -77,7 +79,7 @@ public class Add_Event_Activity extends AppCompatActivity {
                     }
                 };
 
-                AddEventRequest addEventRequest = new AddEventRequest(EventName, Location, Phone, Email, Times, Price,ID, responseListener);
+                AddEventRequest addEventRequest = new AddEventRequest(EventName, Location, Phone, Email, Times, Price,Date,ID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Add_Event_Activity.this);
                 queue.add(addEventRequest);
 
