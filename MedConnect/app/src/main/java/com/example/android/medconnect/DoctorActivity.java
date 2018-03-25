@@ -23,6 +23,7 @@ public class DoctorActivity extends AppCompatActivity {
         final TextView tvProfile = (TextView) findViewById(R.id.tvProfile);
         final TextView tvPatients = (TextView) findViewById(R.id.tvPatients);
         final TextView tvEvents = (TextView) findViewById(R.id.tvEvents);
+        final TextView tvAddSurvey = (TextView) findViewById(R.id.tvAddSurvey);
         final Button bLogout = (Button) findViewById(R.id.bLogout);
 
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -43,6 +44,13 @@ public class DoctorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent doctorPatientIntent = new Intent(DoctorActivity.this, DoctorPatientListActivity.class);
                 DoctorActivity.this.startActivity(doctorPatientIntent);
+            }
+        });
+        tvAddSurvey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent doctorasurveyIntent = new Intent(DoctorActivity.this, add_survey.class);
+                DoctorActivity.this.startActivity(doctorasurveyIntent);
             }
         });
 

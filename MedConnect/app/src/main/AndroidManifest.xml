@@ -137,8 +137,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DoctorActivity" />
         </activity>
-        <activity android:name=".EventListActivity" />
-        <activity android:name=".EventsListActivity"></activity>
+        <activity
+            android:name=".EventsListActivity"
+            android:parentActivityName=".OrganizationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrganizationActivity" />
+        </activity>
+        <activity
+            android:name=".add_survey"
+            android:parentActivityName=".DoctorActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DoctorActivity" />
+        </activity>
     </application>
 
 </manifest>

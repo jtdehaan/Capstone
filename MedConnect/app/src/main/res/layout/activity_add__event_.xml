@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="59dp"
         android:text="Register" />
 
     <TextView
@@ -89,7 +89,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/etPrice"
         android:ems="10"
-        android:hint="Times"
+        android:hint="Time(Military Time)"
         android:inputType="textPassword|date|time" />
 
     <EditText
@@ -104,4 +104,16 @@
         android:ems="10"
         android:hint="Price"
         android:inputType="textPassword|number" />
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etEmail"
+        android:ems="10"
+        android:hint="Date(YYYY-MM-DD)"
+        android:inputType="textPassword|date" />
 </RelativeLayout>
