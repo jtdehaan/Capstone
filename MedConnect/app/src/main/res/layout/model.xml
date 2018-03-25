@@ -28,6 +28,18 @@
         <!-- android:visibility="invisible" -->
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Description....................."
+            android:id="@+id/descTxt"
+            android:padding="10dp"
+            android:layout_below="@+id/nameTxt"
+            android:layout_alignParentLeft="true"
+
+            />
+
+        <TextView
             android:id="@+id/user_idTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -11,7 +11,7 @@ import com.example.android.medconnect.EventsListDownloader;
 
 public class EventsListActivity extends AppCompatActivity {
 
-    String urlAddress="http://cgi.soic.indiana.edu/~team37/Event_List.php";
+    String urlAddress="http://cgi.soic.indiana.edu/~team37/Events_List.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
