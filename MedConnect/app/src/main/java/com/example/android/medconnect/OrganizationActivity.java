@@ -48,8 +48,8 @@ public class OrganizationActivity extends AppCompatActivity {
         tvMyEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent organizationMyEventsIntent = new Intent(OrganizationActivity.this, orginization_my_events.class);
-                OrganizationActivity.this.startActivity(organizationMyEventsIntent);
+                Intent myEventsIntent = new Intent(OrganizationActivity.this, MyEventsActivity.class);
+                OrganizationActivity.this.startActivity(myEventsIntent);
             }
         });
         tvAddEvent.setOnClickListener(new View.OnClickListener() {

@@ -56,7 +56,7 @@ public class EventsListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.model_events, parent, false);
+            convertView = inflater.inflate(R.layout.model_my_events, parent, false);
         }
 
         //String name, location, date, time, price, description, attendance;
