@@ -14,24 +14,12 @@
         <activity android:name=".SelectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".PatientActivity"
-            android:parentActivityName=".SelectionActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SelectionActivity" />
-        </activity>
-        <activity
-            android:name=".DoctorActivity"
-            android:parentActivityName=".SelectionActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SelectionActivity" />
-        </activity>
+        <activity android:name=".PatientActivity"></activity>
+        <activity android:name=".DoctorActivity"></activity>
+        <activity android:name=".OrganizationActivity"></activity>
         <activity
             android:name=".RegisterOrganizationActivity"
             android:parentActivityName=".LoginOrganizationActivity">
@@ -59,13 +47,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginDoctorActivity" />
-        </activity>
-        <activity
-            android:name=".OrganizationActivity"
-            android:parentActivityName=".SelectionActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SelectionActivity" />
         </activity>
         <activity
             android:name=".LoginDoctorActivity"
@@ -116,7 +97,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientProfileActivity" />
         </activity>
-        <activity android:name=".orginization_my_events" />
         <activity
             android:name=".DoctorProfileEditActivity"
             android:parentActivityName=".DoctorProfileActivity">
@@ -151,7 +131,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DoctorActivity" />
         </activity>
-        <activity android:name=".MyEventsActivity"></activity>
+        <activity
+            android:name=".MyEventsActivity"
+            android:parentActivityName=".OrganizationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OrganizationActivity" />
+        </activity>
     </application>
 
 </manifest>
