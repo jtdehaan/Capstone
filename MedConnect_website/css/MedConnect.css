@@ -1,0 +1,346 @@
+/* Color Choices
+Dark blue: #201EAD
+Light blue: #33A1FF
+Tan: #FBD89A
+*/
+
+/* natural box model */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Browser Upgrade Prompt */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* hides an element, but not from screen readers */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* no break */
+
+.nobr {
+    white-space: nowrap;
+}
+
+/*
+    STRUCTURE
+*/
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+body {
+    background-color: #33A1FF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*
+    TYPOGRAPHY
+*/
+p, h1, h2, h3, ul, ol, li, tr, td, th {
+    cursor: default;
+}
+p{
+    text-align: left;
+}
+h1 {
+    font-size: 48px;
+}
+h1, h2, h3 {
+    text-align: center;
+    margin: 0px;
+}
+ul, li {
+    text-decoration: none;
+    text-align: left;
+}
+a {
+    text-decoration: underline;
+    color: black;
+}
+
+p {
+    text-align: center;
+}
+
+/*
+    IMAGES
+*/
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* clearfix - in case you decide to float elements */
+
+.group::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*
+    LINKS
+*/
+a{
+    color: #201EAD
+}
+a:hover{
+    opacity: .8;
+}
+/*
+    TABLES
+*/
+
+.table {
+    /* border-collapse: collapse; */
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.table td, .table th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FBD89A;
+}
+
+.button {
+    width: 120px;
+    height: 45px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/* HEADER */
+
+header {
+    background-color: rgba(244, 243, 243, 0.9);
+    text-align: center;
+    padding: 30px 0 30px 0;
+}
+/*
+ CURRENT PAGE
+  */
+.current-page h2{
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 20px;
+    background-color: rgba(244, 243, 243, 0.9);
+    margin: 10px 25%;
+}
+/*
+    HOME
+*/
+
+.content {
+    padding: 10px;
+}
+
+main{
+	padding: 10px;
+	text-align: center;
+    align-self: center;
+}
+
+
+.admin_patient{
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(244, 243, 243, 0.9);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+.admin_Doctor{
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(244, 243, 243, 0.9);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+.admin_Organization{
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(244, 243, 243, 0.9);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+.contact-user{
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(244, 243, 243, 0.9);
+    overflow-y: auto;
+    margin-top: 10px;
+}
+/*
+NAVIGATION
+*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FBD89A;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 5px solid #33A1FF;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #201EAD;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #33A1FF;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+span {
+    float: right;
+
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    color: #201EAD;
+    float: left;
+    margin-left: 25px;
+}
+
+.fa-bars {
+    font-size: 45px;
+}
+.menu:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/*
+    FOOTER
+*/
+footer {
+    /* KEEPS FOOTER AT BOTTOM OF PAGE. NEED TO MOVE ICON UP FIRST
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    */
+    background-color: #C0C0C0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.contact{
+    color: #201EAD;
+}
+.contact h2 {
+    color: black;
+}
+.icon {
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    flex-direction: row;
+    font-size: 25px;
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+}
+.fa-facebook-square {
+    display: flex;
+    color: #3B5998;
+    margin: 0 15px 15px 0;
+}
+
+.fa-facebook-square:hover {
+    color: #6d84b4;
+}
+
+.fa-twitter {
+    display: flex;
+    color: #1dcaff;
+    margin: 0 15px 15px 0;
+}
+
+.fa-twitter:hover {
+    color: #0084b4;
+}
+.contact-format {
+    text-align: left;
+    padding-left: 75px;
+}
+/* FORM */
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.help-block{
+
+}
