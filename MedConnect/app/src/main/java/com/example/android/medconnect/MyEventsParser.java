@@ -81,6 +81,7 @@ public class MyEventsParser extends AsyncTask<Void, Void, Integer> {
                 String time = jo.getString("time");
                 String price = jo.getString("price");
                 String description = jo.getString("description");
+                //String organizationID = jo.getString("OrganizationID");
                 String attendance = jo.getString("attendance");
 
                 s = new MyEvents();

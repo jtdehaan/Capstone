@@ -14,12 +14,13 @@
         <activity android:name=".SelectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PatientActivity"></activity>
-        <activity android:name=".DoctorActivity"></activity>
-        <activity android:name=".OrganizationActivity"></activity>
+        <activity android:name=".PatientActivity" />
+        <activity android:name=".DoctorActivity" />
+        <activity android:name=".OrganizationActivity" />
         <activity
             android:name=".RegisterOrganizationActivity"
             android:parentActivityName=".LoginOrganizationActivity">
@@ -137,6 +138,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".OrganizationActivity" />
+        </activity>
+        <activity
+            android:name=".MyEventsUpdateActivity"
+            android:parentActivityName=".MyEventsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyEventsActivity" />
+                />
         </activity>
     </application>
 

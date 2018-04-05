@@ -27,12 +27,11 @@ public class Add_Event_Activity extends AppCompatActivity {
 
         final EditText etEventName = (EditText) findViewById(R.id.etEventName);
         final EditText etLocation = (EditText) findViewById(R.id.etLocation);
-        final EditText etPhone = (EditText) findViewById(R.id.etPhone);
-        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
+        final EditText etDescription = (EditText) findViewById(R.id.etDescription);
         final EditText etTimes = (EditText) findViewById(R.id.etTimes);
         final EditText etPrice = (EditText) findViewById(R.id.etPrice);
         final EditText etDate = (EditText) findViewById(R.id.etDate);
-        final Button bRegister = (Button) findViewById(R.id.bCreateSurvey);
+        final Button bRegister = (Button) findViewById(R.id.bCreateEvent);
         final TextView cancelLink = (TextView) findViewById(R.id.tvCancel);
 
         cancelLink.setOnClickListener(new View.OnClickListener() {
@@ -47,15 +46,14 @@ public class Add_Event_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String EventName = etEventName.getText().toString();
+                final String Description = etDescription.getText().toString();
                 final String Location = etLocation.getText().toString();
-                final String Phone = etPhone.getText().toString();
-                final String Email = etEmail.getText().toString();
                 final String Times = etTimes.getText().toString();
                 final String Price = etPrice.getText().toString();
                 final String Date = etDate.getText().toString();
 
                 SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                final String ID = preferences.getString("user_id","1");
+                final String ID = preferences.getString("user_id","");
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -79,7 +77,7 @@ public class Add_Event_Activity extends AppCompatActivity {
                     }
                 };
 
-                AddEventRequest addEventRequest = new AddEventRequest(EventName, Location, Phone, Email, Times, Price,Date,ID, responseListener);
+                AddEventRequest addEventRequest = new AddEventRequest(EventName, Description, Location, Times, Price, Date, ID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Add_Event_Activity.this);
                 queue.add(addEventRequest);
 

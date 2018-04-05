@@ -1,6 +1,7 @@
 package com.example.android.medconnect;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,11 +57,12 @@ public class MyEventsAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.model_events, parent, false);
+            convertView = inflater.inflate(R.layout.model_my_events, parent, false);
         }
 
         //String name, location, date, time, price, description, attendance;
 
+        TextView eventIDTxt = (TextView) convertView.findViewById(R.id.eventIDTxt);
         TextView nameTxt = (TextView) convertView.findViewById(R.id.nameTxt);
         TextView locationTxt = (TextView) convertView.findViewById(R.id.locationTxt);
         TextView dateTxt = (TextView) convertView.findViewById(R.id.dateTxt);
@@ -69,6 +71,7 @@ public class MyEventsAdapter extends BaseAdapter {
         TextView descriptionTxt = (TextView) convertView.findViewById(R.id.descriptionTxt);
         TextView attendanceTxt = (TextView) convertView.findViewById(R.id.attendanceTxt);
 
+        eventIDTxt.setText(String.valueOf(myEvents.get(position).getId()));
         nameTxt.setText(myEvents.get(position).getName());
         locationTxt.setText(myEvents.get(position).getLocation());
         dateTxt.setText(myEvents.get(position).getDate());
@@ -82,6 +85,28 @@ public class MyEventsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Toast.makeText(c, myEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
+
+                SharedPreferences preferences = c.getSharedPreferences("eventInfo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+
+                editor.putString("eventID", String.valueOf(myEvents.get(position).getId()));
+                editor.putString("name", myEvents.get(position).getName());
+                editor.putString("location", myEvents.get(position).getLocation());
+                editor.putString("date", myEvents.get(position).getDate());
+                editor.putString("time", myEvents.get(position).getTime());
+                editor.putString("price", myEvents.get(position).getPrice());
+                editor.putString("description", myEvents.get(position).getDescription());
+                editor.apply();
+
+                /*Intent i = new Intent();
+                i.setClassName("com.example.android.medconnect", "com.example.android.medconnect.MyEventsUpdateRequest");
+                c.startActivity(i);*/
+
+               // Intent updateIntent = new Intent(Intent.ACTION_CALL);
+               // callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               // callIntent.setData(Uri.parse("tel:"+MapActivity.phonenumber0));
+               // MyEventsActivity.getContext().startActivity(updateIntent);
+
                 // Toast.makeText(c, patientLists.get(position).getUser_id(), Toast.LENGTH_SHORT).show();
 
                 /*

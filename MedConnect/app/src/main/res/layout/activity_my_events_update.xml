@@ -46,7 +46,7 @@
         android:inputType="textPostalAddress" />
 
     <EditText
-        android:id="@+id/etTimes"
+        android:id="@+id/etTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -66,7 +66,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/etTimes"
+        android:layout_below="@+id/etTime"
         android:ems="10"
         android:hint="Price"
         android:inputType="textPassword|number" />
@@ -85,19 +85,19 @@
         android:inputType="textPassword|date" />
 
     <Button
-        android:id="@+id/bCreateEvent"
+        android:id="@+id/bUpdateEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etDate"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="59dp"
-        android:text="Create Event" />
+        android:text="Update Event" />
 
     <TextView
         android:id="@+id/tvCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bCreateEvent"
+        android:layout_below="@+id/bUpdateEvent"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:text="Cancel"

@@ -24,6 +24,17 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/colorPrimary" />
 
+        <TextView
+            android:id="@+id/eventIDTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="ID"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_below="@+id/nameTxt"
+            android:textColor="@color/colorAccent" />
+
+        <!--android:layout_alignParentRight="true"-->
         <!-- android:visibility="invisible" -->
 
         <TextView
@@ -33,7 +44,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Location"
             android:padding="10dp"
-            android:layout_below="@+id/nameTxt"
+            android:layout_below="@+id/eventIDTxt"
             android:layout_alignParentLeft="true"
 
             />

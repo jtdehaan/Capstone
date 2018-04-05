@@ -16,6 +16,7 @@ public class MyEventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_events);
         final ListView lv = (ListView) findViewById(R.id.lv);
 
+        //GET USER_ID & PLACE IN URL
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         final String OrganizationID = sharedPref.getString("user_id", "");
 
