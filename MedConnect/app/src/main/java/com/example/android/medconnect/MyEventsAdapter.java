@@ -84,7 +84,7 @@ public class MyEventsAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(c, myEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(c, myEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
 
                 SharedPreferences preferences = c.getSharedPreferences("eventInfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
