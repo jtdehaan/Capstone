@@ -30,6 +30,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="ID"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_below="@+id/nameTxt"
             android:textColor="@color/colorAccent" />
@@ -44,7 +46,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Location"
             android:padding="10dp"
-            android:layout_below="@+id/eventIDTxt"
+            android:layout_below="@+id/nameTxt"
             android:layout_alignParentLeft="true"
 
             />
@@ -90,11 +92,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Description....................."
+            android:text="Description"
             android:padding="10dp"
             android:layout_below="@+id/priceTxt"
             android:layout_alignParentLeft="true"
-
             />
 
         <TextView

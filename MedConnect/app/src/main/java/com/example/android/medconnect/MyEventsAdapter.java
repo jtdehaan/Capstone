@@ -71,7 +71,7 @@ public class MyEventsAdapter extends BaseAdapter {
         TextView descriptionTxt = (TextView) convertView.findViewById(R.id.descriptionTxt);
         TextView attendanceTxt = (TextView) convertView.findViewById(R.id.attendanceTxt);
 
-        eventIDTxt.setText(String.valueOf(myEvents.get(position).getId()));
+        eventIDTxt.setText(myEvents.get(position).getEventID());
         nameTxt.setText(myEvents.get(position).getName());
         locationTxt.setText(myEvents.get(position).getLocation());
         dateTxt.setText(myEvents.get(position).getDate());
@@ -89,7 +89,7 @@ public class MyEventsAdapter extends BaseAdapter {
                 SharedPreferences preferences = c.getSharedPreferences("eventInfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
 
-                editor.putString("eventID", String.valueOf(myEvents.get(position).getId()));
+                editor.putString("eventID", myEvents.get(position).getEventID());
                 editor.putString("name", myEvents.get(position).getName());
                 editor.putString("location", myEvents.get(position).getLocation());
                 editor.putString("date", myEvents.get(position).getDate());
@@ -98,8 +98,11 @@ public class MyEventsAdapter extends BaseAdapter {
                 editor.putString("description", myEvents.get(position).getDescription());
                 editor.apply();
 
+                Intent i = new Intent(c, MyEventsUpdateActivity.class);
+                c.startActivity(i);
+
                 /*Intent i = new Intent();
-                i.setClassName("com.example.android.medconnect", "com.example.android.medconnect.MyEventsUpdateRequest");
+                i.setClassName("com.example.android.medconnect.MyEventsActivity", "com.example.android.medconnect.MyEventsUpdateRequest");
                 c.startActivity(i);*/
 
                // Intent updateIntent = new Intent(Intent.ACTION_CALL);

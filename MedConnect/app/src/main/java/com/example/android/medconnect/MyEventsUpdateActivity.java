@@ -42,16 +42,16 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
         final String eventID = sharedPref.getString("eventID", "");
         final String shName = sharedPref.getString("name", "");
         final String shLocation = sharedPref.getString("location", "");
-        final String shDate = sharedPref.getString("eventID", "");
-        final String shTime = sharedPref.getString("eventID", "");
-        final String shPrice = sharedPref.getString("eventID", "");
-        final String shDescription = sharedPref.getString("eventID", "");
+        final String shDate = sharedPref.getString("date", "");
+        final String shTime = sharedPref.getString("time", "");
+        final String shPrice = sharedPref.getString("price", "");
+        final String shDescription = sharedPref.getString("description", "");
 
         etEventName.setText(shName);
         etLocation.setText(shLocation);
+        etDate.setText(shDate);
         etTime.setText(shTime);
         etPrice.setText(shPrice);
-        etDate.setText(shDate);
         etDescription.setText(shDescription);
 
         cancelLink.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +68,6 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
                 final String name = etEventName.getText().toString();
                 final String description = etDescription.getText().toString();
                 final String location = etLocation.getText().toString();
-          //      final String phone = etPhone.getText().toString();
-          //      final String email = etEmail.getText().toString();
                 final String time = etTime.getText().toString();
                 final String price = etPrice.getText().toString();
                 final String date = etDate.getText().toString();

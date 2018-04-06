@@ -83,6 +83,7 @@ public class MyEventsParser extends AsyncTask<Void, Void, Integer> {
                 String description = jo.getString("description");
                 //String organizationID = jo.getString("OrganizationID");
                 String attendance = jo.getString("attendance");
+                String eventID = jo.getString("EventID");
 
                 s = new MyEvents();
                 s.setId(id);
@@ -93,6 +94,7 @@ public class MyEventsParser extends AsyncTask<Void, Void, Integer> {
                 s.setPrice(price);
                 s.setDescription(description);
                 s.setAttendance(attendance);
+                s.setEventID(eventID);
 
                 myEvents.add(s);
             }

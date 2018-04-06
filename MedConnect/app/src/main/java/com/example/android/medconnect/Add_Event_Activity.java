@@ -26,12 +26,12 @@ public class Add_Event_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_add__event_);
 
         final EditText etEventName = (EditText) findViewById(R.id.etEventName);
-        final EditText etLocation = (EditText) findViewById(R.id.etLocation);
         final EditText etDescription = (EditText) findViewById(R.id.etDescription);
+        final EditText etLocation = (EditText) findViewById(R.id.etLocation);
         final EditText etTimes = (EditText) findViewById(R.id.etTimes);
         final EditText etPrice = (EditText) findViewById(R.id.etPrice);
         final EditText etDate = (EditText) findViewById(R.id.etDate);
-        final Button bRegister = (Button) findViewById(R.id.bCreateEvent);
+        final Button bCreateEvent = (Button) findViewById(R.id.bCreateEvent);
         final TextView cancelLink = (TextView) findViewById(R.id.tvCancel);
 
         cancelLink.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class Add_Event_Activity extends AppCompatActivity {
             }
         });
 
-        bRegister.setOnClickListener(new View.OnClickListener() {
+        bCreateEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String EventName = etEventName.getText().toString();

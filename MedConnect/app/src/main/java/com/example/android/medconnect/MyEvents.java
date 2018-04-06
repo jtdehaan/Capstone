@@ -7,7 +7,7 @@ package com.example.android.medconnect;
 public class MyEvents {
 
     int id;
-    String name, location, date, time, price, description, attendance;
+    String name, location, date, time, price, description, attendance, eventID;
 
 
     public int getId() {
@@ -72,5 +72,13 @@ public class MyEvents {
 
     public void setAttendance(String attendance) {
         this.attendance = attendance;
+    }
+
+    public String getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
 }
