@@ -145,8 +145,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MyEventsActivity" />
-                />
+            />
         </activity>
+        <activity android:name=".my_surveys_doctor"></activity>
     </application>
 
 </manifest>
