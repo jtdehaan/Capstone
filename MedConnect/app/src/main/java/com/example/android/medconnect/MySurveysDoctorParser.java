@@ -74,11 +74,11 @@ public class MySurveysDoctorParser extends AsyncTask<Void, Void, Integer> {
 
                 int id = jo.getInt("SurveyID");
                 String name = jo.getString("name");
-                String question1 = jo.getString("question1");
-                String question2 = jo.getString("question2");
-                String question3 = jo.getString("question3");
-                String question4 = jo.getString("question4");
-                String question5 = jo.getString("question5");
+                String question1 = jo.getString("q1");
+                String question2 = jo.getString("q2");
+                String question3 = jo.getString("q3");
+                String question4 = jo.getString("q4");
+                String question5 = jo.getString("q5");
                 String surveyID = jo.getString("SurveyID");
 
                 s = new MySurveysDoctor();
