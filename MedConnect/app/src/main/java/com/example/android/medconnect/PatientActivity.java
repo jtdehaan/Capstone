@@ -38,6 +38,15 @@ public class PatientActivity extends AppCompatActivity {
             }
         });
 
+        tvEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent patientEventIntent = new Intent(PatientActivity.this, PatientEventsActivity.class);
+                PatientActivity.this.startActivity(patientEventIntent);
+            }
+        });
+
+
         //Set timer for 15 minutes
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
