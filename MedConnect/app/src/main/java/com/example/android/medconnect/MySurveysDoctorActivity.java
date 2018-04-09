@@ -14,7 +14,7 @@ public class MySurveysDoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_surveys_doctor);
-        final ListView lv = (ListView) findViewById(R.id.lvl);
+        final ListView lv = (ListView) findViewById(R.id.lv);
 
         //GET USER_ID & PLACE IN URL
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -23,6 +23,6 @@ public class MySurveysDoctorActivity extends AppCompatActivity {
         urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=" + DoctorID;
 
         MySurveysDoctorDownloader d = new MySurveysDoctorDownloader(MySurveysDoctorActivity.this, urlAddress, lv);
-        d.execute();
+        //d.execute();
     }
 }

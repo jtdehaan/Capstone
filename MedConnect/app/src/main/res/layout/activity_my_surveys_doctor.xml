@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.medconnect.MySurveysDoctorActivity">
+    tools:context="com.example.android.medconnect.MyEventsActivity">
 
     <ListView
-        android:id="@+id/lvl"
+        android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

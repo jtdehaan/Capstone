@@ -140,6 +140,13 @@
                 android:value=".OrganizationActivity" />
         </activity>
         <activity
+            android:name=".MySurveysDoctorActivity"
+            android:parentActivityName=".DoctorActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DoctorActivity" />
+        </activity>
+        <activity
             android:name=".MyEventsUpdateActivity"
             android:parentActivityName=".MyEventsActivity">
             <meta-data
@@ -147,7 +154,7 @@
                 android:value=".MyEventsActivity" />
             />
         </activity>
-        <activity android:name=".my_surveys_doctor"></activity>
+
     </application>
 
 </manifest>
