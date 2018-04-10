@@ -54,7 +54,7 @@ public class PatientEventsDownloader extends AsyncTask<Void, Void, String> {
         pd.dismiss();
 
         if (s == null) {
-            Toast.makeText(c, "Unsuccessfull,Null returned", Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "Unsuccessfull, null returned", Toast.LENGTH_SHORT).show();
         } else {
             //CALL DATA PARSER TO PARSE
             PatientEventsParser parser = new PatientEventsParser(c, lv, s);

@@ -18,10 +18,10 @@ public class PatientEventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_events);
-        final ListView lv = (ListView) findViewById(R.id.lv);
+        final ListView listView = (ListView) findViewById(R.id.lv);
 
 
-        EventsListDownloader d = new EventsListDownloader(PatientEventsActivity.this, urlAddress, lv);
-        d.execute();
+        PatientEventsDownloader patientEventsDownloader = new PatientEventsDownloader(PatientEventsActivity.this, urlAddress, listView);
+        patientEventsDownloader.execute();
     }
 }

@@ -21,8 +21,8 @@ public class DoctorActivity extends AppCompatActivity {
         //Set the name TextView to the name from the logged in user
         final TextView tvName = (TextView) findViewById(R.id.tvName);
         final TextView tvProfile = (TextView) findViewById(R.id.tvProfile);
-        final TextView tvPatients = (TextView) findViewById(R.id.tvPatients);
-        final TextView tvEvents = (TextView) findViewById(R.id.tvEvents);
+        //final TextView tvPatients = (TextView) findViewById(R.id.tvPatients);
+        //final TextView tvEvents = (TextView) findViewById(R.id.tvEvents);
         final TextView tvAddSurvey = (TextView) findViewById(R.id.tvAddSurvey);
         final TextView tvMySurveys = (TextView) findViewById(R.id.tvMySurveys);
         final Button bLogout = (Button) findViewById(R.id.bLogout);
@@ -40,13 +40,13 @@ public class DoctorActivity extends AppCompatActivity {
             }
         });
 
-        tvPatients.setOnClickListener(new View.OnClickListener() {
+        /*tvPatients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent doctorPatientIntent = new Intent(DoctorActivity.this, DoctorPatientListActivity.class);
                 DoctorActivity.this.startActivity(doctorPatientIntent);
             }
-        });
+        });*/
         tvAddSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

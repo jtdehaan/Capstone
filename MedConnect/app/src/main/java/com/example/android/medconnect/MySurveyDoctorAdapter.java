@@ -38,11 +38,13 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
         inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    //Determine size of the array
     @Override
     public int getCount() {
         return mySurveysDoctor.size();
     }
 
+    //Item contained within the array position
     @Override
     public Object getItem(int position) {
         return mySurveysDoctor.get(position);

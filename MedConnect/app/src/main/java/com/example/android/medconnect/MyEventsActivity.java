@@ -14,7 +14,7 @@ public class MyEventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_events);
-        final ListView lv = (ListView) findViewById(R.id.lv);
+        final ListView listView = (ListView) findViewById(R.id.lv);
 
         //GET USER_ID & PLACE IN URL
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -22,7 +22,7 @@ public class MyEventsActivity extends AppCompatActivity {
 
         urlAddress = "http://cgi.soic.indiana.edu/~team37/My_Events.php/?OrganizationID=" + OrganizationID;
 
-        MyEventsDownloader d = new MyEventsDownloader(MyEventsActivity.this, urlAddress, lv);
-        d.execute();
+        MyEventsDownloader myEventsDownloader = new MyEventsDownloader(MyEventsActivity.this, urlAddress, listView);
+        myEventsDownloader.execute();
     }
 }

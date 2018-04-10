@@ -17,10 +17,9 @@ public class EventsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_list);
-        final ListView lv= (ListView) findViewById(R.id.lv);
+        final ListView listView= (ListView) findViewById(R.id.lv);
 
-
-        EventsListDownloader d=new EventsListDownloader(EventsListActivity.this,urlAddress,lv);
-        d.execute();
+        EventsListDownloader eventsListDownloader = new EventsListDownloader(EventsListActivity.this,urlAddress,listView);
+        eventsListDownloader.execute();
     }
 }

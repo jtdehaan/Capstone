@@ -6,8 +6,12 @@
 
     <color name="graylight">#fafafa</color>
     <color name="startgreen">#9df759</color>
-    <color name="endgreen">#47bc5f</color>
     <color name="startblue">#09c6df</color>
+    <color name="startred">#ce231a</color>
+    <color name="startpurple">#8e299b</color>
+    <color name="endyellow">#f9f213</color>
+    <color name="endgreen">#47bc5f</color>
+    <color name="endbrown">#663d0c</color>
     <color name="endblue">#042966</color>
     <color name="primary_color">#4A312A</color>
     <color name="primary_dark_color">#2F1D1A</color>

@@ -17,11 +17,10 @@ public class DoctorPatientListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_patient_list);
-        final ListView lv= (ListView) findViewById(R.id.lv);
+        final ListView listView= (ListView) findViewById(R.id.lv);
 
 
-        PatientListDownloader d=new PatientListDownloader(DoctorPatientListActivity.this,urlAddress,lv);
-        d.execute();
+        PatientListDownloader patientListDownloader = new PatientListDownloader(DoctorPatientListActivity.this,urlAddress, listView);
+        patientListDownloader.execute();
     }
 }
-

@@ -37,15 +37,15 @@ public class PatientEventsAdapter extends BaseAdapter {
         inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    //Determine size of the array
     @Override
     public int getCount() {
         return patientEvents.size();
     }
 
+    //Item contained within the array position
     @Override
-    public Object getItem(int position) {
-        return patientEvents.get(position);
-    }
+    public Object getItem(int position) { return patientEvents.get(position); }
 
     @Override
     public long getItemId(int position) {
@@ -56,11 +56,12 @@ public class PatientEventsAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.model_events, parent, false);
+            convertView = inflater.inflate(R.layout.model_patient_events, parent, false);
         }
 
         //String name, location, date, time, price, description, attendance;
 
+        TextView eventIDTxt = (TextView) convertView.findViewById(R.id.eventIDTxt);
         TextView nameTxt = (TextView) convertView.findViewById(R.id.nameTxt);
         TextView locationTxt = (TextView) convertView.findViewById(R.id.locationTxt);
         TextView dateTxt = (TextView) convertView.findViewById(R.id.dateTxt);
@@ -69,6 +70,7 @@ public class PatientEventsAdapter extends BaseAdapter {
         TextView descriptionTxt = (TextView) convertView.findViewById(R.id.descriptionTxt);
         TextView attendanceTxt = (TextView) convertView.findViewById(R.id.attendanceTxt);
 
+        eventIDTxt.setText(patientEvents.get(position).getEventID());
         nameTxt.setText(patientEvents.get(position).getName());
         locationTxt.setText(patientEvents.get(position).getLocation());
         dateTxt.setText(patientEvents.get(position).getDate());
@@ -81,31 +83,21 @@ public class PatientEventsAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(c, patientEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
+               //Toast.makeText(c, patientEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
                 // Toast.makeText(c, patientLists.get(position).getUser_id(), Toast.LENGTH_SHORT).show();
 
-                /*
-                patient_id = eventsList.get(position).getUser_id();
-
-                SharedPreferences preferences = c.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("patient_id", patient_id);
-                editor.apply();
+                String event_id = patientEvents.get(position).getEventID();
 
                 SharedPreferences sharedPref = c.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                String doctor_id = sharedPref.getString("user_id", "");
-                String patient_id = sharedPref.getString("patient_id", "");
+                String patient_id = sharedPref.getString("user_id", "");
 
-                */
 
                 /*
                 Toast.makeText(getApplicationContext(), patient_id,
                         Toast.LENGTH_LONG).show();\
                         */
 
-                ///*
 
-                /*
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -115,12 +107,12 @@ public class PatientEventsAdapter extends BaseAdapter {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if (success) {
-                               /* AlertDialog.Builder builder = new AlertDialog.Builder(DoctorPatientListActivity.);
+                                /*AlertDialog.Builder builder = new AlertDialog.Builder(DoctorPatientListActivity.);
                                 builder.setMessage("Success! You are now connected!")
                                         .setPositiveButton("Ok", null)
                                         .create()
-                                        .show();
-                                Toast.makeText(c, "Successfully connected with " + patientLists.get(position).getName(), Toast.LENGTH_SHORT).show();
+                                        .show();*/
+                                Toast.makeText(c, "Successfully registered for the '" + patientEvents.get(position).getName() + "' event!", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 // When clicked, show a toast with the TextView text
@@ -133,18 +125,15 @@ public class PatientEventsAdapter extends BaseAdapter {
                         }
 
                     }
-                    */
-            };
+                };
 
-            /*
-                DoctorPatientListRequest doctorPatientListRequest = new DoctorPatientListRequest(doctor_id, patient_id, responseListener);
+                PatientEventsRegisterRequest registerEventRequest = new PatientEventsRegisterRequest(event_id, patient_id, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(c);
-                queue.add(doctorPatientListRequest);
+                queue.add(registerEventRequest);
 
-                //*/
-
+            }
         });
-
         return convertView;
+
     }
 }

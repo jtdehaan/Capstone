@@ -14,7 +14,7 @@ public class PatientEventsRegisterRequest extends StringRequest {
     public PatientEventsRegisterRequest(String event_id, String patient_id, Response.Listener<String> listener){
         super(Method.POST, PATIENT_EVENTS_REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
-        params.put("doctor_id", event_id);
+        params.put("event_id", event_id);
         params.put("patient_id", patient_id);
     }
 

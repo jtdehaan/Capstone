@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="320dp"
-            android:background="@drawable/gradientbackground"
+            android:background="@drawable/gradientbackground2"
             android:orientation="vertical">
 
             <Button
@@ -68,31 +68,30 @@
                 style="@style/CategoryStyle"
                 android:background="@color/category_1"
                 android:text="My Profile" />
-            <TextView
+            <!--<TextView
                 android:id="@+id/tvPatients"
                 android:clickable="true"
                 style="@style/CategoryStyle"
                 android:background="@color/category_2"
-                android:text="Patients" />
-            <TextView
+                android:text="Patients" />-->
+            <!--<TextView
                 android:id="@+id/tvEvents"
                 android:clickable="true"
                 style="@style/CategoryStyle"
                 android:background="@color/category_3"
-                android:text="Events" />
+                android:text="Events" />-->
+            <TextView
+                android:id="@+id/tvMySurveys"
+                android:clickable="true"
+                style="@style/CategoryStyle"
+                android:background="@color/category_2"
+                android:text="My Surveys" />
             <TextView
                 android:id="@+id/tvAddSurvey"
                 android:clickable="true"
                 style="@style/CategoryStyle"
                 android:background="@color/category_4"
                 android:text="Add Survey" />
-
-            <TextView
-                android:id="@+id/tvMySurveys"
-                android:clickable="true"
-                style="@style/CategoryStyle"
-                android:background="@color/category_1"
-                android:text="My Surveys" />
         </LinearLayout>
     </ScrollView>
 
