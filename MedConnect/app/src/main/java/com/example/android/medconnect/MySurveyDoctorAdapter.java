@@ -100,8 +100,8 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
                 editor.apply();
 
                 //add in after update ready
-                //Intent i = new Intent(c, MySurveyDoctorUpdateActivity.class);
-                //c.startActivity(i);
+                Intent i = new Intent(c, MySurveysDoctorUpdate.class);
+                c.startActivity(i);
 
 
             };
