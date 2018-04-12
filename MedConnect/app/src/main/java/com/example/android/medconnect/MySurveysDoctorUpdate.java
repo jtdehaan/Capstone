@@ -91,11 +91,11 @@ public class MySurveysDoctorUpdate extends AppCompatActivity {
                                 //String user_id = preferences.getString("user_id", "");
                                 SharedPreferences.Editor editor = preferences.edit();
                                 editor.putString("name", name);
-                                editor.putString("q1", q1);
-                                editor.putString("q2", q2);
-                                editor.putString("q3", q3);
-                                editor.putString("q4", q4);
-                                editor.putString("q5", q5);
+                                editor.putString("question1", q1);
+                                editor.putString("question2", q2);
+                                editor.putString("question3", q3);
+                                editor.putString("question4", q4);
+                                editor.putString("question5", q5);
                                 editor.apply();
 
                                 Toast.makeText(MySurveysDoctorUpdate.this, "Successfully Updated Event", Toast.LENGTH_SHORT).show();
