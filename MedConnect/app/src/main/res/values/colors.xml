@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimary">#33A1FF</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="graylight">#fafafa</color>
     <color name="startgreen">#9df759</color>
+    <color name="altstartblue">#09c6df</color>
     <color name="startblue">#09c6df</color>
     <color name="startred">#ce231a</color>
     <color name="startpurple">#8e299b</color>
     <color name="endyellow">#f9f213</color>
     <color name="endgreen">#47bc5f</color>
     <color name="endbrown">#663d0c</color>
-    <color name="endblue">#042966</color>
+    <color name="altendblue">#042966</color>
+    <color name="endblue">#1f506b</color>
     <color name="primary_color">#4A312A</color>
     <color name="primary_dark_color">#2F1D1A</color>
 
@@ -20,15 +23,22 @@
     <color name="tan_background">#FFF7DA</color>
 
     <!-- Background color for the 1st category -->
-    <color name="category_1">#379237</color>
+    <!--<color name="category_1">#379237</color>-->
+    <!--<color name="category_1">#FBD89A</color>-->
+    <color name="category_1">#201EAD</color>
 
     <!-- Background color for the 2nd category -->
-    <color name="category_2">#FD8E09</color>
+    <!--<color name="category_2">#FD8E09</color>-->
+    <!--<color name="category_2">#201EAD</color> -->
+    <!--<color name="category_2">#a3dcf7</color>-->
+    <color name="category_2">#FBD89A</color>
 
     <!-- Background color for the 3rd category -->
-    <color name="category_3">#16AFCA</color>
+    <!--<color name="category_3">#16AFCA</color>  -->
+    <color name="category_3">#278cc4</color>
 
     <!-- Background color for the 4th category -->
-    <color name="category_4">#8800A0</color>
+    <!--<color name="category_4">#8800A0</color>-->
+    <color name="category_4">#4b6cfc</color>
 
 </resources>
