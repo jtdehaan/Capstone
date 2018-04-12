@@ -90,7 +90,7 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
                 SharedPreferences preferences = c.getSharedPreferences("SurveyInfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
 
-                editor.putString("surveyID", mySurveysDoctor.get(position).getSurveyID());
+                editor.putString("SurveyID", mySurveysDoctor.get(position).getSurveyID());
                 editor.putString("name", mySurveysDoctor.get(position).getName());
                 editor.putString("question1", mySurveysDoctor.get(position).getQuestion1());
                 editor.putString("question2", mySurveysDoctor.get(position).getQuestion2());
