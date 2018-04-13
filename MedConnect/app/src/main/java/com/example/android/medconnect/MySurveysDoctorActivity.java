@@ -20,8 +20,8 @@ public class MySurveysDoctorActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         final String DoctorID = sharedPref.getString("user_id", "");
 
-        //urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=" + DoctorID;
-        urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=31";
+        urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=" + DoctorID;
+        //urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=31";
 
         MySurveysDoctorDownloader mySurveysDoctorDownloader = new MySurveysDoctorDownloader(MySurveysDoctorActivity.this, urlAddress, listView);
         mySurveysDoctorDownloader.execute();
