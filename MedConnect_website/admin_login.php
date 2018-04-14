@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         session_start();
                         $_SESSION['username'] = $username;
-                        header("location: https://www.google.com/");
+                        header("location: admin_view_users.php");
                     }
                 } else{
                     $username_err = 'Incorrect administrative credentials';
@@ -75,12 +75,10 @@ $_SESSION['username'] = $_POST['username']
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="admin_homepage.php">Admin Profile</a>
-            <a class="selected" href="#">Delete User</a>
+            <a href="admin_delete_user.php">Delete User</a>
             <a href="admin_view_users.php">View Users</a>
             <a href="admin_all_surveys.php">View Surveys</a>
             <a href="admin_contact_account.php">Contact Users</a>
-            <a href="about_page.html">About</a>
-            <a href="support_page.php">Support</a>
             <a href="logout.php">Logout</a>
         </div>
     </nav>
@@ -89,8 +87,8 @@ $_SESSION['username'] = $_POST['username']
             <!--Menu function -->
             <span class="menu" onclick="openNav()"><i class="fas fa-bars"></i> Menu</span>
             <h1>Med Connect</h1>
-            <a class="left-align" href="about_page.html">About</a>
-            <a href="support_page.php">Support</a>
+            <a class="left-align" href="about.html">About</a>
+            <a href="support.php">Support</a>
             <a class="right-align" href="logout.php">Logout</a>
         </header>
     </div>

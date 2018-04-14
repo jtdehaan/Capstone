@@ -17,11 +17,9 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="admin_homepage.php">Admin Profile</a>
             <a href="admin_delete_user.php">Delete User</a>
-            <a class="selected" href="admin_view_users.php">View Users</a>
+            <a href="admin_view_users.php">View Users</a>
             <a href="admin_all_surveys.php">View Surveys</a>
             <a href="admin_contact_account.php">Contact Users</a>
-            <a href="about_page.html">About</a>
-            <a href="support_page.php">Support</a>
             <a href="logout.php">Logout</a>
         </div>
     </nav>
@@ -30,8 +28,8 @@
             <!--Menu function -->
             <span class="menu" onclick="openNav()"><i class="fas fa-bars"></i> Menu</span>
             <h1>Med Connect</h1>
-            <a class="left-align" href="about_page.html">About</a>
-            <a href="support_page.php">Support</a>
+            <a class="left-align" href="about.html">About</a>
+            <a href="support.php">Support</a>
             <a class="right-align" href="logout.php">Logout</a>
         </header>
     </div>
@@ -51,9 +49,9 @@
                 FROM LoginPatient";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<table><tr><th>Patient ID</th><th>Name</th><th>Username</th><th>Email</th><th>Password</th></tr>";
+                		echo "<table><tr><th>Patient ID</th><th>Name</th><th>Username</th><th>Email</th></tr>";
                      while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>". $row['password']."</td></tr>"; }
+                			echo "<tr><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td></tr>"; }
                 		echo"</table>";
                 	}
                 	else{
@@ -77,9 +75,9 @@
                 FROM LoginDoctor";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<table><tr><th>Doctor ID</th><th>Name</th><th>Username</th><th>Email</th><th>Password</th></tr>";
+                		echo "<table><tr><th>Doctor ID</th><th>Name</th><th>Username</th><th>Email</th></tr>";
                      while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>". $row['password']."</td></tr>"; }
+                			echo "<tr><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td></tr>"; }
                 		echo"</table>";
                 	}
                 	else{
@@ -103,9 +101,9 @@
                 FROM LoginOrganization";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<table><tr><th>Organization ID</th><th>Name</th><th>Username</th><th>Email</th><th>Password</th></tr>";
+                		echo "<table><tr><th>Organization ID</th><th>Name</th><th>Username</th><th>Email</th></tr>";
                      while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>". $row['password']."</td></tr>"; }
+                			echo "<tr><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td></tr>"; }
                 		echo"</table>";
                 	}
                 	else{

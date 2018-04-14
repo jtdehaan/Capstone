@@ -1,91 +1,63 @@
 <?php
 require_once 'config.php';
-
+session_start();
+$session_user = $_SESSION['username'];
+$event_id = $_SESSION['event_id'];
 
 $location = $date = $time = $price = $description = $payinapp = "";
 $location_err = $date_err = $time_err = $price_err = $description_err = $payinapp_err = "";
-//tells user how to input data
-$date_err = "yyyy-mm-dd";
-$time_err = "24hr format";
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-//payinapp
-    if(empty(trim($_POST["payinapp"]))){
 
-    } else{
-        $payinapp = trim($_POST['payinapp']);
-    }
-//name
-    if(empty(trim($_POST["name"]))){
-        $name_err = "Please enter a name for your event.";
-    } else{
-        $name = trim($_POST['name']);
-        }
 
-//location
-    if(empty(trim($_POST["location"]))){
-        $location_err = "Please enter a location.";
-    } else{
-        $location = trim($_POST['location']);
-        }
-//date
-    if(empty(trim($_POST['date']))){
-        $date_err = "Please enter a date for your event.(yyyy-mm-dd)";
-    } else{
-        $date = trim($_POST['date']);
-    }
-//time
-    if(empty(trim($_POST['time']))){
-        $time_err = "Please enter a time for your event.(24hr format)";
-    } else{
-        $time = trim($_POST['time']);
-    }
-//price
-    if(empty(trim($_POST['price']))){
-        $price_err = "Please enter a price for your event.";
-    } else{
-        $price = trim($_POST['price']);
-    }
-
-//description
-    if(empty(trim($_POST["description"]))){
-        $description_err = 'Please add a description for your event.';
-    } else{
-            $description = trim($_POST['description']);
-        }
-
-//Organization ID
-session_start();
-$session_user = $_SESSION['username'];
-$sql = "SELECT user_id FROM LoginOrganization WHERE username = '$session_user'";
+if(empty(trim($_POST["name"]))){
+    $sql = "SELECT * FROM Events WHERE EventID = '$event_id'";
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
-                $org_user_id = $row['user_id'];
+                $name = $row['name'];
+                $location = $row['location'];
+                $date = $row['date'];
+                $time = $row['time'];
+                $price = $row['price'];
+                $description = $row['description'];
             }
         }
     }
-    else {
-        echo "ERROR";
-        }
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+//payinapp
+    $payinapp = trim($_POST['payinapp']);
+//name
+    $name = trim($_POST['name']);
+//location
+    $location = trim($_POST['location']);
+//date
+    $date = trim($_POST['date']);
+//time
+    $time = trim($_POST['time']);
+//price
+    $price = trim($_POST['price']);
+//description
+    $description = trim($_POST['description']);
+
  //exicute
     if(empty($location_err) &&  empty($date_err) && empty($time_err) && empty($price_err) && empty($description_err)){
 
-        $sql = "INSERT INTO Events (location, time, name, price, payinapp, description, date, OrganizationID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "UPDATE Events SET location = ?, time = ?, name = ?, price = ?, payinapp = ?, description = ?, date = ? WHERE EventID = '$event_id'";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssssss", $param_location,  $param_time, $param_name, $param_price, $param_payinapp, $param_description, $param_date, $param_org_user_id);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_location,  $param_time, $param_name, $param_price, $param_payinapp, $param_description, $param_date);
 
             $param_location = $location;
-			$param_date = $date;
-			$param_time = $time;
+            $param_time = $time;
             $param_name = $name;
             $param_price = $price;
             $param_payinapp = $payinapp;
 			$param_description = $description;
-            $param_org_user_id = $org_user_id;
+            $param_date = $date;
 
             if(mysqli_stmt_execute($stmt)){
-                header("location: org_view_event.php");
+                header('location:org_view_edit_event.php');
 
             } else{
                 echo "Something went wrong. Please try again later.";
@@ -110,12 +82,13 @@ http://http://cgi.soic.indiana.edu/~jmodugno/price_confirm.php?price=$to&price_c
 mail($to, $subject, $message, $headers);
 */
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MC Organization Register Event</title>
+    <title>MC Edit Event</title>
     <!--CSS style sheets -->
     <link rel="stylesheet" type="text/css" href="css/MedConnect.css">
     <!-- Font Awesome JS -->
@@ -130,8 +103,8 @@ mail($to, $subject, $message, $headers);
             <a href="org_view_profile.php">My Profile</a>
             <a href="org_edit_profile.php">Edit Profile</a>
             <a href="org_view_event.php">View My Events</a>
-            <a class="selected" href="#">Add Event</a>
-            <a href="org_view_edit_event.php">Edit Event</a>
+            <a href="register_event.php">Add Event</a>
+            <a class="selected" href="org_view_edit_event.php">Edit Event</a>
             <a href="unregister_event.php">Delete Event</a>
             <a href="org_about.html">About</a>
             <a href="org_support.php">Support</a>
@@ -152,7 +125,7 @@ mail($to, $subject, $message, $headers);
     <main>
         <div class="container">
             <div class='current-page'>
-                <h2>Register Event</h2>
+                <h2>Edit Event</h2>
             </div>
         </div>
         <div class="admin_patient">

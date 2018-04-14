@@ -29,16 +29,16 @@ if(isset($_GET['register_event'])){
             if(mysqli_stmt_execute($stmt)){
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "You have already registered for this Event.";
-                } else{
-                    $sql = "UPDATE Events SET attendance = attendance + 1 WHERE EventID = $event_id";
+                    $sql = "UPDATE Events SET attendance = attendance - 1 WHERE EventID = $event_id";
                         if ($link->query($sql) === TRUE) {
                             //Inserts data into Attendance
-                            $sql = "INSERT INTO Attendance (PatientID, EventID) VALUES ('$patient_user_id','$event_id')";
+                            $sql = "DELETE FROM Attendance WHERE PatientID ='$patient_user_id' AND EventID = '$event_id'";
                                 if ($link->query($sql) === TRUE) {
-                                    header('location=event_list.php');
+                                    header('location= event_list.php');
                                 }
                         }
+                } else{
+                    $username_err = "You are not registered for this event.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -103,10 +103,10 @@ if(isset($_GET['register_event'])){
                  require_once 'config.php';
 
                  $sql = "SELECT EventID, name, location, date, time, price, description, attendance, payinapp
-                 FROM Events";
+                 FROM Events NATURAL JOIN Attendance WHERE PatientID = '$patient_user_id'";
                  if($result = mysqli_query($link, $sql)){
                      if(mysqli_num_rows($result) > 0){
-                 		echo '<form ><table><tr><th>Register for this event?</th><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>';
+                 		echo '<form ><table><tr><th>Register fo this event?</th><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>';
                         while($row = mysqli_fetch_array($result)){
                  			echo "<tr><td>"."<input type='radio' name='register' value=".$row['EventID'].">"."</td><td>".$row['name'] ."</td><td>". $row['location']."</td><td>". $row['date']."</td><td>". $row['time']."</td><td>". $row['price']."</td><td>". $row['description']."</td><td>". $row['attendance']."</td><td>". $row['payinapp']."</td></tr>"; }
                  		    echo "</table><input class='button' type='submit' value='submit' name='register_event'></form>";

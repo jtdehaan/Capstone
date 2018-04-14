@@ -1,10 +1,9 @@
-<!-- NEEDS TO BE organization specific -->
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MC Event List</title>
+    <title>MC Organization View Profile</title>
     <!--CSS style sheets -->
     <link rel="stylesheet" type="text/css" href="css/MedConnect.css">
     <!-- Font Awesome JS -->
@@ -16,16 +15,16 @@
         <!--Navigation and links inside -->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="pat_view_profile.php">My Profile</a>
-            <a href="pat_edit_profile.php">Edit Profile</a>
-            <a class="selected" href="event_list.php">View Events</a>
-            <a href="pat_event_register.php">Register for an Event</a>
-            <a href="pat_unregister_event.php">Unregister for an Event</a>
-            <a href="pat_survey.php">Surveys</a>
-            <a href="pat_about.html">About</a>
-            <a href="pat_support.php">Support</a>
+            <a class="selected" href="#">My Profile</a>
+            <a href="org_edit_profile.php">Edit Profile</a>
+            <a href="org_view_event.php">View My Events</a>
+            <a href="register_event.php">Add Event</a>
+            <a href="org_view_edit_event.php">Edit Event</a>
+            <a href="unregister_event.php">Delete Event</a>
+            <a href="org_about.html">About</a>
+            <a href="org_support.php">Support</a>
             <a href="logout.php">Logout</a>
-            <a href="pat_delete_account.php">Delete Account</a>
+            <a href="org_delete_account.php">Delete Account</a>
         </div>
     </nav>
     <div class="container">
@@ -33,29 +32,31 @@
             <!--Menu function -->
             <span class="menu" onclick="openNav()"><i class="fas fa-bars"></i> Menu</span>
             <h1>Med Connect</h1>
-            <a class="left-align" href="pat_about.html">About</a>
-            <a href="pat_support.php">Support</a>
+            <a class="left-align" href="org_about.html">About</a>
+            <a href="org_support.php">Support</a>
             <a class="right-align" href="logout.php">Logout</a>
         </header>
     </div>
     <main>
         <div class="container">
             <div class='current-page'>
-                <h2>Event List</h2>
+                <h2>View Profile</h2>
             </div>
         </div>
         <div class="admin_patient">
             <div class="table">
                 <?php
                 require_once 'config.php';
+                session_start();
+                $session_user = $_SESSION['username'];
 
-                $sql = "SELECT name, location, date, time, price, description, attendance, payinapp
-                FROM Events";
+                $sql = "SELECT name, username, email, description
+                FROM LoginOrganization WHERE username = '$session_user'";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<table><tr><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>";
+                		echo "<table><tr><th>Name</th><th>Username</th><th>Email</th><th>Description</th></tr>";
                         while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>".$row['name'] ."</td><td>". $row['location']."</td><td>". $row['date']."</td><td>". $row['time']."</td><td>". $row['price']."</td><td>". $row['description']."</td><td>". $row['attendance']."</td><td>". $row['payinapp']."</td></tr>"; }
+                			echo "<tr><td>".$row['name'] ."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>".$row['description'] ."</td></tr>"; }
                 		echo"</table>";
                 	}
                 	else{

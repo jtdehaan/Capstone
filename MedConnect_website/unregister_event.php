@@ -1,10 +1,27 @@
-<!-- NEEDS TO BE organization specific -->
+<?php
+require_once 'config.php';
+session_start();
+$session_user = $_SESSION['username'];
+
+//Organization ID
+$sql = "SELECT user_id FROM LoginOrganization WHERE username = '$session_user'";
+    if($result = mysqli_query($link, $sql)){
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                $org_user_id = $row['user_id'];
+            }
+        }
+    }
+    else {
+        echo "ERROR";
+        }
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MC Event List</title>
+    <title>MC Organization Delete Event</title>
     <!--CSS style sheets -->
     <link rel="stylesheet" type="text/css" href="css/MedConnect.css">
     <!-- Font Awesome JS -->
@@ -16,16 +33,16 @@
         <!--Navigation and links inside -->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="pat_view_profile.php">My Profile</a>
-            <a href="pat_edit_profile.php">Edit Profile</a>
-            <a class="selected" href="event_list.php">View Events</a>
-            <a href="pat_event_register.php">Register for an Event</a>
-            <a href="pat_unregister_event.php">Unregister for an Event</a>
-            <a href="pat_survey.php">Surveys</a>
-            <a href="pat_about.html">About</a>
-            <a href="pat_support.php">Support</a>
+            <a href="org_view_profile.php">My Profile</a>
+            <a href="org_edit_profile.php">Edit Profile</a>
+            <a href="org_view_event.php">View My Events</a>
+            <a href="register_event.php">Add Event</a>
+            <a href="org_view_edit_event.php">Edit Event</a>
+            <a class="selected" href="#">Delete Event</a>
+            <a href="org_about.html">About</a>
+            <a href="org_support.php">Support</a>
             <a href="logout.php">Logout</a>
-            <a href="pat_delete_account.php">Delete Account</a>
+            <a href="org_delete_account.php">Delete Account</a>
         </div>
     </nav>
     <div class="container">
@@ -33,40 +50,38 @@
             <!--Menu function -->
             <span class="menu" onclick="openNav()"><i class="fas fa-bars"></i> Menu</span>
             <h1>Med Connect</h1>
-            <a class="left-align" href="pat_about.html">About</a>
-            <a href="pat_support.php">Support</a>
+            <a class="left-align" href="org_about.html">About</a>
+            <a href="org_support.php">Support</a>
             <a class="right-align" href="logout.php">Logout</a>
         </header>
     </div>
     <main>
         <div class="container">
             <div class='current-page'>
-                <h2>Event List</h2>
+                <h2>Delete Event</h2>
             </div>
         </div>
         <div class="admin_patient">
-            <div class="table">
-                <?php
-                require_once 'config.php';
+            <form action="unregister_event_exicute.php" method="POST">
+				Your Events: <select name="Event_name" required>
+				<?php
+					require_once 'config.php';
+					// Check connection
+					if (!$link) {
+						die("Connection failed: " . mysqli_connect_error());
+					}
+						$result = mysqli_query($link,"SELECT name FROM Events WHERE OrganizationID = '$org_user_id'");
+						while ($row = mysqli_fetch_assoc($result)) {
+									  unset($name);
+									  $name = $row['name'];
+									  echo '<option value="'.$name.'">'.$name.'</option>';
+				}
 
-                $sql = "SELECT name, location, date, time, price, description, attendance, payinapp
-                FROM Events";
-                if($result = mysqli_query($link, $sql)){
-                    if(mysqli_num_rows($result) > 0){
-                		echo "<table><tr><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>";
-                        while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>".$row['name'] ."</td><td>". $row['location']."</td><td>". $row['date']."</td><td>". $row['time']."</td><td>". $row['price']."</td><td>". $row['description']."</td><td>". $row['attendance']."</td><td>". $row['payinapp']."</td></tr>"; }
-                		echo"</table>";
-                	}
-                	else{
-                		echo "no result";
-                	}
-                }
-                else{
-                	echo "ERROR";
-                }
-                ?>
-            </div>
+				?>
+				</select>
+				<br><br>
+				<button type="submit" value="Unregister Event">Unregister Event</button>
+            </form>
         </div>
     </main>
     <footer>
