@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
  * Created by aator on 3/15/2018.
  */
 
-public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
+public class PatientRegisteredEventsDownloader extends AsyncTask<Void, Void, String> {
 
     Context c;
     String urlAddress;
@@ -25,7 +25,7 @@ public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
 
     ProgressDialog pd;
 
-    public MyEventsDownloader(Context c, String urlAddress, ListView lv) {
+    public PatientRegisteredEventsDownloader(Context c, String urlAddress, ListView lv) {
         this.c = c;
         this.urlAddress = urlAddress;
         this.lv = lv;
@@ -57,17 +57,15 @@ public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
             Toast.makeText(c, "Unsuccessfull, Null returned", Toast.LENGTH_SHORT).show();
         } else {
             //CALL DATA PARSER TO PARSE
-            MyEventsParser parser = new MyEventsParser(c, lv, s);
+            PatientRegisteredEventsParser parser = new PatientRegisteredEventsParser(c, lv, s);
             parser.execute();
 
         }
 
-
     }
 
-
     private String downloadData() {
-        HttpURLConnection con = MyEventsConnector.connect(urlAddress);
+        HttpURLConnection con = PatientRegisteredEventsConnector.connect(urlAddress);
         if (con == null) {
             return null;
         }
