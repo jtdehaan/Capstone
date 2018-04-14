@@ -23,6 +23,7 @@ public class PatientActivity extends AppCompatActivity {
         final TextView tvProfile = (TextView) findViewById(R.id.tvProfile);
         final TextView tvSurvey = (TextView) findViewById(R.id.tvSurvey);
         final TextView tvEvent = (TextView) findViewById(R.id.tvEvent);
+        final TextView tvRegisteredEvents = (TextView) findViewById(R.id.tvRegisteredEvents);
         final Button bLogout = (Button) findViewById(R.id.bLogout);
 
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -46,6 +47,13 @@ public class PatientActivity extends AppCompatActivity {
             }
         });
 
+        tvRegisteredEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent patientRegisteredEventsIntent = new Intent(PatientActivity.this, PatientRegisteredEventsActivity.class);
+                PatientActivity.this.startActivity(patientRegisteredEventsIntent);
+            }
+        });
 
         //Set timer for 15 minutes
         Handler handler=new Handler();

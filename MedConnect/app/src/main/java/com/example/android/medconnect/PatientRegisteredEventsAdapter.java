@@ -1,6 +1,8 @@
 package com.example.android.medconnect;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.example.android.medconnect.EventsList;
+import com.example.android.medconnect.MyEvents;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,15 +25,15 @@ import java.util.ArrayList;
  * Created by aator on 3/21/2018.
  */
 
-public class PatientEventsAdapter extends BaseAdapter {
+public class PatientRegisteredEventsAdapter extends BaseAdapter {
 
     Context c;
-    ArrayList<PatientEvents> patientEvents;
+    ArrayList<PatientRegisteredEvents> patientRegisteredEvents;
     LayoutInflater inflater;
 
-    public PatientEventsAdapter(Context c, ArrayList<PatientEvents> patientEvents) {
+    public PatientRegisteredEventsAdapter(Context c, ArrayList<PatientRegisteredEvents> patientRegisteredEvents) {
         this.c = c;
-        this.patientEvents = patientEvents;
+        this.patientRegisteredEvents = patientRegisteredEvents;
 
         //INITIALIE
         inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -40,23 +42,25 @@ public class PatientEventsAdapter extends BaseAdapter {
     //Determine size of the array
     @Override
     public int getCount() {
-        return patientEvents.size();
+        return patientRegisteredEvents.size();
     }
 
     //Item contained within the array position
     @Override
-    public Object getItem(int position) { return patientEvents.get(position); }
+    public Object getItem(int position) {
+        return patientRegisteredEvents.get(position);
+    }
 
     @Override
     public long getItemId(int position) {
-        return patientEvents.get(position).getId();
+        return patientRegisteredEvents.get(position).getId();
     }
 
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.model_patient_events, parent, false);
+            convertView = inflater.inflate(R.layout.model_patient_registered_events, parent, false);
         }
 
         //String name, location, date, time, price, description, attendance;
@@ -70,33 +74,26 @@ public class PatientEventsAdapter extends BaseAdapter {
         TextView descriptionTxt = (TextView) convertView.findViewById(R.id.descriptionTxt);
         TextView attendanceTxt = (TextView) convertView.findViewById(R.id.attendanceTxt);
 
-        eventIDTxt.setText(patientEvents.get(position).getEventID());
-        nameTxt.setText(patientEvents.get(position).getName());
-        locationTxt.setText(patientEvents.get(position).getLocation());
-        dateTxt.setText(patientEvents.get(position).getDate());
-        timeTxt.setText(patientEvents.get(position).getTime());
-        priceTxt.setText(patientEvents.get(position).getPrice());
-        descriptionTxt.setText(patientEvents.get(position).getDescription());
-        attendanceTxt.setText(patientEvents.get(position).getAttendance());
+        eventIDTxt.setText(patientRegisteredEvents.get(position).getEventID());
+        nameTxt.setText(patientRegisteredEvents.get(position).getName());
+        locationTxt.setText(patientRegisteredEvents.get(position).getLocation());
+        dateTxt.setText(patientRegisteredEvents.get(position).getDate());
+        timeTxt.setText(patientRegisteredEvents.get(position).getTime());
+        priceTxt.setText(patientRegisteredEvents.get(position).getPrice());
+        descriptionTxt.setText(patientRegisteredEvents.get(position).getDescription());
+        attendanceTxt.setText(patientRegisteredEvents.get(position).getAttendance());
 
         //ITEM CLICKS
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //Toast.makeText(c, patientEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
-                // Toast.makeText(c, patientLists.get(position).getUser_id(), Toast.LENGTH_SHORT).show();
 
-                String event_id = patientEvents.get(position).getEventID();
+                //Toast.makeText(c, "Testing" , Toast.LENGTH_SHORT).show();
+
+                String event_id = patientRegisteredEvents.get(position).getEventID();
 
                 SharedPreferences sharedPref = c.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                 String patient_id = sharedPref.getString("user_id", "");
-
-
-                /*
-                Toast.makeText(getApplicationContext(), patient_id,
-                        Toast.LENGTH_LONG).show();\
-                        */
-
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -107,33 +104,27 @@ public class PatientEventsAdapter extends BaseAdapter {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if (success) {
-                                /*AlertDialog.Builder builder = new AlertDialog.Builder(DoctorPatientListActivity.);
-                                builder.setMessage("Success! You are now connected!")
-                                        .setPositiveButton("Ok", null)
-                                        .create()
-                                        .show();*/
-                                Toast.makeText(c, "Successfully registered for the '" + patientEvents.get(position).getName() + "' event!", Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(c, "You have unregistered from the '" + patientRegisteredEvents.get(position).getName() + "' event!" , Toast.LENGTH_SHORT).show();
 
                             } else {
-                                // When clicked, show a toast with the TextView text
-                                Toast.makeText(c, "You have already registered for the '" + patientEvents.get(position).getName() + "' event!",
-                                        Toast.LENGTH_LONG).show();
+
+                                Toast.makeText(c, "Error" , Toast.LENGTH_SHORT).show();
                             }
-                            //}
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 };
 
-                PatientEventsRegisterRequest registerEventRequest = new PatientEventsRegisterRequest(event_id, patient_id, responseListener);
+                PatientRegisteredEventsRequest patientRegisteredEventsRequest = new PatientRegisteredEventsRequest(event_id, patient_id, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(c);
-                queue.add(registerEventRequest);
-
+                queue.add(patientRegisteredEventsRequest);
             }
-        });
-        return convertView;
 
+        });
+
+        return convertView;
     }
 }

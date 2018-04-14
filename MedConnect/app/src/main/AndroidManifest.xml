@@ -161,7 +161,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientActivity" />
         </activity>
-        <activity android:name=".MySurveysDoctorUpdate"></activity>
+        <activity android:name=".MySurveysDoctorUpdate" />
+        <activity android:name=".PatientRegisteredEventsActivity"></activity>
     </application>
 
 </manifest>

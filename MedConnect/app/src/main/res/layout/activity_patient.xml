@@ -76,6 +76,13 @@
                 android:background="@color/category_3"
                 android:text="Events"
                 />
+            <TextView
+                android:id="@+id/tvRegisteredEvents"
+                android:clickable="true"
+                style="@style/CategoryStyle"
+                android:background="@color/category_4"
+                android:text="Registered Events"
+                />
         </LinearLayout>
     </ScrollView>
 
