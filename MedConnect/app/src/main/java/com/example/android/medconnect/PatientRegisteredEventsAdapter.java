@@ -107,6 +107,9 @@ public class PatientRegisteredEventsAdapter extends BaseAdapter {
 
                                 Toast.makeText(c, "You have unregistered from the '" + patientRegisteredEvents.get(position).getName() + "' event!" , Toast.LENGTH_SHORT).show();
 
+                                Intent i = new Intent(c, PatientRegisteredEventsActivity.class);
+                                c.startActivity(i);
+
                             } else {
 
                                 Toast.makeText(c, "Error" , Toast.LENGTH_SHORT).show();

@@ -86,20 +86,29 @@
 
     <Button
         android:id="@+id/bUpdateEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="275dp"
+        android:layout_height="55dp"
         android:layout_below="@+id/etDate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="45dp"
         android:text="Update Event" />
+
+    <Button
+        android:id="@+id/bDeleteEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="Delete Event" />
 
     <TextView
         android:id="@+id/tvCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bUpdateEvent"
+        android:layout_below="@+id/bDeleteEvent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="-27dp"
         android:text="Cancel"
         android:textSize="15dp"
         android:visibility="visible" />

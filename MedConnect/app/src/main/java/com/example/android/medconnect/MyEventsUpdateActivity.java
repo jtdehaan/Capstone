@@ -36,6 +36,7 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
         final EditText etDate = (EditText) findViewById(R.id.etDate);
         final EditText etDescription = (EditText) findViewById(R.id.etDescription);
         final Button bUpdateEvent = (Button) findViewById(R.id.bUpdateEvent);
+        final Button bDeleteEvent = (Button) findViewById(R.id.bDeleteEvent);
         final TextView cancelLink = (TextView) findViewById(R.id.tvCancel);
 
         SharedPreferences sharedPref = getSharedPreferences("eventInfo", Context.MODE_PRIVATE);
@@ -119,6 +120,48 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
                 MyEventsUpdateRequest myEventsUpdateRequest = new MyEventsUpdateRequest(eventID, name, location, date, time, price, description, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(MyEventsUpdateActivity.this);
                 queue.add(myEventsUpdateRequest);
+            }
+        });
+
+        bDeleteEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+
+                            if (success) {
+                                Intent confirmDeleteIntent = new Intent(MyEventsUpdateActivity.this, MyEventsActivity.class);
+                                MyEventsUpdateActivity.this.startActivity(confirmDeleteIntent);
+
+                                Toast.makeText(MyEventsUpdateActivity.this, "Successfully Deleted Event", Toast.LENGTH_SHORT).show();
+
+
+
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MyEventsUpdateActivity.this);
+                                builder.setMessage("Delete Failed")
+                                        .setNegativeButton("Retry", null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                MyEventsUpdateDeleteRequest myEventsUpdateDeleteRequest = new MyEventsUpdateDeleteRequest(eventID, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(MyEventsUpdateActivity.this);
+                queue.add(myEventsUpdateDeleteRequest);
+
             }
         });
 

@@ -79,12 +79,21 @@
 
     <Button
         android:id="@+id/bUpdateSurvey"
+        android:layout_width="275dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/etQuestion5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Update Survey" />
+
+    <Button
+        android:id="@+id/bDeleteSurvey"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="136dp"
-        android:text="Update Event" />
+        android:layout_marginBottom="40dp"
+        android:text="Delete Survey" />
 
     <TextView
         android:id="@+id/tvCancel"
