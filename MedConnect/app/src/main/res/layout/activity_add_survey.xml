@@ -7,112 +7,112 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
-    <EditText
-        android:id="@+id/etSurveyName"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:hint="Survey Name"
-        />
-
-    <EditText
-        android:id="@+id/etQuestion1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etSurveyName"
-        android:ems="10"
-        android:hint="Question1"
-        />
+        android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/bCreateSurvey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etQuestion5"
-        android:layout_centerHorizontal="true"
-        android:text="Create Survey" />
+        <EditText
+            android:id="@+id/etSurveyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="Survey Name" />
 
-    <TextView
-        android:id="@+id/tvCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bCreateSurvey"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:text="Cancel"
-        android:textSize="15dp"
-        android:visibility="visible" />
+        <EditText
+            android:id="@+id/etQuestion1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etSurveyName"
+            android:ems="10"
+            android:hint="Question1" />
 
-
-
-
-
-
-    <EditText
-        android:id="@+id/etQuestion2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion1"
-        android:ems="10"
-        android:hint="Question2"
-        />
-
-
-    <EditText
-        android:id="@+id/etQuestion3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion2"
-        android:ems="10"
-        android:hint="Question3"
-        />
-
-    <EditText
-        android:id="@+id/etQuestion4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion3"
-        android:ems="10"
-        android:hint="Question4"
-        />
+        <EditText
+            android:id="@+id/etQuestion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etQuestion1"
+            android:ems="10"
+            android:hint="Question2" />
 
 
-    <EditText
-        android:id="@+id/etQuestion5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion4"
-        android:ems="10"
-        android:hint="Question5"
-        />
+        <EditText
+            android:id="@+id/etQuestion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etQuestion2"
+            android:ems="10"
+            android:hint="Question3" />
+
+        <EditText
+            android:id="@+id/etQuestion4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etQuestion3"
+            android:ems="10"
+            android:hint="Question4" />
 
 
+        <EditText
+            android:id="@+id/etQuestion5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etQuestion4"
+            android:ems="10"
+            android:hint="Question5" />
+
+        <Button
+            android:id="@+id/bCreateSurvey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etQuestion5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="65dp"
+            android:layout_gravity="center"
+            android:text="Create Survey" />
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bCreateSurvey"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="65dp"
+            android:text="Cancel"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+    </ScrollView>
 
 
 
