@@ -19,12 +19,17 @@ import java.net.HttpURLConnection;
 
 public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
 
+    //Context to be passed to the progress dialog
     Context c;
+    //URL containing data from the database
     String urlAddress;
+    //Listview holding the data
     ListView lv;
 
+    //Show progress of downloading process
     ProgressDialog pd;
 
+    //Constructor
     public MyEventsDownloader(Context c, String urlAddress, ListView lv) {
         this.c = c;
         this.urlAddress = urlAddress;
@@ -34,15 +39,16 @@ public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-
+        //Initialize progress dialog and display it
         pd = new ProgressDialog(c);
-        pd.setTitle("Fetch");
-        pd.setMessage("Fetching....Please wait");
+        pd.setTitle("Download");
+        pd.setMessage("Downloading...");
         pd.show();
     }
 
     @Override
     protected String doInBackground(Void... params) {
+        //Perform background computation of data downloading process
         return this.downloadData();
     }
 
@@ -51,12 +57,14 @@ public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
 
+        //Stop the progress dialog
         pd.dismiss();
 
+        //Notify the user if download is unsuccessful, otherwise parse the data
         if (s == null) {
-            Toast.makeText(c, "Unsuccessfull, Null returned", Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "Unsuccessfull download, null returned", Toast.LENGTH_SHORT).show();
         } else {
-            //CALL DATA PARSER TO PARSE
+            //Call the data parser to parse the data
             MyEventsParser parser = new MyEventsParser(c, lv, s);
             parser.execute();
 
@@ -67,45 +75,52 @@ public class MyEventsDownloader extends AsyncTask<Void, Void, String> {
 
 
     private String downloadData() {
+        //Establish connection to download data from database
         HttpURLConnection con = MyEventsConnector.connect(urlAddress);
         if (con == null) {
             return null;
         }
 
-        InputStream is = null;
+        //Initialize input stream to null
+        InputStream inputStream = null;
         try {
 
-            is = new BufferedInputStream(con.getInputStream());
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            //Read data from source
+            inputStream = new BufferedInputStream(con.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
             String line = null;
+            //Store data in a modifiable string sequence
             StringBuffer response = new StringBuffer();
 
-            if (br != null) {
-                while ((line = br.readLine()) != null) {
+            //If the response is not a null value, append it to the StringBuffer and add a new line
+            if (bufferedReader != null) {
+                while ((line = bufferedReader.readLine()) != null) {
                     response.append(line + "\n");
                 }
 
-                br.close();
+                //Terminate the character-input stream reader
+                bufferedReader.close();
 
             } else {
                 return null;
             }
 
+            //Return string sequence
             return response.toString();
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (is != null) {
+            //Close the byte input stream if it is not a null value (move onto the next stream)
+            if (inputStream != null) {
                 try {
-                    is.close();
+                    inputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
-
 
         return null;
     }

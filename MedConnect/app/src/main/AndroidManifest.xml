@@ -112,13 +112,6 @@
                 android:value=".OrganizationProfileActivity" />
         </activity>
         <activity
-            android:name=".DoctorPatientListActivity"
-            android:parentActivityName=".DoctorActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DoctorActivity" />
-        </activity>
-        <activity
             android:name=".EventsListActivity"
             android:parentActivityName=".OrganizationActivity">
             <meta-data

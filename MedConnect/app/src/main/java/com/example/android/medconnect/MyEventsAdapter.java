@@ -26,15 +26,19 @@ import java.util.ArrayList;
 
 public class MyEventsAdapter extends BaseAdapter {
 
+    //Current State of the application
     Context c;
+    //Array list of Events
     ArrayList<MyEvents> myEvents;
+    //Build view objects from the xml file
     LayoutInflater inflater;
 
+    //Constructor
     public MyEventsAdapter(Context c, ArrayList<MyEvents> myEvents) {
         this.c = c;
         this.myEvents = myEvents;
 
-        //INITIALIE
+        //Initialize the inflator to instantiate view objects into corresponding xml file
         inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -44,26 +48,26 @@ public class MyEventsAdapter extends BaseAdapter {
         return myEvents.size();
     }
 
-    //Item contained within the array position
+    //Access the list's data
     @Override
     public Object getItem(int position) {
         return myEvents.get(position);
     }
 
+    //ID of the row in the list
     @Override
     public long getItemId(int position) {
         return myEvents.get(position).getId();
     }
 
-
+    //Manipulate the data from the database
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.model_my_events, parent, false);
         }
 
-        //String name, location, date, time, price, description, attendance;
-
+        //Textviews containing the name, location, date, time, price, description, attendance
         TextView eventIDTxt = (TextView) convertView.findViewById(R.id.eventIDTxt);
         TextView nameTxt = (TextView) convertView.findViewById(R.id.nameTxt);
         TextView locationTxt = (TextView) convertView.findViewById(R.id.locationTxt);
@@ -73,21 +77,22 @@ public class MyEventsAdapter extends BaseAdapter {
         TextView descriptionTxt = (TextView) convertView.findViewById(R.id.descriptionTxt);
         TextView attendanceTxt = (TextView) convertView.findViewById(R.id.attendanceTxt);
 
+        //Set text of the textviews with the appropriate values
         eventIDTxt.setText(myEvents.get(position).getEventID());
         nameTxt.setText(myEvents.get(position).getName());
         locationTxt.setText(myEvents.get(position).getLocation());
         dateTxt.setText(myEvents.get(position).getDate());
         timeTxt.setText(myEvents.get(position).getTime());
-        priceTxt.setText(myEvents.get(position).getPrice());
+        priceTxt.setText("Price: $" + myEvents.get(position).getPrice());
         descriptionTxt.setText(myEvents.get(position).getDescription());
-        attendanceTxt.setText(myEvents.get(position).getAttendance());
+        attendanceTxt.setText("Attendees: " + myEvents.get(position).getAttendance());
 
-        //ITEM CLICKS
+        //Handle item clicks
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(c, myEvents.get(position).getLocation(), Toast.LENGTH_SHORT).show();
 
+                //Store data locally in order to pass it to the Update window
                 SharedPreferences preferences = c.getSharedPreferences("eventInfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
 
@@ -100,78 +105,11 @@ public class MyEventsAdapter extends BaseAdapter {
                 editor.putString("description", myEvents.get(position).getDescription());
                 editor.apply();
 
+                //Open the update screen
                 Intent i = new Intent(c, MyEventsUpdateActivity.class);
                 c.startActivity(i);
 
-                /*Intent i = new Intent();
-                i.setClassName("com.example.android.medconnect.MyEventsActivity", "com.example.android.medconnect.MyEventsUpdateRequest");
-                c.startActivity(i);*/
-
-               // Intent updateIntent = new Intent(Intent.ACTION_CALL);
-               // callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-               // callIntent.setData(Uri.parse("tel:"+MapActivity.phonenumber0));
-               // MyEventsActivity.getContext().startActivity(updateIntent);
-
-                // Toast.makeText(c, patientLists.get(position).getUser_id(), Toast.LENGTH_SHORT).show();
-
-                /*
-                patient_id = eventsList.get(position).getUser_id();
-
-                SharedPreferences preferences = c.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("patient_id", patient_id);
-                editor.apply();
-
-                SharedPreferences sharedPref = c.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                String doctor_id = sharedPref.getString("user_id", "");
-                String patient_id = sharedPref.getString("patient_id", "");
-
-                */
-
-                /*
-                Toast.makeText(getApplicationContext(), patient_id,
-                        Toast.LENGTH_LONG).show();\
-                        */
-
-                ///*
-
-                /*
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            if (success) {
-                               /* AlertDialog.Builder builder = new AlertDialog.Builder(DoctorPatientListActivity.);
-                                builder.setMessage("Success! You are now connected!")
-                                        .setPositiveButton("Ok", null)
-                                        .create()
-                                        .show();
-                                Toast.makeText(c, "Successfully connected with " + patientLists.get(position).getName(), Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                // When clicked, show a toast with the TextView text
-                                Toast.makeText(c, "Nooooooooo!",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                            //}
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                    */
             };
-
-            /*
-                DoctorPatientListRequest doctorPatientListRequest = new DoctorPatientListRequest(doctor_id, patient_id, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(c);
-                queue.add(doctorPatientListRequest);
-
-                //*/
 
         });
 

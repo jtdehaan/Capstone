@@ -11,6 +11,7 @@ import com.example.android.medconnect.EventsListDownloader;
 
 public class EventsListActivity extends AppCompatActivity {
 
+    //PHP URL in order to access the required data from the database
     String urlAddress="http://cgi.soic.indiana.edu/~team37/Events_List.php";
 
     @Override
@@ -19,6 +20,7 @@ public class EventsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events_list);
         final ListView listView= (ListView) findViewById(R.id.lv);
 
+        //Call on and execute the downloader with the provided URL
         EventsListDownloader eventsListDownloader = new EventsListDownloader(EventsListActivity.this,urlAddress,listView);
         eventsListDownloader.execute();
     }

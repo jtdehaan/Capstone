@@ -16,13 +16,14 @@ public class MySurveysDoctorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_surveys_doctor);
         final ListView listView = (ListView) findViewById(R.id.lv);
 
-        //GET USER_ID & PLACE IN URL
+        //Get user ID and place in URL
         SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         final String DoctorID = sharedPref.getString("user_id", "");
 
+        //PHP URL in order to access the required data from the database
         urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=" + DoctorID;
-        //urlAddress = "http://cgi.soic.indiana.edu/~team37/MySurveysDoctor.php/?DoctorID=31";
 
+        //Call on and execute the downloader with the provided URL
         MySurveysDoctorDownloader mySurveysDoctorDownloader = new MySurveysDoctorDownloader(MySurveysDoctorActivity.this, urlAddress, listView);
         mySurveysDoctorDownloader.execute();
     }

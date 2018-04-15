@@ -27,15 +27,19 @@ import java.util.ArrayList;
 
 public class PatientRegisteredEventsAdapter extends BaseAdapter {
 
+    //Current State of the application
     Context c;
+    //Array list of Events
     ArrayList<PatientRegisteredEvents> patientRegisteredEvents;
+    //Build view objects from the xml file
     LayoutInflater inflater;
 
+    //Constructor
     public PatientRegisteredEventsAdapter(Context c, ArrayList<PatientRegisteredEvents> patientRegisteredEvents) {
         this.c = c;
         this.patientRegisteredEvents = patientRegisteredEvents;
 
-        //INITIALIE
+        //Initialize the inflator to instantiate view objects into corresponding xml file
         inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -45,26 +49,26 @@ public class PatientRegisteredEventsAdapter extends BaseAdapter {
         return patientRegisteredEvents.size();
     }
 
-    //Item contained within the array position
+    //Access the list's data
     @Override
     public Object getItem(int position) {
         return patientRegisteredEvents.get(position);
     }
 
+    //ID of the row in the list
     @Override
     public long getItemId(int position) {
         return patientRegisteredEvents.get(position).getId();
     }
 
-
+    //Manipulate the data from the database
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.model_patient_registered_events, parent, false);
         }
 
-        //String name, location, date, time, price, description, attendance;
-
+        //Textviews containing the name, location, date, time, price, description, attendance
         TextView eventIDTxt = (TextView) convertView.findViewById(R.id.eventIDTxt);
         TextView nameTxt = (TextView) convertView.findViewById(R.id.nameTxt);
         TextView locationTxt = (TextView) convertView.findViewById(R.id.locationTxt);
@@ -74,21 +78,20 @@ public class PatientRegisteredEventsAdapter extends BaseAdapter {
         TextView descriptionTxt = (TextView) convertView.findViewById(R.id.descriptionTxt);
         TextView attendanceTxt = (TextView) convertView.findViewById(R.id.attendanceTxt);
 
+        //Set text of the textviews with the appropriate values
         eventIDTxt.setText(patientRegisteredEvents.get(position).getEventID());
         nameTxt.setText(patientRegisteredEvents.get(position).getName());
         locationTxt.setText(patientRegisteredEvents.get(position).getLocation());
         dateTxt.setText(patientRegisteredEvents.get(position).getDate());
         timeTxt.setText(patientRegisteredEvents.get(position).getTime());
-        priceTxt.setText(patientRegisteredEvents.get(position).getPrice());
+        priceTxt.setText("Price: $" + patientRegisteredEvents.get(position).getPrice());
         descriptionTxt.setText(patientRegisteredEvents.get(position).getDescription());
-        attendanceTxt.setText(patientRegisteredEvents.get(position).getAttendance());
+        attendanceTxt.setText("Attendees: " + patientRegisteredEvents.get(position).getAttendance());
 
-        //ITEM CLICKS
+        //Handle item clicks
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Toast.makeText(c, "Testing" , Toast.LENGTH_SHORT).show();
 
                 String event_id = patientRegisteredEvents.get(position).getEventID();
 
