@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT username, password FROM LoginPatient WHERE username = ?";
+        $sql = "SELECT username, password FROM LoginDoctor WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: https://www.google.com/");
+                            header("location: doctor_homepage.php");
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -56,15 +56,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 
-//Stores username in the session
+//Starts the session
 session_start();
 $_SESSION['username'] = $_POST['username']
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-    <title>PatientLogin</title>
+    <title>Med Connect Doctor Login</title>
+    <link rel="stylesheet" type="text/css" href="registerpage.css" >
 </head>
 <body>
 
@@ -79,7 +81,7 @@ $_SESSION['username'] = $_POST['username']
     </div>
 
     <div id="content">
-        <h2>Patient Login</h2>
+        <h2>Doctor Login</h2>
 		
        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -97,13 +99,11 @@ $_SESSION['username'] = $_POST['username']
             </div>
             
             <div class="form-group">
-                <br>      
-				<form method="get" action="patient_homepage.php">
-					<button type="submit">Submit</button>
-				</form>				
+                <br>
+                <input type="submit" class="btn btn-primary" value="Submit">
 				<br>
 				<br>
-				<a href="patient_registerpage.php">Register Here</a>
+				<a href="doctor_registerpage.php">Register Here</a>
 				<br>
 				<br>
 
@@ -113,4 +113,5 @@ $_SESSION['username'] = $_POST['username']
 </div>
 
 </body>
+
 </html>

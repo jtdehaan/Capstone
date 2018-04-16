@@ -5,37 +5,58 @@ $session_user = $_SESSION['username'];
 
 $username = $current_password = $password = $email = $name = $confirm_password = "";
 $username_err = $current_password_err = $password_err = $email_err = $name_err = $confirm_password_err = "";
-//fills in form depending on the users current information(NOT PASSWORD)
-$sql = "SELECT * FROM LoginPatient WHERE username = '$session_user'";
-if($result = mysqli_query($link, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_array($result)){
-            $name = $row['name'];
-            $email = $row['email'];
-            $username = $row['username'];
-        }
-    }
-}
-else{
-    echo "ERROR";
-    echo mysqli_error($link);
-}
-mysqli_close($link);
-//Final information in fields are stored
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 //name
-    $name = trim($_POST['name']);
+    if(empty(trim($_POST['name']))){
+        $sql = "SELECT name FROM LoginDoctor WHERE username = '$session_user'";
+        if($result = mysqli_query($link, $sql)){
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $name = $row['name'];
+                }
+            }
+        }
+        else{
+            echo "else statement";
+            echo mysqli_error($link);
+        }
+        mysqli_close($link);
+    } else{
+        $name = trim($_POST['name']);
+
+    }
 //username
-    $username = trim($_POST["username"]);
-    $new_session_user = trim($_POST['username']);
+    if(empty(trim($_POST["username"]))){
+        $username = $session_user;
+    } else{
+        $username = trim($_POST["username"]);
+        $new_session_user = trim($_POST['username']);
+    }
 //email
-    $email = trim($_POST['email']);
+    if(empty(trim($_POST['email']))){
+        $sql = "SELECT email FROM LoginDoctor WHERE username = '$session_user'";
+        if($result = mysqli_query($link, $sql)){
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $email = $row['email'];
+                }
+            }
+        }
+        else{
+            echo "else statement";
+            echo mysqli_error($link);
+        }
+        mysqli_close($link);
+    } else{
+        $email = trim($_POST['email']);
+    }
 //current password
     if(empty(trim($_POST["current_password"]))){
         $current_password = "";
     } else{
         $current_password = $_POST['current_password'];
-        $sql = "SELECT username, password FROM LoginPatient WHERE username = ?";
+        $sql = "SELECT username, password FROM LoginDoctor WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -58,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         }
                     }
                 } else{
-                    $password_err = 'incorrect password';
+                    $username_err = 'No account found with that username.';
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -73,33 +94,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST['password']);
     }
-//confirm password
+//confirm paaword
     if(!empty(trim($_POST["password"]))){
         // $confirm_password_err = 'Please confirm password.';
     } else{
         $confirm_password = trim($_POST['confirm_password']);
+        if($password != $confirm_password){
+            $confirm_password_err = 'Password did not match.';
+        }
     }
-     //Checks if passwords match
-    if($password != $confirm_password){
-        $confirm_password_err = 'Password did not match.';
-    }
-$current_password_err = "Incorrect Password";
  //exicute
     if(empty($username_err) &&  empty($email_err) && empty($name_err) && empty($password_err) && empty($confirm_password_err)){
 
-        $sql = "UPDATE LoginPatient SET name = ?, username = ?, email = ?, password = ? WHERE username = '$session_user'";
+        $sql = "UPDATE LoginDoctor SET name = ?, username = ?, email = ?, password = ? WHERE username = '$session_user'";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_username, $param_email, $param_password);
 
             $param_name = $name;
             $param_username = $username;
-			$param_email = $email;
-			$param_email_code;
+            $param_email = $email;
+            $param_email_code;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
             if(mysqli_stmt_execute($stmt)){
-                header("location: med_connect_login.php");
+                header("location: logout.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -111,21 +130,20 @@ $current_password_err = "Incorrect Password";
 }
 ?>
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Edit Profile</title>
+    <title>Med Connect Doctor Edit Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="homepage.css" >
 </head>
 <body>
-
 
 <div id="container">
     <div id="header">
         <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
-		<a class="left-align" href="about_page.html" style="color: #e61919;">About</a>
-		<a href="support_page.php" style="color: #e61919;">Support</a>
-		<a class = "right-align" href="logout.php" style="color: #e61919;">Logout</a>
+		<a class="left-align" href="about_page.html">About</a>
+		<a href="support_page.php">Support</a>
+		<a class = "right-align" href="logout.php">Logout</a>
     </div>
 	
     <div id="content">
@@ -133,16 +151,18 @@ $current_password_err = "Incorrect Password";
 			<h2> Navigation:</h2>
 			<br>
 			<ul>
-				<li><a href="admin_homepage.php">Admin Profile</a></li>
+				<li><a href="doctor_homepage.php">User Profile</a></li>
 				<br>
-				<li><a class="selected" href="admin_edit_profile.php">Edit Profile</a></li>
+				<li><a class="selected" href="doctor_edit_profile.php">Edit Profile</a></li>
 				<br>
-				<li><a href="admin_all_users.php">View Users</a></li>
+				<li><a href="my_patients.php">My Patients</a></li>
 				<br>
-				<li><a href="admin_all_events.php">View Events</a></li>
 				<br>
-				<li><a href="admin_all_surveys.php">View Surveys</a></li>
+				<li>Surveys:</li>
 				<br>
+				<li><a href="doctor_current_surveys.php">View Current Surveys</a></li>
+				<br>
+				<li><a href="create_survey.php">Add a Survey</a></li>
 		</div>
 		
 		<div id="main">
@@ -151,45 +171,51 @@ $current_password_err = "Incorrect Password";
 			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
-				<label>Username:</label>
+                <label>Username:</label>
                 <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-			<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <br>
-				<label>Name:</label>
-                <input type="text" name="name"class="form-control" value="<?php echo $name; ?>">
-                <span class="help-block"><?php echo $name_err; ?></span>
-            </div>
+            </div> 
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
-				<label>Email:</label>
-                <input type="email" name="email"class="form-control" value="<?php echo $email; ?>">
-                <span class="help-block"><?php echo $email_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($current_password_err)) ? 'has-error' : ''; ?>">
-                <br>
-				<label>Current Password:</label>
-                <input type="password" name="current_password" class="form-control" value="<?php echo $current_password; ?>">
-                <span class="help-block"><?php echo $current_password_err; ?></span>
-            </div>
+                <label>Name:</label>
+                <input type="text" name="name"class="form-control" value="<?php echo $name; ?>">
+                <span class="help-block"><?php echo $name_err; ?></span>
+            </div> 
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <br>
-				<label>Password:</label>
+                <label>Password:</label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <br>
-				<label>Confirm Password:</label>
+                <label>Confirm Password:</label>
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <br>
+                <label>Email:</label>
+                <input type="text" name="email"class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
-				<br>
+                <br>
                 <input type="submit" class="btn btn-primary" value="Submit">
+				<br>
+				<br>
+				<a href="doctor_delete_account.php">Delete Account</a>
+				<br>
+				<br>
+
             </div>
         </form>
+			</p>
+		</div>
+       
     </div>
+</div>
+
 </body>
+
 </html>

@@ -71,25 +71,43 @@
     <title>Delete Account</title>
 </head>
 <body>
-        <h1>Delete Account</h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <br>
-				<label>Username:</label>
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <br>
-				<label>Password:</label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-				<br>
-                <input type="submit" class="btn btn-primary" value="Submit">
-            </div>
-        </form>
-    </div>
+
+	<div id="container">
+		<div id="header">
+		
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+		<a class="left-align" href="about_page.html">About</a>
+		<a href="support_page.php">Support</a>
+		<a class = "right-align" href="logout.php">Logout</a>
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+		</div>
+		
+		<div id="content">
+			<h1>Delete Patient Account</h1>
+			
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+					<br>
+					<label>Username:</label>
+					<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+					<span class="help-block"><?php echo $username_err; ?></span>
+				</div>
+				<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+					<br>
+					<label>Password:</label>
+					<input type="password" name="password" class="form-control">
+					<span class="help-block"><?php echo $password_err; ?></span>
+				</div>
+				<div class="form-group">
+					<br>
+					<input type="submit" class="btn btn-primary" value="Submit">
+					<br>
+					<br>
+					<br>
+				</div>
+			</div>
+			</form>
+	</div>
+		
 </body>
 </html>

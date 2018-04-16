@@ -67,19 +67,38 @@ $_SESSION['username'] = $_POST['username']
     <title>Doctor Login</title>
 </head>
 <body>
-    <h1>Med Connect Doctor Login</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>User Name:</label><br>
-            <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-            <span class="help-block"><?php echo $username_err; ?></span>
-        </div>
-		<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Password:</label><br>
-            <input type="password" name="password" class="form-control">
-            <span class="help-block"><?php echo $password_err; ?></span>
-        </div>
-        <div class="form-group">
+
+<div id="container">
+    <div id="header">
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+		<a class="left-align" href="about_page.html">About</a>
+		<a href="support_page.php">Support</a>
+		<a class = "right-align" href="logout.php">Logout</a>
+    </div>
+	
+    <div id="content">
+		<div id="navigation">
+			<h2> Navigation:</h2>
+			<br>
+			<ul>
+				<li><a href="doctor_homepage.php">User Profile</a></li>
+				<br>
+				<li><a href="doctor_edit_profile.php">Edit Profile</a></li>
+				<br>
+				<li><a class="selected" href="patient_my_doctors.php">My Patients</a></li>
+				<br>
+				<br>
+				<li>Surveys:</li>
+				<br>
+				<li><a href="doctor_current_surveys.php">View Current Surveys</a></li>
+				<br>
+				<li><a href="create_survey.php">Add a Survey</a></li>
+		</div>
+		
+		<div id="main">
+			<h2>Your Current Patients:</h2>
+			<p> THIS IS WHERE THE PATIENTS THE DOCTOR HAS AT THAT TIME WILL BE DISPLAYED 
+			<br>
 			<br>
             <input type="submit" class="btn btn-primary" value="Submit">
         </div>

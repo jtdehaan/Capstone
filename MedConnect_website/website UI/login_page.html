@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Med Connect Login Page</title>
+    <link rel="stylesheet" type="text/css" href="registerpage.css" >
+</head>
+<body>
+
+<div id="container">
+    <div id="header">
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+		<a class="left-align" href="about_page.html" style="color: #e61919;">About</a>
+		<a href="support_page.php" style="color: #e61919;">Support</a>
+		<a class = "right-align selected" href="logout.php" style="color: #e61919;">Logout</a>
+		
+    </div>
+    <div id="content">
+        <h2>Login</h2>
+		<h3>Please Select Your User Type:</h3>
+		<br>
+		<form method="get" action="patient_login.php">
+			<button type="submit">Patient</button>
+		</form>
+		
+		<br>
+		<br>
+		
+		<form method="get" action="doctor_login.php">
+			<button type="submit">Doctor</button>
+		</form>
+		
+		<br>
+		<br>
+		
+		<form method="get" action="org_login.php">
+			<button type="submit">Organization</button>
+		</form>
+		
+		<br>
+		<br>
+		
+		<form method="get" action="admin_login.php">
+			<button type="submit">Administrator</button>
+		</form>	
+		
+		<br>
+		<br>
+		<a href="registerpage.html">Register Here</a>
+		<br>
+		<br>
+		<br>
+
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -71,6 +71,7 @@
     <title>Delete Doctor Account</title>
 </head>
 <body>
+
         <h1>Delete Doctor Account</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">

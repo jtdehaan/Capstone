@@ -117,8 +117,37 @@ $current_password_err = "Incorrect Password";
     <title>Register</title>
 </head>
 <body>
-        <h1>Patient Edit Profile</h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+
+<div id="container">
+    <div id="header">
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+		<a class="left-align" href="about_page.html">About</a>
+		<a href="support_page.php">Support</a>
+		<a class = "right-align" href="logout.php">Logout</a>
+    </div>
+	
+    <div id="content">
+		<div id="navigation">
+			<h2> Navigation:</h2>
+			<br>
+			<ul>
+				<li><a href="org_homepage.php">Organization Profile</a></li>
+				<br>
+				<li><a class="selected" href="org_edit_profile.php">Edit Profile</a></li>
+				<br>
+				<br>
+				<li>Events:</li>
+				<br>
+				<li><a href="org_current_events.php">My Current Events</a></li>
+				<br>
+				<li><a href="org_add_event.php">Add an Event</a></li>
+		</div>
+		
+		<div id="main">
+			<h2>Edit Your Profile:</h2>
+			<p> 
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
 				<label>Username:</label>

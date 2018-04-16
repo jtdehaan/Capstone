@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT username, password FROM LoginPatient WHERE username = ?";
+        $sql = "SELECT username, password FROM LoginAdmin WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: https://www.google.com/");
+                            header("location: admin_homepage.php");
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -56,15 +56,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 
-//Stores username in the session
+//Starts the session
 session_start();
 $_SESSION['username'] = $_POST['username']
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-    <title>PatientLogin</title>
+    <title>Med Connect Administrator Login</title>
+    <link rel="stylesheet" type="text/css" href="registerpage.css" >
 </head>
 <body>
 
@@ -72,14 +74,14 @@ $_SESSION['username'] = $_POST['username']
     <div id="header">
         <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
         <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
-		<a class="left-align" href="about_page.html">About</a>
-		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.html">Login</a>
+		<a class="left-align" href="about_page.html" style="color: #e61919;">About</a>
+		<a href="support_page.php" style="color: #e61919;">Support</a>
+		<a class = "right-align" href="logout.php" style="color: #e61919;">Logout</a>
 		
     </div>
 
     <div id="content">
-        <h2>Patient Login</h2>
+        <h2>Administrator Login</h2>
 		
        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -97,13 +99,9 @@ $_SESSION['username'] = $_POST['username']
             </div>
             
             <div class="form-group">
-                <br>      
-				<form method="get" action="patient_homepage.php">
-					<button type="submit">Submit</button>
-				</form>				
+                <br>
+                <input type="submit" class="btn btn-primary" value="Submit">
 				<br>
-				<br>
-				<a href="patient_registerpage.php">Register Here</a>
 				<br>
 				<br>
 
@@ -113,4 +111,5 @@ $_SESSION['username'] = $_POST['username']
 </div>
 
 </body>
+
 </html>

@@ -68,24 +68,52 @@ $_SESSION['username'] = $_POST['username']
 </head>
 <body>
 
-    <h1>Med Connect Organization Login</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>User Name:</label><br>
-            <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-            <span class="help-block"><?php echo $username_err; ?></span>
-        </div>
-		<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Password:</label><br>
-            <input type="password" name="password" class="form-control">
-            <span class="help-block"><?php echo $password_err; ?></span>
-        </div>
-        <div class="form-group">
-			<br>
-            <input type="submit" class="btn btn-primary" value="Submit">
-        </div>
-        <p> <a href="register2.php">Register Here</a>.</p>
-    </form>
+
+<div id="container">
+    <div id="header">
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+        <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
+		<a class="left-align" href="about_page.html">About</a>
+		<a href="support_page.php">Support</a>
+		<a class = "right-align" href="login_page.html">Login</a>
+		
+    </div>
+
+    <div id="content">
+        <h2>Organization Login</h2>
+		
+       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <br>
+                <label>Username:</label>
+                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div> 
+          
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <br>
+                <label>Password:</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            
+            <div class="form-group">
+                <br>
+				<form method="get" action="org_homepage.php">
+					<button type="submit">Submit</button>
+				</form>
+		
+				<br>
+				<br>
+				<a href="org_registerpage.php">Register Here</a>
+				<br>
+				<br>
+
+            </div>
+        </form>
+    </div>
+</div>
+>>>>>>> php_work:MedConnect_website/website UI/org_login.php
 
 </body>
 </html>

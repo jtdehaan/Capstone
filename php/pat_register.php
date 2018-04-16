@@ -126,8 +126,22 @@ mail($to, $subject, $message, $headers);
     <title>Register</title>
 </head>
 <body>
-        <h1>Patient Register for MedConnect</h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+
+<div id="container">
+    <div id="header">
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+        <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
+		<a class="left-align" href="about_page.html">About</a>
+		<a href="support_page.php">Support</a>
+		<a class = "right-align" href="login_page.html">Login</a>
+		
+		
+    </div>
+    <div id="content">
+        <h2>Patient Register</h2>
+		
+       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <br>
 				<label>Username:</label>
