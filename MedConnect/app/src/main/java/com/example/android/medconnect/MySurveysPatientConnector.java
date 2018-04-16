@@ -1,16 +1,11 @@
 package com.example.android.medconnect;
 
-        import java.io.IOException;
-        import java.net.HttpURLConnection;
-        import java.net.MalformedURLException;
-        import java.net.URL;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-/**
- * Created by jtdehaan on 4/6/2018.
- */
-
-public class MySurveysDoctorConnector {
-
+public class MySurveysPatientConnector {
     public static HttpURLConnection connect(String urlAddress) {
         try {
             URL url = new URL(urlAddress);
@@ -32,5 +27,4 @@ public class MySurveysDoctorConnector {
 
         return null;
     }
-
 }
