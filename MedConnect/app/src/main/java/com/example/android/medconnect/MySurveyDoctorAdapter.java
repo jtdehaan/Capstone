@@ -26,15 +26,19 @@ import java.util.ArrayList;
 
 public class MySurveyDoctorAdapter extends BaseAdapter {
 
+    //Current State of the application
     Context c;
+    //Array list of Surveys
     ArrayList<MySurveysDoctor> mySurveysDoctor;
+    //Build view objects from the xml file
     LayoutInflater inflater;
 
+    //Constructor
     public MySurveyDoctorAdapter(Context c, ArrayList<MySurveysDoctor> mySurveysDoctor) {
         this.c = c;
         this.mySurveysDoctor = mySurveysDoctor;
 
-        //INITIALIE
+        //Initialize the inflator to instantiate view objects into corresponding xml file
         inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -44,26 +48,26 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
         return mySurveysDoctor.size();
     }
 
-    //Item contained within the array position
+    //Access the list's data
     @Override
     public Object getItem(int position) {
         return mySurveysDoctor.get(position);
     }
 
+    //ID of the row in the list
     @Override
     public long getItemId(int position) {
         return mySurveysDoctor.get(position).getId();
     }
 
-
+    //Manipulate the data from the database
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.model_my_surveys_doctor, parent, false);
         }
 
-        //String name, location, date, time, price, description, attendance;
-
+        //Textviews containing the name, location, date, time, price, description, attendance
         TextView SurveyIDTxt = (TextView) convertView.findViewById(R.id.SurveyIDTxt);
         TextView nameTxt = (TextView) convertView.findViewById(R.id.nameTxt);
         TextView question1Txt = (TextView) convertView.findViewById(R.id.etQuestion1);
@@ -72,7 +76,7 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
         TextView question4Txt = (TextView) convertView.findViewById(R.id.etQuestion4);
         TextView question5Txt = (TextView) convertView.findViewById(R.id.etQuestion5);
 
-
+        //Set text of the textviews with the appropriate values
         SurveyIDTxt.setText(mySurveysDoctor.get(position).getSurveyID());
         nameTxt.setText(mySurveysDoctor.get(position).getName());
         question1Txt.setText(mySurveysDoctor.get(position).getQuestion1());
@@ -81,12 +85,12 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
         question4Txt.setText(mySurveysDoctor.get(position).getQuestion4());
         question5Txt.setText(mySurveysDoctor.get(position).getQuestion5());
 
-        //ITEM CLICKS
+        //Handle item clicks
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                //Store data locally in order to pass it to the Update window
                 SharedPreferences preferences = c.getSharedPreferences("SurveyInfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
 
@@ -99,19 +103,12 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
                 editor.putString("question5", mySurveysDoctor.get(position).getQuestion5());
                 editor.apply();
 
-                //add in after update ready
+                //Open the update screen
                 Intent i = new Intent(c, MySurveysDoctorUpdate.class);
                 c.startActivity(i);
 
 
             };
-
-            /*
-                DoctorPatientListRequest doctorPatientListRequest = new DoctorPatientListRequest(doctor_id, patient_id, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(c);
-                queue.add(doctorPatientListRequest);
-
-                //*/
 
         });
 

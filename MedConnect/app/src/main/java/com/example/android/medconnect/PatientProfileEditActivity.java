@@ -39,36 +39,29 @@ public class PatientProfileEditActivity extends AppCompatActivity {
             }
         });
 
+        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        final String user_id = sharedPref.getString("user_id", "");
+        final String shName = sharedPref.getString("name", "");
+        final String shEmail = sharedPref.getString("email", "");
+        final String shUsername = sharedPref.getString("username", "");
+
+        etName.setText(shName);
+        etUsername.setText(shUsername);
+        etEmail.setText(shEmail);
+
 
         bConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String name = etName.getText().toString();
                 final String username = etUsername.getText().toString();
-                //final String password = etPassword.getText().toString();
                 final String email = etEmail.getText().toString();
-                //final String confirmPassword = etConfirmPassword.getText().toString();
 
-                SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                String user_id = sharedPref.getString("user_id", "");
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-
-                            /*if (!password.equals(confirmPassword)) {
-
-                                AlertDialog.Builder builder2 = new AlertDialog.Builder(RegisterPatientActivity.this);
-                                builder2.setMessage("Passwords do not match")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
-
-                                // Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                            }*/
-                           // if{
-
 
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
@@ -78,27 +71,23 @@ public class PatientProfileEditActivity extends AppCompatActivity {
                                     Intent confirmEditIntent = new Intent(PatientProfileEditActivity.this, PatientProfileActivity.class);
                                     PatientProfileEditActivity.this.startActivity(confirmEditIntent);
 
-                                    //String user_id = jsonResponse.getString("user_id");
-
                                     SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                                    //String user_id = preferences.getString("user_id", "");
                                     SharedPreferences.Editor editor = preferences.edit();
                                     editor.putString("name", name);
                                     editor.putString("email", email);
                                     editor.putString("username", username);
-                                    //editor.putString("user_id", user_id);
                                     editor.apply();
 
 
 
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(PatientProfileEditActivity.this);
-                                    builder.setMessage("Update Failed")
+                                    builder.setMessage("Update Failed: Username or Email has already been registered")
                                             .setNegativeButton("Retry", null)
                                             .create()
                                             .show();
                                 }
-                            //}
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

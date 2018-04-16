@@ -13,13 +13,15 @@ public class MyEventsConnector {
 
     public static HttpURLConnection connect(String urlAddress) {
         try {
+            //pass URL and start the connection
             URL url = new URL(urlAddress);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //SET PROPS
+            //Set Connection Properties
             con.setRequestMethod("GET");
-            con.setConnectTimeout(20000);
-            con.setReadTimeout(20000);
+            con.setConnectTimeout(5000);
+            con.setReadTimeout(5000);
+            //Fetch a response
             con.setDoInput(true);
 
             return con;

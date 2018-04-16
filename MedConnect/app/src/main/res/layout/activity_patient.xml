@@ -67,14 +67,21 @@
                 android:id="@+id/tvSurvey"
                 android:clickable="true"
                 style="@style/CategoryStyle"
-                android:background="@color/category_2"
+                android:background="@color/category_3"
                 android:text="Surveys" />
             <TextView
                 android:id="@+id/tvEvent"
                 android:clickable="true"
                 style="@style/CategoryStyle"
-                android:background="@color/category_3"
+                android:background="@color/category_2"
                 android:text="Events"
+                />
+            <TextView
+                android:id="@+id/tvRegisteredEvents"
+                android:clickable="true"
+                style="@style/CategoryStyle"
+                android:background="@color/category_4"
+                android:text="Registered Events"
                 />
         </LinearLayout>
     </ScrollView>

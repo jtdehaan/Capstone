@@ -17,12 +17,10 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="admin_homepage.php">Admin Profile</a>
-            <a class="selected" href="#">Delete User</a>
+            <a href="admin_delete_user.php">Delete User</a>
             <a href="admin_view_users.php">View Users</a>
             <a href="admin_all_surveys.php">View Surveys</a>
             <a href="admin_contact_account.php">Contact Users</a>
-            <a href="about_page.html">About</a>
-            <a href="support_page.php">Support</a>
             <a href="logout.php">Logout</a>
         </div>
     </nav>
@@ -31,8 +29,8 @@
             <!--Menu function -->
             <span class="menu" onclick="openNav()"><i class="fas fa-bars"></i> Menu</span>
             <h1>Med Connect</h1>
-            <a class="left-align" href="about_page.html">About</a>
-            <a href="support_page.php">Support</a>
+            <a class="left-align" href="about.html">About</a>
+            <a href="support.php">Support</a>
             <a class="right-align" href="logout.php">Logout</a>
         </header>
     </div>
@@ -52,9 +50,9 @@
                 FROM LoginPatient";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<form method='POST'><table><tr><th>Delete this user?</th><th>Patient ID</th><th>Name</th><th>Username</th><th>Email</th><th>Password</th></tr>";
+                		echo "<form method='POST'><table><tr><th>Delete this user?</th><th>Patient ID</th><th>Name</th><th>Username</th><th>Email</th></tr>";
                      while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>"."<input type='radio' name='patient' value=".$row['user_id']." required>"."</td><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>". $row['password']."</td></tr>"; }
+                			echo "<tr><td>"."<input type='radio' name='patient' value=".$row['user_id']." required>"."</td><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td></tr>"; }
                 		echo"</table><input type='submit' value='Delete' name='delete_patient'></form>";
                 	}
                 	else{
@@ -78,9 +76,9 @@
                 FROM LoginDoctor";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<form method='POST'><table><tr><th> Delete this user?</th><th>Doctor ID</th><th>Name</th><th>Username</th><th>Email</th><th>Password</th></tr>";
+                		echo "<form method='POST'><table><tr><th> Delete this user?</th><th>Doctor ID</th><th>Name</th><th>Username</th><th>Email</th></tr>";
                      while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>"."<input type='radio' name='doctor' value=".$row['user_id']." required>"."</td><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>". $row['password']."</td></tr>"; }
+                			echo "<tr><td>"."<input type='radio' name='doctor' value=".$row['user_id']." required>"."</td><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td></tr>"; }
                 		echo"</table><input type='submit' value='Delete' name='delete_doctor'></form>";
                 	}
                 	else{
@@ -104,9 +102,9 @@
                 FROM LoginOrganization";
                 if($result = mysqli_query($link, $sql)){
                     if(mysqli_num_rows($result) > 0){
-                		echo "<form method='POST'><table><tr><th>Delete this user?</th><th>Organization ID</th><th>Name</th><th>Username</th><th>Email</th><th>Password</th></tr>";
+                		echo "<form method='POST'><table><tr><th>Delete this user?</th><th>Organization ID</th><th>Name</th><th>Username</th><th>Email</th></tr>";
                      while($row = mysqli_fetch_array($result)){
-                			echo "<tr><td>"."<input type='radio' name='organization' value=".$row['user_id']." required>"."</td><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td><td>". $row['password']."</td></tr>"; }
+                			echo "<tr><td>"."<input type='radio' name='organization' value=".$row['user_id']." required>"."</td><td>".$row['user_id'] ."</td><td>". $row['name']."</td><td>". $row['username']."</td><td>". $row['email']."</td></tr>"; }
                 		echo"</table><input type='submit' value='Delete' name='delete_organization'></form>";
                 	}
                 	else{

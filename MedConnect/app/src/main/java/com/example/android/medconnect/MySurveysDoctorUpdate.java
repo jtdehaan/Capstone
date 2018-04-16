@@ -36,6 +36,7 @@ public class MySurveysDoctorUpdate extends AppCompatActivity {
         final EditText etq4 = (EditText) findViewById(R.id.etQuestion4);
         final EditText etq5 = (EditText) findViewById(R.id.etQuestion5);
         final Button bUpdate = (Button) findViewById(R.id.bUpdateSurvey);
+        final Button bDelete = (Button) findViewById(R.id.bDeleteSurvey);
         final TextView cancelLink = (TextView) findViewById(R.id.tvCancel);
 
         SharedPreferences sharedPref = getSharedPreferences("SurveyInfo", Context.MODE_PRIVATE);
@@ -98,7 +99,7 @@ public class MySurveysDoctorUpdate extends AppCompatActivity {
                                 editor.putString("question5", q5);
                                 editor.apply();
 
-                                Toast.makeText(MySurveysDoctorUpdate.this, "Successfully Updated Event", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MySurveysDoctorUpdate.this, "Successfully Updated Survey", Toast.LENGTH_SHORT).show();
 
 
 
@@ -122,11 +123,41 @@ public class MySurveysDoctorUpdate extends AppCompatActivity {
             }
         });
 
+        bDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+
+                            if (success) {
+                                Toast.makeText(MySurveysDoctorUpdate.this, "Successfully Deleted Survey", Toast.LENGTH_SHORT).show();
+
+                                Intent cancelEditIntent = new Intent(MySurveysDoctorUpdate.this, MySurveysDoctorActivity.class);
+                                MySurveysDoctorUpdate.this.startActivity(cancelEditIntent);
+
+                            } else {
+
+                                Toast.makeText(MySurveysDoctorUpdate.this, "Error", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                MySurveyUpdateDeleteRequest mySurveyUpdateDeleteRequest = new MySurveyUpdateDeleteRequest(SurveyID, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(MySurveysDoctorUpdate.this);
+                queue.add(mySurveyUpdateDeleteRequest);
+            }
+        });
+
     }
 }
-
-
-
-
-
-
