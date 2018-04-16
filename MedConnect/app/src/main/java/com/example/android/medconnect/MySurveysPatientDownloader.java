@@ -74,7 +74,7 @@ public class MySurveysPatientDownloader extends AsyncTask<Void, Void, String> {
 
     private String downloadData() {
         //Establish connection to download data from database
-        HttpURLConnection con = MyEventsConnector.connect(urlAddress);
+        HttpURLConnection con = MySurveysPatientConnector.connect(urlAddress);
         if (con == null) {
             return null;
         }

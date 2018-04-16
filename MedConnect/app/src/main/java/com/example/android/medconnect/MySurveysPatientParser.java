@@ -66,6 +66,7 @@ public class MySurveysPatientParser extends AsyncTask<Void, Void, Integer> {
         if (result == 0) {
             Toast.makeText(c, "Unable to retrieve data", Toast.LENGTH_SHORT).show();
             //Call on the adapter to bind the data
+        } else {
             MySurveysPatientAdapter adapter = new MySurveysPatientAdapter(c, mySurveys);
             lv.setAdapter(adapter);
         }
