@@ -8,7 +8,7 @@
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
 		<a class = "right-align" href="logout.php">Logout</a>
@@ -31,9 +31,11 @@
 				<li><a class="selected" href="patient_view_my_events.php">View Current Events</a></li>
 				<br>
 				<li><a href="patient_event_register.php">Register For Events</a></li>
+				<br>
+				<li><a href="patient_taking_survey.php">Take Surveys</a></li>
 		</div>
 		
-		<div id="main" style="overflow-y: scroll; height:400px;">
+		<div id="main">
 			<h2>Your Current Events:</h2>
 			<p> <?php
 				require_once 'config.php';

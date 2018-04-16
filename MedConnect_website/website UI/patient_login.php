@@ -71,7 +71,7 @@ $_SESSION['username'] = $_POST['username']
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
         <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>

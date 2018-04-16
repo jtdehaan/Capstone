@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	background-color: #787b82;
+	background-color: #44484f;
 	
 }
 
@@ -30,7 +30,7 @@ padding-left: 25px;
 }
 
 #header {
-	background-color: #33A1FF;
+	background-color: #313131;
 	text-align: center;
 	padding-bottom: 30px;
 	
@@ -51,8 +51,10 @@ a{
 	margin-right: auto;
 	margin-top: 25px;
 	border: 2px solid black;
-	background-color: #33A1FF;
+	background-color: #696d75;
 	text-align: center;
+	height: 350px;
+	text-indent: 5px;
 }
 
 #footer {

@@ -9,8 +9,7 @@
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
-        <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a class="selected" href="support_page.php">Support</a>
 		<a class = "right-align" href="login_page.html">Login</a>

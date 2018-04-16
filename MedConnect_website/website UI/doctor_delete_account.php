@@ -75,7 +75,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>Med Connect</h1>
+			<h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
 			<a class="left-align" href="about_page.html">About</a>
 			<a href="support_page.php">Support</a>
 			<a class = "right-align" href="logout.php">Logout</a>

@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT username, password FROM LoginDoctor WHERE username = ?";
+        $sql = "SELECT username, password FROM LoginAdmin WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -72,11 +72,11 @@ $_SESSION['username'] = $_POST['username']
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
         <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
-		<a class="left-align" href="about_page.html">About</a>
-		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="login_page.html">Login</a>
+		<a class="left-align" href="about_page.html" style="color: #e61919;">About</a>
+		<a href="support_page.php" style="color: #e61919;">Support</a>
+		<a class = "right-align" href="logout.php" style="color: #e61919;">Logout</a>
 		
     </div>
 

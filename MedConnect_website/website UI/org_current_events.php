@@ -1,4 +1,22 @@
 <!doctype html>
+<?php
+require_once 'config.php';
+
+//Organization ID
+session_start();
+$session_user = $_SESSION['username'];
+$sql = "SELECT user_id FROM LoginOrganization WHERE username = '$session_user'";
+    if($result = mysqli_query($link, $sql)){
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                $org_user_id = $row['user_id'];
+            }
+        }
+    }
+    else {
+        echo "ERROR";
+        }
+?>
 <html>
 <head>
     <title>Med Connect Organization Current Events</title>
@@ -8,7 +26,7 @@
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
 		<a class = "right-align" href="logout.php">Logout</a>
@@ -31,20 +49,20 @@
 				<li><a href="org_add_event.php">Add an Event</a></li>
 		</div>
 		
-		<div id="main" style="overflow-y: scroll; height:400px;">
+		<div id="main">
 			<h2>Your Current Events:</h2>
 			<br>
-			<p>  <?php
+			<p>  			<?php
 				require_once 'config.php';
 
-				$sql = "SELECT name, location, date, time, price, description, attendance, payinapp
-				FROM Events";
+				$sql = "SELECT EventID, name, location, date, time, price, description, attendance, payinapp
+				FROM Events WHERE OrganizationID = '$org_user_id'";
 				if($result = mysqli_query($link, $sql)){
 					if(mysqli_num_rows($result) > 0){
-						echo "<table><tr><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>";
+						echo '<table><tr><th>Name</th><th>Location</th><th>Date</th><th>Time</th><th>Price</th><th>description</th><th>attendance</th><th>payinapp</th></tr>';
 						while($row = mysqli_fetch_array($result)){
 							echo "<tr><td>".$row['name'] ."</td><td>". $row['location']."</td><td>". $row['date']."</td><td>". $row['time']."</td><td>". $row['price']."</td><td>". $row['description']."</td><td>". $row['attendance']."</td><td>". $row['payinapp']."</td></tr>"; }
-						echo"</table>";
+						echo "</table>";
 					}
 					else{
 						echo "no result";
@@ -52,10 +70,15 @@
 				}
 				else{
 					echo "ERROR";
-				}
-				?>
+}
+?>
 			<br>
 			<br>
+		
+			<form method="get" action="org_edit_events.php">
+				<button type="submit">Edit An Event</button>
+			</form>
+			
 			</p>
 		</div>
        

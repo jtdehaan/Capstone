@@ -140,10 +140,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
-		<a class="left-align" href="about_page.html">About</a>
-		<a href="support_page.php">Support</a>
-		<a class = "right-align" href="logout.php">Logout</a>
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
+		<a class="left-align" href="about_page.html" style="color: #e61919;">About</a>
+		<a href="support_page.php" style="color: #e61919;">Support</a>
+		<a class = "right-align" href="logout.php" style="color: #e61919;">Logout</a>
     </div>
 	
     <div id="content">
@@ -163,6 +163,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<li><a href="patient_view_my_events.php">View Current Events</a></li>
 				<br>
 				<li><a href="patient_event_register.php">Register For Events</a></li>
+				<br>
+				<li><a href="patient_taking_survey.php">Take Surveys</a></li>
 		</div>
 		
 		<div id="main">

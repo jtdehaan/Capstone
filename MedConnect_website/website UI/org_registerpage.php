@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST['password']);
     }
-//confirm paaword
+//confirm password
     if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = 'Please confirm password.';
     } else{
@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = 'Password did not match.';
         }
     }
- //exicute
+ //execute
     if(empty($username_err) &&  empty($email_err) && empty($name_err) && empty($password_err) && empty($confirm_password_err)){
 
         $sql = "INSERT INTO LoginOrganization (name, username, email, password, email_code) VALUES (?, ?, ?, ?, ?)";
@@ -130,7 +130,7 @@ mail($to, $subject, $message, $headers);
 
 <div id="container">
     <div id="header">
-        <h1>Med Connect</h1>
+        <h1><img src="MedLogo.jpg" alt="Med Connect Logo"></h1>
         <!--PUT LINK TO FINISHED LOGO HERE TOO AS WELL AS LINKS TO OTHER PAGES (about, login, support)-->
 		<a class="left-align" href="about_page.html">About</a>
 		<a href="support_page.php">Support</a>
