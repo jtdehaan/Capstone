@@ -117,7 +117,7 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
                 editor.putString("question5", mySurveysDoctor.get(position).getQuestion5());
                 editor.apply();
 
-                //Open the update screen
+                //Open the update/delete screen
                 Intent i = new Intent(c, MySurveysDoctorUpdate.class);
                 c.startActivity(i);
 
