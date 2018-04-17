@@ -7,6 +7,13 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <TextView
         android:id="@+id/etQuestion1"
@@ -20,17 +27,17 @@
         android:ems="10"
         />
 
-    <EditText
-        android:id="@+id/etQuestion1a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion1"
-        android:ems="10"
-        android:hint="" />
+            <EditText
+                android:id="@+id/etQuestion1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etQuestion1"
+                android:ems="10"
+                android:hint="" />
 
     <TextView
         android:id="@+id/etQuestion2"
@@ -44,17 +51,17 @@
         android:ems="10"
          />
 
-    <EditText
-        android:id="@+id/etQuestion2a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion2"
-        android:ems="10"
-        android:hint="" />
+            <EditText
+                android:id="@+id/etQuestion2a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etQuestion2"
+                android:ems="10"
+                android:hint="" />
     <TextView
         android:id="@+id/etQuestion3"
         android:layout_width="wrap_content"
@@ -67,17 +74,17 @@
         android:ems="10"
         />
 
-    <EditText
-        android:id="@+id/etQuestion3a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion3"
-        android:ems="10"
-        android:hint="" />
+            <EditText
+                android:id="@+id/etQuestion3a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etQuestion3"
+                android:ems="10"
+                android:hint="" />
     <TextView
         android:id="@+id/etQuestion4"
         android:layout_width="wrap_content"
@@ -90,17 +97,17 @@
         android:ems="10"
         />
 
-    <EditText
-        android:id="@+id/etQuestion4a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion4"
-        android:ems="10"
-        android:hint="" />
+            <EditText
+                android:id="@+id/etQuestion4a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etQuestion4"
+                android:ems="10"
+                android:hint="" />
     <TextView
         android:id="@+id/etQuestion5"
         android:layout_width="wrap_content"
@@ -112,17 +119,18 @@
         android:layout_below="@+id/etQuestion4a"
         android:ems="10"
          />
-    <EditText
-        android:id="@+id/etQuestion5a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etQuestion5"
-        android:ems="10"
-        android:hint="" />
+
+            <EditText
+                android:id="@+id/etQuestion5a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etQuestion5"
+                android:ems="10"
+                android:hint="" />
 
     <Button
         android:id="@+id/bSubmitSurvey"
@@ -130,7 +138,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp"
         android:text="Submit" />
 
     <TextView
@@ -142,5 +152,8 @@
         android:layout_marginTop="65dp"
         android:text="Cancel"
         android:textSize="15dp"
-        android:visibility="visible" />
+        android:visibility="invisible" />
+
+</LinearLayout>
+    </ScrollView>
 </RelativeLayout>
