@@ -90,6 +90,20 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
+                //Open the update screen
+                Intent i = new Intent(c, DoctorViewAnswersActivity.class);
+                c.startActivity(i);
+
+
+            };
+
+        });
+
+        //Handle long clicks
+        convertView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
                 //Store data locally in order to pass it to the Update window
                 SharedPreferences preferences = c.getSharedPreferences("SurveyInfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
@@ -104,12 +118,11 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
                 editor.apply();
 
                 //Open the update screen
-                Intent i = new Intent(c, DoctorViewAnswersActivity.class);
+                Intent i = new Intent(c, MySurveysDoctorUpdate.class);
                 c.startActivity(i);
 
-
-            };
-
+                return true;
+            }
         });
 
         return convertView;
