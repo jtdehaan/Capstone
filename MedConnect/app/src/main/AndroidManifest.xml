@@ -154,29 +154,39 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientActivity" />
         </activity>
-        <activity android:name=".Patient_Surveys"
+        <activity
+            android:name=".Patient_Surveys"
             android:parentActivityName=".PatientActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientActivity" />
         </activity>
-        <activity android:name=".TakeSurvey"
+        <activity
+            android:name=".TakeSurvey"
             android:parentActivityName=".Patient_Surveys">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Patient_Surveys" />
         </activity>
-        <activity android:name=".MySurveysDoctorUpdate"
+        <activity
+            android:name=".MySurveysDoctorUpdate"
             android:parentActivityName=".MySurveysDoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MySurveysDoctorActivity" />
         </activity>
-        <activity android:name=".PatientRegisteredEventsActivity"
+        <activity
+            android:name=".PatientRegisteredEventsActivity"
             android:parentActivityName=".PatientActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientActivity" />
+        </activity>
+        <activity android:name=".DoctorViewAnswersActivity"
+            android:parentActivityName=".MySurveysDoctorActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MySurveysDoctorActivity" />
         </activity>
     </application>
 

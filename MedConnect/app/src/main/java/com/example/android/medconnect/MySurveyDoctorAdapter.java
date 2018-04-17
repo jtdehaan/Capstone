@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by aator on 3/21/2018.
+ * Created by Jacob on 4/6/2018.
  */
 
 public class MySurveyDoctorAdapter extends BaseAdapter {
@@ -104,7 +104,7 @@ public class MySurveyDoctorAdapter extends BaseAdapter {
                 editor.apply();
 
                 //Open the update screen
-                Intent i = new Intent(c, MySurveysDoctorUpdate.class);
+                Intent i = new Intent(c, DoctorViewAnswersActivity.class);
                 c.startActivity(i);
 
 

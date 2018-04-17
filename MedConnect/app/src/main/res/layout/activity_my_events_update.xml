@@ -9,119 +9,122 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/etEventName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="Event Name" />
-
-        <EditText
-            android:id="@+id/etDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etEventName"
-            android:ems="10"
-            android:hint="Description" />
-
-        <EditText
-            android:id="@+id/etLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etDescription"
-            android:ems="10"
-            android:hint="Address"
-            android:inputType="textPostalAddress" />
-
-        <EditText
-            android:id="@+id/etTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etLocation"
-            android:ems="10"
-            android:hint="Time(Military Time)"
-            android:inputType="textPassword|date|time" />
-
-        <EditText
-            android:id="@+id/etPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etTime"
-            android:ems="10"
-            android:hint="Price"
-            android:inputType="textPassword|number" />
-
-        <EditText
-            android:id="@+id/etDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etPrice"
-            android:ems="10"
-            android:hint="Date(YYYY-MM-DD)"
-            android:inputType="textPassword|date" />
-
-    <Button
-        android:id="@+id/bUpdateEvent"
-        android:layout_width="275dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/etDate"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="45dp"
-        android:text="Update Event" />
-
-    <Button
-        android:id="@+id/bDeleteEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:layout_gravity="center"
-        android:text="Delete Event" />
+        android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/tvCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bDeleteEvent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-27dp"
-        android:text="Cancel"
-        android:textSize="15dp"
-        android:visibility="invisible" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etEventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                android:hint="Event Name" />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etEventName"
+                android:ems="10"
+                android:hint="Description" />
+
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etDescription"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPostalAddress" />
+
+            <EditText
+                android:id="@+id/etTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etLocation"
+                android:ems="10"
+                android:hint="Time(Military Time)"
+                android:inputType="textPassword|date|time" />
+
+            <EditText
+                android:id="@+id/etPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etTime"
+                android:ems="10"
+                android:hint="Price"
+                android:inputType="textPassword|number" />
+
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etPrice"
+                android:ems="10"
+                android:hint="Date(YYYY-MM-DD)"
+                android:inputType="textPassword|date" />
+
+            <Button
+                android:id="@+id/bUpdateEvent"
+                android:layout_width="275dp"
+                android:layout_height="55dp"
+                android:layout_below="@+id/etDate"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="45dp"
+                android:text="Update Event" />
+
+            <Button
+                android:id="@+id/bDeleteEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:text="Delete Event" />
+
+            <TextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bDeleteEvent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="27dp"
+                android:text="Cancel"
+                android:textSize="15dp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>
