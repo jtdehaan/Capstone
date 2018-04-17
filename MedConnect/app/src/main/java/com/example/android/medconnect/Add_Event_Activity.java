@@ -57,7 +57,16 @@ public class Add_Event_Activity extends AppCompatActivity {
                     Toast.makeText(Add_Event_Activity.this, "Please enter a Name", Toast.LENGTH_SHORT).show();
                 }else if (Date.isEmpty()) {
                     Toast.makeText(Add_Event_Activity.this, "Please enter a Date", Toast.LENGTH_SHORT).show();
+                }else if(Description.isEmpty()){
+                    Toast.makeText(Add_Event_Activity.this, "Please enter a Description", Toast.LENGTH_SHORT).show();
+                }else if (Price.isEmpty()) {
+                    Toast.makeText(Add_Event_Activity.this, "Please enter a Price", Toast.LENGTH_SHORT).show();
+                }else if(Times.isEmpty()) {
+                    Toast.makeText(Add_Event_Activity.this, "Please enter a Time", Toast.LENGTH_SHORT).show();
+                }else if(Location.isEmpty()) {
+                    Toast.makeText(Add_Event_Activity.this, "Please enter a Location", Toast.LENGTH_SHORT).show();
                 }else{
+
 
                     SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                     final String ID = preferences.getString("user_id","");

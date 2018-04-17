@@ -77,6 +77,14 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
                     Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Name", Toast.LENGTH_SHORT).show();
                 }else if (date.isEmpty()) {
                     Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Date", Toast.LENGTH_SHORT).show();
+                }else if(description.isEmpty()){
+                    Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Description", Toast.LENGTH_SHORT).show();
+                }else if (price.isEmpty()) {
+                    Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Price", Toast.LENGTH_SHORT).show();
+                }else if(time.isEmpty()) {
+                    Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Time", Toast.LENGTH_SHORT).show();
+                }else if(location.isEmpty()) {
+                    Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Location", Toast.LENGTH_SHORT).show();
                 }else{
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
