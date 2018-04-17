@@ -73,6 +73,11 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
                 final String price = etPrice.getText().toString();
                 final String date = etDate.getText().toString();
 
+                if(name.isEmpty()){
+                    Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+                }else if (date.isEmpty()) {
+                    Toast.makeText(MyEventsUpdateActivity.this, "Please enter a Date", Toast.LENGTH_SHORT).show();
+                }else{
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -120,7 +125,7 @@ public class MyEventsUpdateActivity extends AppCompatActivity {
                 MyEventsUpdateRequest myEventsUpdateRequest = new MyEventsUpdateRequest(eventID, name, location, date, time, price, description, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(MyEventsUpdateActivity.this);
                 queue.add(myEventsUpdateRequest);
-            }
+            }}
         });
 
         bDeleteEvent.setOnClickListener(new View.OnClickListener() {

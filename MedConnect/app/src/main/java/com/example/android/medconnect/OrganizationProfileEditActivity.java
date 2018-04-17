@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,6 +57,14 @@ public class OrganizationProfileEditActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString();
                 final String email = etEmail.getText().toString();
 
+                if(name.isEmpty()){
+                    Toast.makeText(OrganizationProfileEditActivity.this, "Please enter a name", Toast.LENGTH_SHORT).show();
+                }else if (username.isEmpty()) {
+                    Toast.makeText(OrganizationProfileEditActivity.this, "Please enter a username", Toast.LENGTH_SHORT).show();
+                }else if (email.isEmpty()) {
+                    Toast.makeText(OrganizationProfileEditActivity.this, "Please enter a email", Toast.LENGTH_SHORT).show();
+                }else{
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -95,7 +104,7 @@ public class OrganizationProfileEditActivity extends AppCompatActivity {
                 EditOrganizationProfileRequest editOrganizationProfileRequest = new EditOrganizationProfileRequest(username, name, email, user_id, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(OrganizationProfileEditActivity.this);
                 queue.add(editOrganizationProfileRequest);
-            }
+            }}
         });
 
     }

@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.widget.Toast;
 
 public class Add_Event_Activity extends AppCompatActivity {
 
@@ -52,13 +53,19 @@ public class Add_Event_Activity extends AppCompatActivity {
                 final String Price = etPrice.getText().toString();
                 final String Date = etDate.getText().toString();
 
-                SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                final String ID = preferences.getString("user_id","");
+                if(EventName.isEmpty()){
+                    Toast.makeText(Add_Event_Activity.this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+                }else if (Date.isEmpty()) {
+                    Toast.makeText(Add_Event_Activity.this, "Please enter a Date", Toast.LENGTH_SHORT).show();
+                }else{
 
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
+                    SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    final String ID = preferences.getString("user_id","");
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
                                 if (success) {
@@ -71,17 +78,19 @@ public class Add_Event_Activity extends AppCompatActivity {
                                             .create()
                                             .show();
                                 }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                };
+                    };
 
-                AddEventRequest addEventRequest = new AddEventRequest(EventName, Description, Location, Times, Price, Date, ID, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(Add_Event_Activity.this);
-                queue.add(addEventRequest);
+                    AddEventRequest addEventRequest = new AddEventRequest(EventName, Description, Location, Times, Price, Date, ID, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(Add_Event_Activity.this);
+                    queue.add(addEventRequest);
 
-            }
+                }
+                }
+
         });
     }
 }

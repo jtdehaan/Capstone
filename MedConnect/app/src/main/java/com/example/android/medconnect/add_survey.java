@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -53,35 +54,40 @@ public class add_survey extends AppCompatActivity {
                 final String Question4 = etq4.getText().toString();
                 final String Question5 = etq5.getText().toString();
 
-                SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                final String ID = preferences.getString("user_id","1");
+                if(SurveyName.isEmpty()){
+                    Toast.makeText(add_survey.this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+                }else {
 
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-                            if (success) {
-                                Intent registerAddIntent = new Intent(add_survey.this, DoctorActivity.class);
-                                add_survey.this.startActivity(registerAddIntent);
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(add_survey.this);
-                                builder.setMessage("Registration Failed")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
+                    SharedPreferences preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    final String ID = preferences.getString("user_id", "1");
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
+                                if (success) {
+                                    Intent registerAddIntent = new Intent(add_survey.this, DoctorActivity.class);
+                                    add_survey.this.startActivity(registerAddIntent);
+                                    Toast.makeText(add_survey.this, "Succesfully created a survey", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(add_survey.this);
+                                    builder.setMessage("Registration Failed")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                };
+                    };
 
-                AddSurveyRequest addSurveyRequest = new AddSurveyRequest(SurveyName, Question1,Question2,Question3,Question4,Question5,ID, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(add_survey.this);
-                queue.add(addSurveyRequest);
-
+                    AddSurveyRequest addSurveyRequest = new AddSurveyRequest(SurveyName, Question1, Question2, Question3, Question4, Question5, ID, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(add_survey.this);
+                    queue.add(addSurveyRequest);
+                }
             }
         });
     }

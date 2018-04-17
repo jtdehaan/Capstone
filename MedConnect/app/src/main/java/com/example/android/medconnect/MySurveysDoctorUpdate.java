@@ -73,6 +73,12 @@ public class MySurveysDoctorUpdate extends AppCompatActivity {
                 final String q4 = etq4.getText().toString();
                 final String q5 = etq5.getText().toString();
 
+                if(name.isEmpty()){
+                    Toast.makeText(MySurveysDoctorUpdate.this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+                }else if (q1.isEmpty()) {
+                    Toast.makeText(MySurveysDoctorUpdate.this, "Please enter a Question", Toast.LENGTH_SHORT).show();
+                }else{
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -120,7 +126,7 @@ public class MySurveysDoctorUpdate extends AppCompatActivity {
                 MySurveyUpdateRequest mySurveyUpdateRequest = new MySurveyUpdateRequest(SurveyID, name, q1, q2, q3, q4, q5, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(MySurveysDoctorUpdate.this);
                 queue.add(mySurveyUpdateRequest);
-            }
+            }}
         });
 
         bDelete.setOnClickListener(new View.OnClickListener() {

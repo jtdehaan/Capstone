@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,6 +57,13 @@ public class DoctorProfileEditActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString();
                 final String email = etEmail.getText().toString();
 
+                if(name.isEmpty()){
+                    Toast.makeText(DoctorProfileEditActivity.this, "Please enter a name", Toast.LENGTH_SHORT).show();
+                }else if (username.isEmpty()) {
+                    Toast.makeText(DoctorProfileEditActivity.this, "Please enter a username", Toast.LENGTH_SHORT).show();
+                }else if (email.isEmpty()) {
+                    Toast.makeText(DoctorProfileEditActivity.this, "Please enter a email", Toast.LENGTH_SHORT).show();
+                }else{
                 SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                 String user_id = sharedPref.getString("user_id", "");
 
@@ -98,7 +106,7 @@ public class DoctorProfileEditActivity extends AppCompatActivity {
                 EditDoctorProfileRequest editDoctorProfileRequest = new EditDoctorProfileRequest(username, name, email, user_id, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(DoctorProfileEditActivity.this);
                 queue.add(editDoctorProfileRequest);
-            }
+            }}
         });
 
     }
